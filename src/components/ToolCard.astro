@@ -1,0 +1,4 @@
+---
+import type {Tool} from '../catalog';import {categories,path,type Lang} from '../site';const {tool,lang}:{tool:Tool,lang:Lang}=Astro.props;
+---
+<a class="tool-card" href={path(lang,`${tool.category}/${tool.slug}`)}><span class="chip">{categories[tool.category][lang]}</span><h3>{tool.title}</h3><p class="muted">{tool.description}</p><span class="arrow">Calculate →</span></a>
