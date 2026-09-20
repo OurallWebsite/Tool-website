@@ -1,0 +1,39 @@
+---
+import Base from '../../../layouts/Base.astro';
+import ToolCard from '../../../components/ToolCard.astro';
+import { byCategory } from '../../../catalog';
+import { locales, categories, ui, path, type Lang, type Category } from '../../../site';
+
+export function getStaticPaths() {
+  return locales.flatMap((lang) => Object.keys(categories).map((category) => ({ params: { lang, category } })));
+}
+
+const lang = Astro.params.lang as Lang;
+const category = Astro.params.category as Category;
+const u = ui[lang];
+const items = byCategory(category);
+const cat = categories[category];
+const groups = [...new Set(items.map((item) => item.group || 'Featured'))];
+---
+
+<Base
+  lang={lang}
+  title={`${cat[lang]} calculators — ${items.length} free tools | CalcWise`}
+  description={`Browse ${items.length} free ${cat[lang].toLowerCase()} calculators with transparent formulas and instant results.`}
+  pathname={path(lang, category)}
+>
+  <section class="wrap page">
+    <nav class="crumbs"><a href={path(lang)}>{u.home}</a> / {cat[lang]}</nav>
+    <div class="page-head">
+      <span class="chip">{cat.icon} {items.length} {u.tools}</span>
+      <h1>{cat[lang]} calculators</h1>
+      <p class="muted">Fast, private tools with editable inputs, transparent formulas and no account required.</p>
+    </div>
+    {groups.map((group) => (
+      <section class="group">
+        <h2>{group}</h2>
+        <div class="tool-grid">{items.filter((item) => (item.group || 'Featured') === group).map((item) => <ToolCard tool={item} lang={lang} />)}</div>
+      </section>
+    ))}
+  </section>
+</Base>

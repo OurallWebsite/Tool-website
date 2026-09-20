@@ -1,0 +1,1 @@
+import type {APIRoute} from 'astro';import {SITE} from '../site';export const GET:APIRoute=()=>new Response(`User-agent: *\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\nUser-agent: ClaudeBot\nAllow: /\nUser-agent: PerplexityBot\nAllow: /\n\nSitemap: ${SITE.domain}/sitemap-index.xml\n`,{headers:{'Content-Type':'text/plain'}});

@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/Base.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import { tools, featured } from '../../catalog';
+import { SITE, locales, ui, categories, path, type Lang } from '../../site';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const u = ui[lang];
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    url: SITE.domain,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${SITE.domain}/${lang}/search/?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  },
+  { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.domain },
+];
+---
+
+<Base lang={lang} title="CalcWise — 400 free online calculators" description={u.sub} pathname={path(lang)} jsonld={schema}>
+  <section class="hero"><div class="wrap">
+    <p class="eyebrow">{u.tag}</p>
+    <h1>{u.hero.split('. ')[0]}. <span class="accent">{u.hero.split('. ')[1]}</span></h1>
+    <p class="sub">{u.sub}</p>
+    <form class="search" action={path(lang, 'search')}><input name="q" aria-label={u.search} placeholder={`${u.search}…`} /><button class="btn primary">{u.search}</button></form>
+  </div></section>
+  <div class="statbar"><div class="stat"><b>{tools.length}</b> calculators</div><div class="stat"><b>7</b> languages</div><div class="stat"><b>0</b> sign-ups</div></div>
+  <section class="wrap section">
+    <p class="eyebrow">Directory</p><h2>{u.categories}</h2>
+    <div class="category-grid">{Object.entries(categories).map(([slug, category]) => <a class="category" href={path(lang, slug)} style={`--cat:${category.color}`}><span class="icon">{category.icon}</span><span class="count">{tools.filter((tool) => tool.category === slug).length}</span><h3>{category[lang]}</h3><p class="muted">Explore {category[lang].toLowerCase()} {u.tools} →</p></a>)}</div>
+  </section>
+  <section class="wrap section"><p class="eyebrow">Most used</p><h2>{u.popular}</h2><div class="tool-grid">{featured.map((tool) => <ToolCard tool={tool} lang={lang} />)}</div></section>
+</Base>

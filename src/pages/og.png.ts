@@ -1,0 +1,1 @@
+import type {APIRoute} from 'astro';const png='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADElEQVR42mNk+M/wHwAF/gL+W8s0GQAAAABJRU5ErkJggg==';export const GET:APIRoute=()=>new Response(Uint8Array.from(atob(png),c=>c.charCodeAt(0)),{headers:{'Content-Type':'image/png','Cache-Control':'public,max-age=31536000,immutable'}});

@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import { locales, ui, path, type Lang } from '../../site';
+export function getStaticPaths() { return locales.map((lang) => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const u = ui[lang];
+---
+<Base lang={lang} title={`${u.search} | CalcWise`} description="Search 400 free online calculators and unit converters." pathname={path(lang, 'search')}>
+  <section class="wrap page" data-search-page data-lang={lang}>
+    <h1>{u.search}</h1>
+    <div class="search"><input id="q" placeholder={u.search} autocomplete="off" /></div>
+    <p id="count" class="muted"></p>
+    <div id="results" class="tool-grid section"></div>
+  </section>
+  <script>
+    const page = document.querySelector<HTMLElement>('[data-search-page]');
+    const lang = page?.dataset.lang || 'en';
+    const input = document.querySelector<HTMLInputElement>('#q');
+    const results = document.querySelector<HTMLElement>('#results');
+    const count = document.querySelector<HTMLElement>('#count');
+    let tools: any[] = [];
+    const escapeHtml = (value: string) => value.replace(/[&<>\"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[char] || char));
+    const show = () => {
+      if (!input || !results || !count) return;
+      const term = input.value.toLowerCase().trim();
+      const matches = tools.filter((tool) => !term || `${tool.title} ${tool.keywords.join(' ')}`.toLowerCase().includes(term)).slice(0, 80);
+      count.textContent = `${matches.length}${matches.length === 80 ? '+' : ''} results`;
+      results.innerHTML = matches.map((tool) => `<a class="tool-card" href="/${lang}/${tool.category}/${tool.slug}/"><span class="chip">${escapeHtml(tool.category)}</span><h3>${escapeHtml(tool.title)}</h3><p class="muted">${escapeHtml(tool.description)}</p><span class="arrow">Calculate →</span></a>`).join('');
+    };
+    fetch('/search-index.json').then((response) => response.json()).then((data) => {
+      tools = data;
+      if (input) input.value = new URLSearchParams(location.search).get('q') || '';
+      show();
+    });
+    input?.addEventListener('input', show);
+  </script>
+</Base>
