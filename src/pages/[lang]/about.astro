@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { locales, path, type Lang } from '../../site';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+---
+
+<Base
+  lang={lang}
+  title="About CalcWise | CalcWise"
+  description="Learn how CalcWise creates original, transparent calculators that run privately in your browser."
+  pathname={path(lang, 'about')}
+>
+  <article class="wrap page prose">
+    <h1>About CalcWise</h1>
+    <p>CalcWise publishes original, formula-led calculators that run privately in your browser. Our goal is to make useful calculations understandable, fast and accessible.</p>
+    <h2>Transparency</h2>
+    <p>Last updated 20 September 2026. Replace the placeholder domain, contact email and advertising identifiers before launch, and obtain local legal review for the jurisdictions you serve.</p>
+  </article>
+</Base>

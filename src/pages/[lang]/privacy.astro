@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { locales, path, type Lang } from '../../site';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+---
+
+<Base
+  lang={lang}
+  title="Privacy Policy | CalcWise"
+  description="Learn how CalcWise processes calculator inputs locally and handles analytics, consent and advertising data."
+  pathname={path(lang, 'privacy')}
+>
+  <article class="wrap page prose">
+    <h1>Privacy Policy</h1>
+    <p>Calculator inputs are processed locally and are not submitted to our servers. We may use privacy-respecting analytics and, after consent, advertising cookies. We do not sell personal information.</p>
+    <h2>Transparency</h2>
+    <p>Last updated 20 September 2026. Replace the placeholder domain, contact email and advertising identifiers before launch, and obtain local legal review for the jurisdictions you serve.</p>
+  </article>
+</Base>

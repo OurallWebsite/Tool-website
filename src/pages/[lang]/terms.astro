@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { locales, path, type Lang } from '../../site';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+---
+
+<Base
+  lang={lang}
+  title="Terms of Use | CalcWise"
+  description="Read the terms governing use of CalcWise calculators and informational content."
+  pathname={path(lang, 'terms')}
+>
+  <article class="wrap page prose">
+    <h1>Terms of Use</h1>
+    <p>CalcWise is provided for general informational purposes without warranties. You remain responsible for verifying results before making financial, medical, legal, construction or other important decisions.</p>
+    <h2>Transparency</h2>
+    <p>Last updated 20 September 2026. Replace the placeholder domain, contact email and advertising identifiers before launch, and obtain local legal review for the jurisdictions you serve.</p>
+  </article>
+</Base>

@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { locales, path, type Lang } from '../../site';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+---
+
+<Base
+  lang={lang}
+  title="Calculation Methodology | CalcWise"
+  description="Learn how CalcWise selects formulas, applies unit standards, tests calculations and handles rounding."
+  pathname={path(lang, 'methodology')}
+>
+  <article class="wrap page prose">
+    <h1>Calculation Methodology</h1>
+    <p>Every calculator states its formula and performs calculations in the browser. Unit conversions use documented SI relationships. New and updated tools are tested against worked examples and boundary values.</p>
+    <h2>Transparency</h2>
+    <p>Last updated 20 September 2026. Replace the placeholder domain, contact email and advertising identifiers before launch, and obtain local legal review for the jurisdictions you serve.</p>
+  </article>
+</Base>
