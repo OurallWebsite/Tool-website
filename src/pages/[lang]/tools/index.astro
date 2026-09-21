@@ -1,12 +1,5 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import ToolCard from '../../../components/ToolCard.astro';
-import { tools } from '../../../catalog';
-import { collections } from '../../../collections';
-import { locales, ui, path, type Lang } from '../../../site';
-export function getStaticPaths(){return locales.map(lang=>({params:{lang}}));}
-const lang=Astro.params.lang as Lang;const u=ui[lang];
+import Base from '../../../layouts/Base.astro';import ToolCard from '../../../components/ToolCard.astro';import {tools} from '../../../catalog';import {collections} from '../../../collections';import {locales,ui,path,type Lang} from '../../../site';
+export function getStaticPaths(){return locales.map(lang=>({params:{lang}}));}const lang=Astro.params.lang as Lang,u=ui[lang];
 ---
-<Base lang={lang} title={`${u.all} — 400 calculators | CalcWise`} description={u.sub} pathname={path(lang,'tools')}>
-<section class="wrap page"><p class="eyebrow">400 calculators</p><h1>{u.all}</h1><form class="search" action={path(lang,'search')}><input name="q" aria-label={u.search} placeholder={u.search}/><button class="btn primary">{u.search}</button></form><section class="group"><h2>Calculator collections</h2><div class="category-grid">{collections.map(item=>{const c=item.copy[lang];return <a class="category" href={path(lang,`collections/${item.slug}`)}><span class="icon">{item.icon}</span><span class="count">{item.toolKeys.length}</span><h3>{c.title}</h3><p class="muted">{c.description}</p></a>})}</div></section><section class="group"><h2>{u.all}</h2><div class="tool-grid">{tools.map(tool=><ToolCard tool={tool} lang={lang}/>)}</div></section></section>
-</Base>
+<Base lang={lang} title={`${u.all} — 400 calculators | CalcWise`} description={u.sub} pathname={path(lang,'tools')}><section class="wrap page"><p class="eyebrow">400 calculators</p><h1>{u.all}</h1><form class="search" action={path(lang,'search')}><input name="q" aria-label={u.search} placeholder={u.search}/><button class="btn primary">{u.search}</button></form><p style="margin-top:18px"><a class="btn" href={path(lang,'embed')}>↗ Embed a calculator on your website</a></p><section class="group"><h2>Calculator collections</h2><div class="category-grid">{collections.map(item=>{const c=item.copy[lang];return <a class="category" href={path(lang,`collections/${item.slug}`)}><span class="icon">{item.icon}</span><span class="count">{item.toolKeys.length}</span><h3>{c.title}</h3><p class="muted">{c.description}</p></a>})}</div></section><section class="group"><h2>{u.all}</h2><div class="tool-grid">{tools.map(tool=><ToolCard tool={tool} lang={lang}/>)}</div></section></section></Base>
