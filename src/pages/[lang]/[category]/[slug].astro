@@ -90,7 +90,7 @@ const schema = [
       <div class="tool-meta-row"><span>✓ {p.formula}</span><span>✓ {u.privacy}</span><span>✓ {p.transparent}</span></div>
     </header>
     {advancedHealth ? <AdvancedHealthCalculator tool={tool} lang={lang} /> : advancedMathDate ? <AdvancedMathDateCalculator tool={tool} lang={lang} /> : advancedConstructionBusiness ? <AdvancedConstructionBusinessCalculator tool={tool} lang={lang} /> : advancedRemaining ? <AdvancedRemainingCalculator tool={tool} lang={lang} /> : advancedEduScience ? <AdvancedEducationScienceCalculator tool={tool} lang={lang} /> : tool.advanced ? <AdvancedFinanceCalculator tool={tool} lang={lang} /> : <Calculator tool={tool} lang={lang} />}
-    <div class="ad" aria-label="Advertisement">Advertisement placeholder</div>
+    <div class="ad" role="complementary" aria-label="Advertisement">Advertisement placeholder</div>
     <div class="tool-content-grid">
       <div class="tool-article prose" role="region" aria-label={display.title}>
         <section class="quick-answer" id="overview"><strong>{p.quick}</strong><p>{display.description} {p.answer}</p></section>

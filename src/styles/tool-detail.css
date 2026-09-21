@@ -3,3 +3,4 @@
 /* Accessibility corrections validated against the preview with axe-core. */
 .input-wrap small{color:#4d5e54}.calculation-stamp,.analytics-card-head>span{color:#53645b}.workspace-toolbar small,.panel-heading small{color:#405149}.live-state strong,.live-state small{color:#153d30}.calculation-stamp{font-weight:650}
 .metric-card small,.scenario-row span small{color:#53645b}
+.input-wrap small{position:static;display:block;transform:none;margin-top:6px;font-size:.75rem;color:#53645b}.input-wrap input{padding-right:14px}.chart-note,.input-summary span,.ad{color:#53645b!important}
