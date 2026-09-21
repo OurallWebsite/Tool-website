@@ -105,8 +105,12 @@ const coreSources: Record<string, { label: string; url: string }[]> = {
   'square-footage-calculator': [{ label: 'Calculator.net area calculator reference', url: 'https://www.calculator.net/area-calculator.html' }],
   'tile-calculator': [{ label: 'Calculator.net tile calculator reference', url: 'https://www.calculator.net/tile-calculator.html' }],
   'flooring-calculator': [{ label: 'Flooring calculator and waste guidance', url: 'https://remodelcalculators.com/flooring-calculator' }],
+  'gravel-calculator': [{ label: 'Gravel volume and compaction guidance', url: 'https://calcengineer.com/construction/gravel-calculator/' }],
+  'roof-pitch-calculator': [{ label: 'Omni Calculator roof pitch reference', url: 'https://www.omnicalculator.com/construction/roof-pitch' }],
+  'brick-calculator': [{ label: 'Glen-Gery brick calculator reference', url: 'https://www.glengery.com/brick-calculator' }],
   'concrete-calculator': [{ label: 'Concrete volume and waste guidance', url: 'https://concrete-calcs.com/' }],
   'profit-margin-calculator': [{ label: 'BDC net profit margin guidance', url: 'https://www.bdc.ca/en/articles-tools/entrepreneur-toolkit/financial-tools/net-profit-margin' }],
+  'markup-calculator': [{ label: 'Sage markup formula guidance', url: 'https://www.sage.com/en-us/blog/markup-calculator/' }],
   'gpa-calculator': [{ label: 'Pearson GPA scale and quality-points reference', url: 'https://www.pearson.com/channels/calculators/gpa-calculator' }],
   'ohms-law-calculator': [{ label: "DigiKey Ohm's Law calculator reference", url: 'https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-ohms' }],
 };
