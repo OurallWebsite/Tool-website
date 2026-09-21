@@ -36,7 +36,7 @@ const schema = [
   <div class="statbar"><div class="stat"><b>{tools.length}</b> calculators</div><div class="stat"><b>7</b> languages</div><div class="stat"><b>0</b> sign-ups</div></div>
   <section class="wrap section">
     <p class="eyebrow">Directory</p><h2>{u.categories}</h2>
-    <div class="category-grid">{Object.entries(categories).map(([slug, category]) => <a class="category" href={path(lang, slug)} style={`--cat:${category.color}`}><span class="icon">{category.icon}</span><span class="count">{tools.filter((tool) => tool.category === slug).length}</span><h3>{category[lang]}</h3><p class="muted">Explore {category[lang].toLowerCase()} {u.tools} →</p></a>)}</div>
+    <div class="category-grid">{Object.entries(categories).map(([slug, category]) => <a class="category" href={path(lang, slug)} style={`--cat:${category.color}`}><span class="icon" aria-hidden="true">{category.icon}</span><span class="count">{tools.filter((tool) => tool.category === slug).length}</span><h3>{category[lang]}</h3><p class="muted">Explore {category[lang].toLowerCase()} {u.tools} →</p></a>)}</div>
   </section>
   <section class="wrap section"><p class="eyebrow">Most used</p><h2>{u.popular}</h2><div class="tool-grid">{featured.map((tool) => <ToolCard tool={tool} lang={lang} />)}</div></section>
 </Base>
