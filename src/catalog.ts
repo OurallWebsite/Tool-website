@@ -21,6 +21,7 @@ const advancedFinance: Record<string, Partial<Tool>> = {
 };
 for (const tool of core) { if (advancedFinance[tool.slug]) Object.assign(tool, advancedFinance[tool.slug]); if (advancedHealth[tool.slug]) Object.assign(tool, advancedHealth[tool.slug]); }
 const highIntentCopy: Record<string, string> = {
+  'ohms-law-calculator': 'Solve Ohm’s law from any two common electrical values—voltage, current, resistance, or power—with derived results, formulas, and safe interpretation notes.',
   'simple-interest-calculator': 'Calculate simple interest, total amount, and interest earned or owed from principal, rate, and time.',
   'roi-calculator': 'Measure return on investment, net gain, and the break-even relationship between cost and return.',
   'discount-calculator': 'Find the sale price, savings amount, and final total after a percentage discount.',
@@ -87,6 +88,7 @@ for (const tool of core) {
   const baseName = tool.title.replace(' Calculator', '').toLowerCase();
   const copy = highIntentCopy[tool.slug] || `${baseName[0].toUpperCase()}${baseName.slice(1)} calculator with visible formula, assumptions, and result context.`;
   if (!tool.advanced) tool.description = copy;
+  if (tool.slug === 'ohms-law-calculator') tool.formula = 'Choose any two of V, I, R, or P; derive the missing value with Ohm’s law and the power relationships.';
   if (coreSources[tool.slug]) tool.sources = coreSources[tool.slug];
   const phrase = tool.slug.replace(/-calculator$/, '').replaceAll('-', ' ');
   tool.keywords = [...new Set([`${phrase} calculator`, `how to calculate ${phrase}`, `${phrase} formula`, `${tool.category} calculator`, ...tool.keywords])];
