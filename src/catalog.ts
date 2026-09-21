@@ -3,7 +3,7 @@ import advancedHealth from './advanced-health-data';
 import type { Category } from './site';
 
 export type Input = { key: string; label: string; value: number | string; type?: 'number' | 'date'; step?: number; min?: number; max?: number; help?: string };
-export type Tool = { category: Category; group?: string; slug: string; title: string; description: string; op: string; inputs: Input[]; formula: string; unit?: string; params: number[]; featured?: boolean; keywords: string[]; advanced?: boolean };
+export type Tool = { category: Category; group?: string; slug: string; title: string; description: string; op: string; inputs: Input[]; formula: string; unit?: string; params: number[]; featured?: boolean; keywords: string[]; advanced?: boolean; sources?: { label: string; url: string }[] };
 
 const core: Tool[] = rawCore.map((item: any) => ({
   category: item.c, slug: item.s, title: item.t, op: item.o,
@@ -71,10 +71,23 @@ const categoryCopy: Record<string, string> = {
   education: 'Calculate the academic result with transparent weights, units, and institution-specific limitations.',
   science: 'Solve the scientific relationship with named variables, units, and significant-figure guidance.',
 };
+const coreSources: Record<string, { label: string; url: string }[]> = {
+  'mortgage-calculator': [{ label: 'Fannie Mae mortgage calculator guidance', url: 'https://yourhome.fanniemae.com/calculators-resources/mortgage-calculator' }],
+  'compound-interest-calculator': [{ label: 'Investor.gov compound interest calculator', url: 'https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator' }],
+  'bmi-calculator': [{ label: 'CDC Adult BMI Calculator and categories', url: 'https://www.cdc.gov/bmi/adult-calculator/index.html' }],
+  'percentage-calculator': [{ label: 'Pearson percentage formulas and examples', url: 'https://www.pearson.com/channels/calculators/percentage-calculator' }],
+  'age-calculator': [{ label: 'Pearson exact age calculator reference', url: 'https://www.pearson.com/channels/calculators/age-calculator' }],
+  'date-difference-calculator': [{ label: 'Timeanddate date-duration reference', url: 'https://www.timeanddate.com/date/duration.html' }],
+  'concrete-calculator': [{ label: 'Concrete volume and waste guidance', url: 'https://concrete-calcs.com/' }],
+  'profit-margin-calculator': [{ label: 'BDC net profit margin guidance', url: 'https://www.bdc.ca/en/articles-tools/entrepreneur-toolkit/financial-tools/net-profit-margin' }],
+  'gpa-calculator': [{ label: 'Pearson GPA scale and quality-points reference', url: 'https://www.pearson.com/channels/calculators/gpa-calculator' }],
+  'ohms-law-calculator': [{ label: "DigiKey Ohm's Law calculator reference", url: 'https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-ohms' }],
+};
 for (const tool of core) {
   const baseName = tool.title.replace(' Calculator', '').toLowerCase();
   const copy = highIntentCopy[tool.slug] || `${baseName[0].toUpperCase()}${baseName.slice(1)} calculator with visible formula, assumptions, and result context.`;
   if (!tool.advanced) tool.description = copy;
+  if (coreSources[tool.slug]) tool.sources = coreSources[tool.slug];
   const phrase = tool.slug.replace(/-calculator$/, '').replaceAll('-', ' ');
   tool.keywords = [...new Set([`${phrase} calculator`, `how to calculate ${phrase}`, `${phrase} formula`, `${tool.category} calculator`, ...tool.keywords])];
 }
