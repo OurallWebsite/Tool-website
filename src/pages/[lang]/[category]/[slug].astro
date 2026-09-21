@@ -27,6 +27,7 @@ const pathname = path(lang, `${category}/${slug}`);
 const canonicalUrl = new URL(pathname, SITE.domain).toString();
 const related = byCategory(category).filter((item) => item.slug !== slug).slice(0, 4);
 const categoryName = categories[category][lang];
+const sources = tool.sources || [];
 const advancedHealth = ['bmiAdvanced', 'bmrAdvanced', 'tdeeAdvanced'].includes(tool.op);
 const advancedMathDate = ['percentageAdvanced', 'percentChangeAdvanced', 'ageAdvanced', 'dateDiffAdvanced'].includes(tool.op);
 const advancedConstructionBusiness = ['squareFootageAdvanced', 'concreteAdvanced', 'profitMarginAdvanced', 'breakEvenAdvanced'].includes(tool.op);
@@ -63,6 +64,7 @@ const schema = [
     url: canonicalUrl,
     inLanguage: lang,
     dateModified: '2026-09-21',
+    citation: sources.map((source) => source.url),
     mainEntity: { '@id': `${canonicalUrl}#calculator` },
   },
   {
@@ -103,10 +105,10 @@ const schema = [
         <section id="analytics"><h2>{p.understand}</h2><p>{p.understandBody}</p></section>
         <section id="assumptions"><h2>{p.limits}</h2><ul>{p.limitItems.map((item) => <li>{item}</li>)}</ul></section>
         <section id="faq"><h2>{p.faq}</h2><div class="faq-list">{faq.map((item, index) => <details open={index === 0}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div></section>
-        <section id="methodology"><h2>{p.method}</h2><p>{p.methodBody}</p></section>
+        <section id="methodology"><h2>{p.method}</h2><p>{p.methodBody}</p></section>{sources.length > 0 && <section id="sources"><h2>Sources and further reading</h2><ul>{sources.map((source) => <li><a href={source.url} rel="noopener noreferrer" target="_blank">{source.label}</a></li>)}</ul></section>}
       </div>
       <aside class="detail-sidebar">
-        <nav class="detail-nav" aria-label={p.onPage}><strong>{p.onPage}</strong><a href="#overview">{p.quick}</a><a href="#formula">{p.formula}</a><a href="#instructions">{p.how}</a><a href="#inputs">{p.inputs}</a><a href="#example">{p.example}</a><a href="#assumptions">{p.limits}</a><a href="#faq">{p.faq}</a></nav>
+        <nav class="detail-nav" aria-label={p.onPage}><strong>{p.onPage}</strong><a href="#overview">{p.quick}</a><a href="#formula">{p.formula}</a><a href="#instructions">{p.how}</a><a href="#inputs">{p.inputs}</a><a href="#example">{p.example}</a><a href="#assumptions">{p.limits}</a><a href="#faq">{p.faq}</a>{sources.length > 0 && <a href="#sources">Sources</a>}</nav>
         <div class="trust-card"><strong>{p.transparent}</strong><p>{p.transparentBody}</p></div>
       </aside>
     </div>
