@@ -1,38 +1,10 @@
 const advancedHealth: Record<string, any> = {
-  'bmi-calculator': {
-    op: 'bmiAdvanced', advanced: true,
-    description: 'Calculate adult BMI in metric or imperial units, see the CDC adult category, BMI Prime and the weight range corresponding to BMI 18.5–24.9.',
-    inputs: [
-      { key:'v0', label:'Weight', value:70, type:'number', min:1, max:700, step:.1, help:'Body weight. Choose kilograms or pounds in the calculator.' },
-      { key:'v1', label:'Height', value:175, type:'number', min:50, max:275, step:.1, help:'Standing height. Choose centimeters or inches in the calculator.' },
-    ],
-    formula: 'BMI = weight (kg) ÷ height² (m²); imperial inputs are converted before calculation',
-    unit: 'kg/m²', params: [],
-    keywords: ['adult BMI calculator','BMI calculator kg cm','BMI calculator pounds inches','BMI Prime','healthy weight range'],
-  },
-  'bmr-calculator': {
-    op: 'bmrAdvanced', advanced: true,
-    description: 'Estimate resting energy expenditure with the Mifflin–St Jeor equation using sex, age, height and weight in metric or imperial units.',
-    inputs: [
-      { key:'v0', label:'Weight', value:70, type:'number', min:1, max:700, step:.1, help:'Body weight. Choose kilograms or pounds in the calculator.' },
-      { key:'v1', label:'Height', value:175, type:'number', min:50, max:275, step:.1, help:'Standing height. Choose centimeters or inches in the calculator.' },
-      { key:'v2', label:'Age', value:30, type:'number', min:18, max:120, step:1, help:'Adult age in completed years.' },
-    ],
-    formula: 'Mifflin–St Jeor: 10w + 6.25h − 5a + 5 (male) or −161 (female)',
-    unit: 'kcal/day', params: [],
-    keywords: ['BMR calculator','Mifflin St Jeor calculator','resting energy expenditure','calories at rest'],
-  },
-  'tdee-calculator': {
-    op: 'tdeeAdvanced', advanced: true,
-    description: 'Estimate total daily energy expenditure from Mifflin–St Jeor BMR and a selectable activity factor, with metric and imperial input modes.',
-    inputs: [
-      { key:'v0', label:'Weight', value:70, type:'number', min:1, max:700, step:.1, help:'Body weight. Choose kilograms or pounds in the calculator.' },
-      { key:'v1', label:'Height', value:175, type:'number', min:50, max:275, step:.1, help:'Standing height. Choose centimeters or inches in the calculator.' },
-      { key:'v2', label:'Age', value:30, type:'number', min:18, max:120, step:1, help:'Adult age in completed years.' },
-    ],
-    formula: 'TDEE = Mifflin–St Jeor BMR × selected activity factor',
-    unit: 'kcal/day', params: [],
-    keywords: ['TDEE calculator','maintenance calories calculator','activity calorie calculator','daily energy expenditure'],
-  },
+  'bmi-calculator': {op:'bmiAdvanced',advanced:true,description:'Calculate adult BMI in metric or imperial units, see the CDC adult category, BMI Prime and the weight range corresponding to BMI 18.5–24.9.',inputs:[{key:'v0',label:'Weight',value:70,type:'number',min:1,max:700,step:.1,help:'Body weight. Choose kilograms or pounds in the calculator.'},{key:'v1',label:'Height',value:175,type:'number',min:50,max:275,step:.1,help:'Standing height. Choose centimeters or inches in the calculator.'}],formula:'BMI = weight (kg) ÷ height² (m²); imperial inputs are converted before calculation',unit:'kg/m²',params:[],keywords:['adult BMI calculator','BMI calculator kg cm','BMI calculator pounds inches','BMI Prime','healthy weight range']},
+  'bmr-calculator': {op:'bmrAdvanced',advanced:true,description:'Estimate resting energy expenditure with the Mifflin–St Jeor equation using sex, age, height and weight in metric or imperial units.',inputs:[{key:'v0',label:'Weight',value:70,type:'number',min:1,max:700,step:.1,help:'Body weight. Choose kilograms or pounds in the calculator.'},{key:'v1',label:'Height',value:175,type:'number',min:50,max:275,step:.1,help:'Standing height. Choose centimeters or inches in the calculator.'},{key:'v2',label:'Age',value:30,type:'number',min:18,max:120,step:1,help:'Adult age in completed years.'}],formula:'Mifflin–St Jeor: 10w + 6.25h − 5a + 5 (male) or −161 (female)',unit:'kcal/day',params:[],keywords:['BMR calculator','Mifflin St Jeor calculator','resting energy expenditure','calories at rest']},
+  'tdee-calculator': {op:'tdeeAdvanced',advanced:true,description:'Estimate total daily energy expenditure from Mifflin–St Jeor BMR and a selectable activity factor, with metric and imperial input modes.',inputs:[{key:'v0',label:'Weight',value:70,type:'number',min:1,max:700,step:.1,help:'Body weight. Choose kilograms or pounds in the calculator.'},{key:'v1',label:'Height',value:175,type:'number',min:50,max:275,step:.1,help:'Standing height. Choose centimeters or inches in the calculator.'},{key:'v2',label:'Age',value:30,type:'number',min:18,max:120,step:1,help:'Adult age in completed years.'}],formula:'TDEE = Mifflin–St Jeor BMR × selected activity factor',unit:'kcal/day',params:[],keywords:['TDEE calculator','maintenance calories calculator','activity calorie calculator','daily energy expenditure']},
+  'percentage-calculator': {op:'percentageAdvanced',advanced:true,description:'Solve six common percentage questions: percent of a value, what percent, reverse percentage, increase, decrease and percentage-point difference.',inputs:[{key:'v0',label:'Value A',value:20,type:'number',step:.01,help:'Its meaning changes with the selected percentage mode.'},{key:'v1',label:'Value B',value:150,type:'number',step:.01,help:'The comparison value, base value or percentage used by the selected mode.'}],formula:'Mode-specific percentage equation shown in the live report',unit:'',params:[],keywords:['percentage calculator','what percent of','reverse percentage','percentage increase','percentage points']},
+  'percentage-change-calculator': {op:'percentChangeAdvanced',advanced:true,description:'Compare an old and new value with absolute change, relative percentage change, ratio and percentage-point difference.',inputs:[{key:'v0',label:'Old value',value:80,type:'number',step:.01,help:'Starting or reference value.'},{key:'v1',label:'New value',value:100,type:'number',step:.01,help:'Ending or comparison value.'}],formula:'Relative change = (new − old) ÷ old × 100; percentage points = new% − old%',unit:'%',params:[],keywords:['percentage change calculator','percent increase decrease','percentage point difference','relative change']},
+  'age-calculator': {op:'ageAdvanced',advanced:true,description:'Calculate exact calendar age in years, months and days, total elapsed days and weeks, and the next birthday countdown.',inputs:[{key:'v0',label:'Birth date',value:'1993-06-15',type:'date',help:'Calendar date of birth.'},{key:'v1',label:'As-of date',value:'2026-09-20',type:'date',help:'Date on which age should be calculated.'}],formula:'Calendar age = complete years + complete months + remaining days',unit:'calendar age',params:[],keywords:['age calculator years months days','exact age calculator','next birthday calculator']},
+  'date-difference-calculator': {op:'dateDiffAdvanced',advanced:true,description:'Find the calendar interval, total days, weeks and weekdays between two dates with optional inclusive counting.',inputs:[{key:'v0',label:'Start date',value:'2026-01-01',type:'date',help:'First calendar date in the interval.'},{key:'v1',label:'End date',value:'2026-09-20',type:'date',help:'Second calendar date in the interval.'}],formula:'Difference = end date − start date; inclusive mode counts both boundary dates',unit:'date interval',params:[],keywords:['date difference calculator','days between dates','weeks between dates','inclusive date calculator']},
 };
 export default advancedHealth;
