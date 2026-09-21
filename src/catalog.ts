@@ -85,6 +85,7 @@ const coreSources: Record<string, { label: string; url: string }[]> = {
   'tip-calculator': [{ label: 'TipCalculator.org tipping guidance', url: 'https://tipcalculator.org/' }],
   'compound-interest-calculator': [{ label: 'Investor.gov compound interest calculator', url: 'https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator' }],
   'bmi-calculator': [{ label: 'CDC Adult BMI Calculator and categories', url: 'https://www.cdc.gov/bmi/adult-calculator/index.html' }],
+  'body-fat-calculator': [{ label: 'Deurenberg adult body-fat equation review', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8980724/' }],
   'percentage-calculator': [{ label: 'Pearson percentage formulas and examples', url: 'https://www.pearson.com/channels/calculators/percentage-calculator' }],
   'age-calculator': [{ label: 'Pearson exact age calculator reference', url: 'https://www.pearson.com/channels/calculators/age-calculator' }],
   'date-difference-calculator': [{ label: 'Timeanddate date-duration reference', url: 'https://www.timeanddate.com/date/duration.html' }],
