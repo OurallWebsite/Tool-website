@@ -9,7 +9,7 @@ import AdvancedEducationScienceCalculator from '../../../components/AdvancedEduc
 import AdvancedRemainingCalculator from '../../../components/AdvancedRemainingCalculator.astro';
 import ToolCard from '../../../components/ToolCard.astro';
 import { tools, findTool, byCategory } from '../../../catalog';
-import { localizeTool, pageText } from '../../../localization';
+import { localizeTool, pageText, seoSuffix } from '../../../localization';
 import { SITE, locales, categories, ui, path, type Lang, type Category } from '../../../site';
 
 export function getStaticPaths() {
@@ -81,7 +81,7 @@ const schema = [
   },
 ];
 ---
-<Base lang={lang} title={`${display.title} — Free online tool | ${SITE.name}`} description={display.description} pathname={pathname} jsonld={schema}>
+<Base lang={lang} title={`${display.title} — ${seoSuffix[lang]} | ${SITE.name}`} description={display.description} pathname={pathname} jsonld={schema}>
   <article class="wrap page">
     <nav class="crumbs" aria-label="Breadcrumb"><a href={path(lang)}>{u.home}</a> / <a href={path(lang, category)}>{categoryName}</a> / {display.title}</nav>
     <header class="page-head advanced-head">
