@@ -26,6 +26,11 @@ const advancedConstructionBusiness: Record<string, Partial<Tool>> = {
   'concrete-calculator': { op:'concreteAdvanced', advanced:true, description:'Estimate slab concrete volume, waste-adjusted order quantity and material cost using imperial or metric dimensions.', inputs:[{key:'v0',label:'Length (ft)',value:10,type:'number',min:0,help:'Slab or pour length.'},{key:'v1',label:'Width (ft)',value:10,type:'number',min:0,help:'Slab or pour width.'},{key:'v2',label:'Depth (in)',value:4,type:'number',min:0.1,help:'Concrete thickness before waste.'},{key:'v3',label:'Waste allowance (%)',value:10,type:'number',min:0,max:30,step:.5,help:'Common planning allowance for spillage and site variation.'},{key:'v4',label:'Price per yd³',value:150,type:'number',min:0,help:'Supplier price for the selected volume unit.'}], formula:'Order volume = length × width × depth ÷ 12 ÷ 27 × (1 + waste allowance); cost = order volume × price', unit:'yd³', params:[], keywords:['concrete calculator','how much concrete do I need','concrete yard calculator','slab concrete calculator','concrete waste allowance'] },
 };
 for (const tool of core) { if (advancedFinance[tool.slug]) Object.assign(tool, advancedFinance[tool.slug]); if (advancedHealth[tool.slug]) Object.assign(tool, advancedHealth[tool.slug]); if (advancedConstructionBusiness[tool.slug]) Object.assign(tool, advancedConstructionBusiness[tool.slug]); }
+const validatedRemaining: Record<string, Partial<Tool>> = {
+  'paint-calculator': { inputs:[{key:'v0',label:'Wall area (ft²)',value:1200,type:'number',min:.01,step:.01,help:'Total paintable surface area after subtracting large openings.'},{key:'v1',label:'Coverage per gallon',value:350,type:'number',min:.01,step:.01,help:'Manufacturer coverage estimate for one coat.'}] },
+  'cagr-calculator': { inputs:[{key:'v0',label:'Beginning value',value:10000,type:'number',min:.01,step:.01,help:'Positive starting value.'},{key:'v1',label:'Ending value',value:18000,type:'number',min:.01,step:.01,help:'Positive ending value.'},{key:'v2',label:'Years',value:5,type:'number',min:.01,max:100,step:.01,help:'Elapsed period in years.'}] },
+};
+for (const tool of core) if (validatedRemaining[tool.slug]) Object.assign(tool, validatedRemaining[tool.slug]);
 const highIntentCopy: Record<string, string> = {
   'gpa-calculator': 'Calculate GPA from total quality points and credits on a 4.0, 5.0, or 10.0 grading scale, with transparent weighting and institution-specific caveats.',
   'ohms-law-calculator': 'Solve Ohm’s law from any two common electrical values—voltage, current, resistance, or power—with derived results, formulas, and safe interpretation notes.',
@@ -87,6 +92,11 @@ const coreSources: Record<string, { label: string; url: string }[]> = {
   'bmi-calculator': [{ label: 'CDC Adult BMI Calculator and categories', url: 'https://www.cdc.gov/bmi/adult-calculator/index.html' }],
   'body-fat-calculator': [{ label: 'Deurenberg adult body-fat equation review', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8980724/' }],
   'ideal-weight-calculator': [{ label: 'Calculator.net ideal weight formula reference', url: 'https://www.calculator.net/ideal-weight-calculator.html' }],
+  'water-intake-calculator': [{ label: 'Bluevua daily water intake guidance', url: 'https://bluevua.com/pages/daily-water-intake-calculator' }],
+  'running-pace-calculator': [{ label: 'CalculatorSoup pace calculator reference', url: 'https://www.calculatorsoup.com/calculators/health/pace-calculator.php' }],
+  'heart-rate-zone-calculator': [{ label: 'McMillan Running heart-rate zone reference', url: 'https://www.mcmillanrunning.com/heart-rate-zone-calculator/' }],
+  'paint-calculator': [{ label: 'Behr paint calculator guidance', url: 'https://www.behr.com/consumer/how-to/interior/paint-calculator' }],
+  'cagr-calculator': [{ label: 'Investopedia CAGR definition', url: 'https://www.investopedia.com/terms/c/cagr.asp' }],
   'percentage-calculator': [{ label: 'Pearson percentage formulas and examples', url: 'https://www.pearson.com/channels/calculators/percentage-calculator' }],
   'age-calculator': [{ label: 'Pearson exact age calculator reference', url: 'https://www.pearson.com/channels/calculators/age-calculator' }],
   'date-difference-calculator': [{ label: 'Timeanddate date-duration reference', url: 'https://www.timeanddate.com/date/duration.html' }],

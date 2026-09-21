@@ -28,7 +28,7 @@ const canonicalUrl = new URL(pathname, SITE.domain).toString();
 const related = byCategory(category).filter((item) => item.slug !== slug).slice(0, 4);
 const categoryName = categories[category][lang];
 const sources = tool.sources || [];
-const advancedHealth = ['bmiAdvanced', 'bmrAdvanced', 'tdeeAdvanced', 'bodyFatAdvanced', 'idealWeightAdvanced'].includes(tool.op);
+const advancedHealth = ['bmiAdvanced', 'bmrAdvanced', 'tdeeAdvanced', 'bodyFatAdvanced', 'idealWeightAdvanced', 'waterAdvanced', 'runningPaceAdvanced', 'heartRateAdvanced'].includes(tool.op);
 const advancedMathDate = ['percentageAdvanced', 'percentChangeAdvanced', 'ageAdvanced', 'dateDiffAdvanced'].includes(tool.op);
 const advancedConstructionBusiness = ['squareFootageAdvanced', 'concreteAdvanced', 'profitMarginAdvanced', 'breakEvenAdvanced'].includes(tool.op);
 const advancedEduScience = category === 'education' || category === 'science';
