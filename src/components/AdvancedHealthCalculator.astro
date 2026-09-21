@@ -10,11 +10,11 @@ const isTdee = tool.op === 'tdeeAdvanced';
 <section class="tool-workspace" data-advanced-health data-tool={JSON.stringify(tool)} data-lang={lang}>
   <div class="workspace-toolbar">
     <div class="live-state"><span class="live-dot"></span><strong>Adult health estimate</strong><small>Updates as you type</small></div>
-    <div class="tool-actions" aria-label="Calculator actions">
-      <button type="button" class="action-btn" data-reset>↺ <span>Reset</span></button>
-      <button type="button" class="action-btn" data-share>↗ <span>Share</span></button>
-      <button type="button" class="action-btn" data-copy>⧉ <span>Copy</span></button>
-      <button type="button" class="action-btn" data-print>▣ <span>Print / PDF</span></button>
+    <div class="tool-actions" role="group" aria-label="Calculator actions">
+      <button type="button" class="action-btn" aria-label="Reset calculator" data-reset>↺ <span>Reset</span></button>
+      <button type="button" class="action-btn" aria-label="Share calculator" data-share>↗ <span>Share</span></button>
+      <button type="button" class="action-btn" aria-label="Copy result" data-copy>⧉ <span>Copy</span></button>
+      <button type="button" class="action-btn" aria-label="Print calculator" data-print>▣ <span>Print / PDF</span></button>
     </div>
   </div>
   <div class="preference-bar">

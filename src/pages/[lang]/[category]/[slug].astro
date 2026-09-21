@@ -1,7 +1,114 @@
 ---
-import Base from '../../../layouts/Base.astro';import Calculator from '../../../components/Calculator.astro';import AdvancedFinanceCalculator from '../../../components/AdvancedFinanceCalculator.astro';import AdvancedHealthCalculator from '../../../components/AdvancedHealthCalculator.astro';import AdvancedMathDateCalculator from '../../../components/AdvancedMathDateCalculator.astro';import AdvancedConstructionBusinessCalculator from '../../../components/AdvancedConstructionBusinessCalculator.astro';import AdvancedEducationScienceCalculator from '../../../components/AdvancedEducationScienceCalculator.astro';import AdvancedRemainingCalculator from '../../../components/AdvancedRemainingCalculator.astro';import ToolCard from '../../../components/ToolCard.astro';import {tools,findTool,byCategory} from '../../../catalog';import {localizeTool,pageText} from '../../../localization';import {SITE,locales,categories,ui,path,type Lang,type Category} from '../../../site';
-export function getStaticPaths(){return locales.flatMap(lang=>tools.map(tool=>({params:{lang,category:tool.category,slug:tool.slug}})))}
-const lang=Astro.params.lang as Lang,category=Astro.params.category as Category,slug=Astro.params.slug!,tool=findTool(category,slug)!,u=ui[lang],p=pageText[lang],display=localizeTool(tool,lang),pathname=path(lang,`${category}/${slug}`),related=byCategory(category).filter(x=>x.slug!==slug).slice(0,4),categoryName=categories[category][lang],advancedHealth=['bmiAdvanced','bmrAdvanced','tdeeAdvanced'].includes(tool.op),advancedMathDate=['percentageAdvanced','percentChangeAdvanced','ageAdvanced','dateDiffAdvanced'].includes(tool.op),advancedConstructionBusiness=['squareFootageAdvanced','concreteAdvanced','profitMarginAdvanced','breakEvenAdvanced'].includes(tool.op),advancedEduScience=category==='education'||category==='science',advancedRemaining=['paint-calculator','brick-calculator','roof-pitch-calculator','markup-calculator','cagr-calculator','customer-acquisition-cost-calculator','customer-lifetime-value-calculator','conversion-rate-calculator','inventory-turnover-calculator'].includes(tool.slug);
-const inputDescriptions=tool.inputs.map((x,i)=>({label:x.label,description:x.help||p.inputUsed,position:i+1})),faq=[{q:p.faqWhat,a:display.description},{q:p.faqFree,a:p.yesFree},{q:p.faqAccuracy,a:p.accuracy},{q:p.faqShare,a:p.share}],schema=[{'@context':'https://schema.org','@type':'WebApplication',name:display.title,description:display.description,url:new URL(pathname,SITE.domain).toString(),applicationCategory:'UtilitiesApplication',operatingSystem:'Any',isAccessibleForFree:true,inLanguage:lang},{'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(x=>({'@type':'Question',name:x.q,acceptedAnswer:{'@type':'Answer',text:x.a}}))}];
+import Base from '../../../layouts/Base.astro';
+import Calculator from '../../../components/Calculator.astro';
+import AdvancedFinanceCalculator from '../../../components/AdvancedFinanceCalculator.astro';
+import AdvancedHealthCalculator from '../../../components/AdvancedHealthCalculator.astro';
+import AdvancedMathDateCalculator from '../../../components/AdvancedMathDateCalculator.astro';
+import AdvancedConstructionBusinessCalculator from '../../../components/AdvancedConstructionBusinessCalculator.astro';
+import AdvancedEducationScienceCalculator from '../../../components/AdvancedEducationScienceCalculator.astro';
+import AdvancedRemainingCalculator from '../../../components/AdvancedRemainingCalculator.astro';
+import ToolCard from '../../../components/ToolCard.astro';
+import { tools, findTool, byCategory } from '../../../catalog';
+import { localizeTool, pageText } from '../../../localization';
+import { SITE, locales, categories, ui, path, type Lang, type Category } from '../../../site';
+
+export function getStaticPaths() {
+  return locales.flatMap((lang) => tools.map((tool) => ({ params: { lang, category: tool.category, slug: tool.slug } })));
+}
+
+const lang = Astro.params.lang as Lang;
+const category = Astro.params.category as Category;
+const slug = Astro.params.slug!;
+const tool = findTool(category, slug)!;
+const u = ui[lang];
+const p = pageText[lang];
+const display = localizeTool(tool, lang);
+const pathname = path(lang, `${category}/${slug}`);
+const canonicalUrl = new URL(pathname, SITE.domain).toString();
+const related = byCategory(category).filter((item) => item.slug !== slug).slice(0, 4);
+const categoryName = categories[category][lang];
+const advancedHealth = ['bmiAdvanced', 'bmrAdvanced', 'tdeeAdvanced'].includes(tool.op);
+const advancedMathDate = ['percentageAdvanced', 'percentChangeAdvanced', 'ageAdvanced', 'dateDiffAdvanced'].includes(tool.op);
+const advancedConstructionBusiness = ['squareFootageAdvanced', 'concreteAdvanced', 'profitMarginAdvanced', 'breakEvenAdvanced'].includes(tool.op);
+const advancedEduScience = category === 'education' || category === 'science';
+const advancedRemaining = ['paint-calculator', 'brick-calculator', 'roof-pitch-calculator', 'markup-calculator', 'cagr-calculator', 'customer-acquisition-cost-calculator', 'customer-lifetime-value-calculator', 'conversion-rate-calculator', 'inventory-turnover-calculator'].includes(tool.slug);
+const inputDescriptions = tool.inputs.map((input, index) => ({ label: input.label, description: input.help || p.inputUsed, position: index + 1 }));
+const faq = [
+  { q: p.faqWhat, a: display.description },
+  { q: `${display.title}: ${p.faqAccuracy}`, a: `${p.accuracy} ${tool.formula}` },
+  { q: `${display.title}: ${p.faqFree}`, a: p.yesFree },
+  { q: `${display.title}: ${p.faqShare}`, a: p.share },
+];
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    '@id': `${canonicalUrl}#calculator`,
+    name: display.title,
+    description: display.description,
+    url: canonicalUrl,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Any',
+    isAccessibleForFree: true,
+    inLanguage: lang,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': canonicalUrl,
+    name: display.title,
+    description: display.description,
+    url: canonicalUrl,
+    inLanguage: lang,
+    dateModified: '2026-09-21',
+    mainEntity: { '@id': `${canonicalUrl}#calculator` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: u.home, item: new URL(path(lang), SITE.domain).toString() },
+      { '@type': 'ListItem', position: 2, name: categoryName, item: new URL(path(lang, category), SITE.domain).toString() },
+      { '@type': 'ListItem', position: 3, name: display.title, item: canonicalUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })),
+  },
+];
 ---
-<Base lang={lang} title={`${display.title} — ${SITE.name}`} description={display.description} pathname={pathname} jsonld={schema}><article class="wrap page"><nav class="crumbs"><a href={path(lang)}>{u.home}</a> / <a href={path(lang,category)}>{categoryName}</a> / {display.title}</nav><header class="page-head advanced-head"><span class="chip">{categories[category].icon} {categoryName}</span><h1>{display.title}</h1><p class="muted">{display.description}</p><div class="tool-meta-row"><span>✓ {p.formula}</span><span>✓ {u.privacy}</span><span>✓ {p.transparent}</span></div></header>{advancedHealth?<AdvancedHealthCalculator tool={tool} lang={lang}/>:advancedMathDate?<AdvancedMathDateCalculator tool={tool} lang={lang}/>:advancedConstructionBusiness?<AdvancedConstructionBusinessCalculator tool={tool} lang={lang}/>:advancedRemaining?<AdvancedRemainingCalculator tool={tool} lang={lang}/>:advancedEduScience?<AdvancedEducationScienceCalculator tool={tool} lang={lang}/>:tool.advanced?<AdvancedFinanceCalculator tool={tool} lang={lang}/>:<Calculator tool={tool} lang={lang}/>}<div class="ad" aria-label="Advertisement">Advertisement placeholder</div><div class="tool-content-grid"><main class="tool-article prose"><section class="quick-answer" id="overview"><strong>{p.quick}</strong><p>{display.description} {p.answer}</p></section><section id="meaning"><h2>{p.tells}</h2><p>{display.description}</p></section><section id="formula"><h2>{p.formula}</h2><p class="formula">{tool.formula}</p><p>{p.precision}</p></section><section id="instructions"><h2>{p.how}: {display.title}</h2><ol>{p.steps.map(step=><li>{step}</li>)}</ol></section><section id="inputs"><h2>{p.inputs}</h2><div class="input-glossary">{inputDescriptions.map(x=><article><span>{String(x.position).padStart(2,'0')}</span><div><h3>{x.label}</h3><p>{x.description}</p></div></article>)}</div></section><section id="example"><h2>{p.example}</h2><div class="input-summary">{tool.inputs.map(x=><div><span>{x.label}</span><strong>{x.value}</strong></div>)}</div><p>{p.change}</p></section><section id="analytics"><h2>{p.understand}</h2><p>{p.understandBody}</p></section><section id="assumptions"><h2>{p.limits}</h2><ul>{p.limitItems.map(item=><li>{item}</li>)}</ul></section><section id="faq"><h2>{p.faq}</h2><div class="faq-list">{faq.map((x,i)=><details open={i===0}><summary>{x.q}</summary><p>{x.a}</p></details>)}</div></section><section id="methodology"><h2>{p.method}</h2><p>{p.methodBody}</p></section></main><aside class="detail-sidebar"><nav class="detail-nav"><strong>{p.onPage}</strong><a href="#overview">{p.quick}</a><a href="#formula">{p.formula}</a><a href="#instructions">{p.how}</a><a href="#inputs">{p.inputs}</a><a href="#example">{p.example}</a><a href="#assumptions">{p.limits}</a><a href="#faq">{p.faq}</a></nav><div class="trust-card"><strong>{p.transparent}</strong><p>{p.transparentBody}</p></div></aside></div><section class="section"><h2>{u.related}</h2><div class="tool-grid">{related.map(item=><ToolCard tool={item} lang={lang}/>)}</div></section></article></Base>
+<Base lang={lang} title={`${display.title} — Free online tool | ${SITE.name}`} description={display.description} pathname={pathname} jsonld={schema}>
+  <article class="wrap page">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href={path(lang)}>{u.home}</a> / <a href={path(lang, category)}>{categoryName}</a> / {display.title}</nav>
+    <header class="page-head advanced-head">
+      <span class="chip">{categories[category].icon} {categoryName}</span>
+      <h1>{display.title}</h1>
+      <p class="muted">{display.description}</p>
+      <div class="tool-meta-row"><span>✓ {p.formula}</span><span>✓ {u.privacy}</span><span>✓ {p.transparent}</span></div>
+    </header>
+    {advancedHealth ? <AdvancedHealthCalculator tool={tool} lang={lang} /> : advancedMathDate ? <AdvancedMathDateCalculator tool={tool} lang={lang} /> : advancedConstructionBusiness ? <AdvancedConstructionBusinessCalculator tool={tool} lang={lang} /> : advancedRemaining ? <AdvancedRemainingCalculator tool={tool} lang={lang} /> : advancedEduScience ? <AdvancedEducationScienceCalculator tool={tool} lang={lang} /> : tool.advanced ? <AdvancedFinanceCalculator tool={tool} lang={lang} /> : <Calculator tool={tool} lang={lang} />}
+    <div class="ad" role="complementary" aria-label="Advertisement">Advertisement placeholder</div>
+    <div class="tool-content-grid">
+      <div class="tool-article prose" role="region" aria-label={display.title}>
+        <section class="quick-answer" id="overview"><strong>{p.quick}</strong><p>{display.description} {p.answer}</p></section>
+        <section id="meaning"><h2>{p.tells}</h2><p>{display.description}</p></section>
+        <section id="formula"><h2>{p.formula}</h2><p class="formula">{tool.formula}</p><p>{p.precision}</p></section>
+        <section id="instructions"><h2>{p.how}: {display.title}</h2><ol>{p.steps.map((step) => <li>{step}</li>)}</ol></section>
+        <section id="inputs"><h2>{p.inputs}</h2><div class="input-glossary">{inputDescriptions.map((item) => <article><span>{String(item.position).padStart(2, '0')}</span><div><h3>{item.label}</h3><p>{item.description}</p></div></article>)}</div></section>
+        <section id="example"><h2>{p.example}</h2><div class="input-summary">{tool.inputs.map((input) => <div><span>{input.label}</span><strong>{input.value}</strong></div>)}</div><p>{p.change}</p></section>
+        <section id="analytics"><h2>{p.understand}</h2><p>{p.understandBody}</p></section>
+        <section id="assumptions"><h2>{p.limits}</h2><ul>{p.limitItems.map((item) => <li>{item}</li>)}</ul></section>
+        <section id="faq"><h2>{p.faq}</h2><div class="faq-list">{faq.map((item, index) => <details open={index === 0}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div></section>
+        <section id="methodology"><h2>{p.method}</h2><p>{p.methodBody}</p></section>
+      </div>
+      <aside class="detail-sidebar">
+        <nav class="detail-nav" aria-label={p.onPage}><strong>{p.onPage}</strong><a href="#overview">{p.quick}</a><a href="#formula">{p.formula}</a><a href="#instructions">{p.how}</a><a href="#inputs">{p.inputs}</a><a href="#example">{p.example}</a><a href="#assumptions">{p.limits}</a><a href="#faq">{p.faq}</a></nav>
+        <div class="trust-card"><strong>{p.transparent}</strong><p>{p.transparentBody}</p></div>
+      </aside>
+    </div>
+    <section class="section"><h2>{u.related}</h2><div class="tool-grid">{related.map((item) => <ToolCard tool={item} lang={lang} />)}</div></section>
+  </article>
+</Base>
