@@ -1,0 +1,13 @@
+---
+import Base from '../../../layouts/Base.astro';
+import ToolCard from '../../../components/ToolCard.astro';
+import {collections,type CalculatorCollection} from '../../../collections';
+import {tools} from '../../../catalog';
+import {SITE,locales,path,ui,type Lang} from '../../../site';
+export function getStaticPaths(){return locales.flatMap(lang=>collections.map(collection=>({params:{lang,slug:collection.slug},props:{collection}})));}
+const lang=Astro.params.lang as Lang;const collection=Astro.props.collection as CalculatorCollection;const c=collection.copy[lang];const u=ui[lang];const items=collection.toolKeys.map(key=>tools.find(tool=>`${tool.category}/${tool.slug}`===key)).filter(Boolean) as typeof tools;
+const pathname=path(lang,`collections/${collection.slug}`);const schema=[{'@context':'https://schema.org','@type':'CollectionPage',name:c.title,description:c.description,url:new URL(pathname,SITE.domain).href,inLanguage:lang},{'@context':'https://schema.org','@type':'ItemList',name:c.title,itemListElement:items.map((tool,index)=>({'@type':'ListItem',position:index+1,name:tool.title,url:new URL(path(lang,`${tool.category}/${tool.slug}`),SITE.domain).href}))},{'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:u.home,item:new URL(path(lang),SITE.domain).href},{'@type':'ListItem',position:2,name:'Collections',item:new URL(path(lang,'collections'),SITE.domain).href},{'@type':'ListItem',position:3,name:c.title,item:new URL(pathname,SITE.domain).href}]}];
+---
+<Base lang={lang} title={`${c.title} — free online tools | CalcWise`} description={c.description} pathname={pathname} jsonld={schema}>
+<section class="wrap page"><nav class="crumbs"><a href={path(lang)}>{u.home}</a> / <a href={path(lang,'collections')}>Collections</a> / {c.title}</nav><div class="page-head"><span class="chip">{collection.icon} {items.length} {u.tools}</span><h1>{c.title}</h1><p class="muted">{c.intro}</p></div><div class="tool-grid">{items.map(tool=><ToolCard tool={tool} lang={lang}/>)}</div><section class="prose section"><h2>How to use this collection</h2><p>Start with the calculator that matches your immediate question, then use the related tools to test assumptions and compare scenarios. Every calculator shows its formula, input definitions, interpretation and limitations.</p><h2>Why these tools belong together</h2><p>{c.description} Keeping the calculators in one workflow reduces repeated searching and makes it easier to carry the same assumptions from one calculation to the next.</p></section></section>
+</Base>

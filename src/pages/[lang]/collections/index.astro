@@ -1,0 +1,12 @@
+---
+import Base from '../../../layouts/Base.astro';
+import {collections} from '../../../collections';
+import {locales,path,ui,type Lang} from '../../../site';
+export function getStaticPaths(){return locales.map(lang=>({params:{lang}}));}
+const lang=Astro.params.lang as Lang;const u=ui[lang];
+const labels:Record<Lang,{eyebrow:string,title:string,description:string,open:string}>={en:{eyebrow:'Curated workflows',title:'Calculator collections',description:'Focused toolkits that group related calculators around a real task or decision.',open:'Open collection'},de:{eyebrow:'Kuratierte Abläufe',title:'Rechner-Sammlungen',description:'Thematische Werkzeugsammlungen für konkrete Aufgaben und Entscheidungen.',open:'Sammlung öffnen'},fr:{eyebrow:'Parcours sélectionnés',title:'Collections de calculateurs',description:'Des ensembles d’outils regroupés autour d’une tâche ou d’une décision réelle.',open:'Ouvrir la collection'},it:{eyebrow:'Percorsi selezionati',title:'Raccolte di calcolatori',description:'Toolkit mirati che riuniscono calcolatori per attività e decisioni reali.',open:'Apri raccolta'},ja:{eyebrow:'目的別ツール',title:'計算ツール・コレクション',description:'実際の課題や意思決定に合わせて関連ツールをまとめました。',open:'コレクションを見る'},es:{eyebrow:'Flujos seleccionados',title:'Colecciones de calculadoras',description:'Conjuntos de herramientas para una tarea o decisión concreta.',open:'Abrir colección'},pt:{eyebrow:'Fluxos selecionados',title:'Coleções de calculadoras',description:'Conjuntos de ferramentas para uma tarefa ou decisão concreta.',open:'Abrir coleção'}};
+const l=labels[lang];
+---
+<Base lang={lang} title={`${l.title} | CalcWise`} description={l.description} pathname={path(lang,'collections')}>
+<section class="wrap page"><nav class="crumbs"><a href={path(lang)}>{u.home}</a> / {l.title}</nav><div class="page-head"><p class="eyebrow">{l.eyebrow}</p><h1>{l.title}</h1><p class="muted">{l.description}</p></div><div class="category-grid">{collections.map(item=>{const c=item.copy[lang];return <a class="category" href={path(lang,`collections/${item.slug}`)}><span class="icon">{item.icon}</span><span class="count">{item.toolKeys.length}</span><h3>{c.title}</h3><p class="muted">{c.description}</p><p class="eyebrow" style="margin-top:16px">{l.open} →</p></a>})}</div></section>
+</Base>

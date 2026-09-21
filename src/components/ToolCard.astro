@@ -1,4 +1,4 @@
 ---
-import type {Tool} from '../catalog';import {categories,path,type Lang} from '../site';const {tool,lang}:{tool:Tool,lang:Lang}=Astro.props;
+import type {Tool} from '../catalog';import {categories,path,type Lang} from '../site';import {localizeTool,pageText} from '../localization';const {tool,lang}:{tool:Tool,lang:Lang}=Astro.props;const display=localizeTool(tool,lang),p=pageText[lang];
 ---
-<a class="tool-card" href={path(lang,`${tool.category}/${tool.slug}`)}><span class="chip">{categories[tool.category][lang]}</span><h3>{tool.title}</h3><p class="muted">{tool.description}</p><span class="arrow">Calculate →</span></a>
+<a class="tool-card" href={path(lang,`${tool.category}/${tool.slug}`)}><span class="chip">{categories[tool.category][lang]}</span><h3>{display.title}</h3><p class="muted">{display.description}</p><span class="arrow">{p.calculate} →</span></a>
