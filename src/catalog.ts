@@ -29,5 +29,23 @@ const groups = {
   Speed: [['meter-per-second','m/s',1],['kilometer-per-hour','km/h',.2777777778],['mile-per-hour','mph',.44704],['foot-per-second','ft/s',.3048],['knot','kn',.514444],['mach','Mach',343],['speed-of-light','c',299792458]],
 } as const;
 const converters: Tool[] = [];
-for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) { const factor=Number(from[2])/Number(to[2]); converters.push({category:'converters',group,slug:`${from[0]}-to-${to[0]}-converter`,title:`${from[1]} to ${to[1]} Converter`,description:`Convert ${from[1]} to ${to[1]} instantly using a standards-based conversion factor.`,op:'convert',inputs:[{key:'v0',label:`${from[1]} value`,value:1,type:'number'}],formula:`${to[1]} = ${from[1]} × ${factor.toPrecision(10)}`,unit:String(to[1]),params:[Number(from[2]),Number(to[2])],keywords:[`${from[1]} to ${to[1]}`,`${from[0]} to ${to[0]}`,`${group} converter`]}); }
+for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
+  const factor = Number(from[2]) / Number(to[2]);
+  const inverse = 1 / factor;
+  const fromName = String(from[0]).replaceAll('-', ' ');
+  const toName = String(to[0]).replaceAll('-', ' ');
+  converters.push({
+    category: 'converters',
+    group,
+    slug: `${from[0]}-to-${to[0]}-converter`,
+    title: `${from[1]} to ${to[1]} Converter`,
+    description: `Convert ${from[1]} (${fromName}) to ${to[1]} (${toName}) using an exact ${group.toLowerCase()} conversion factor. See the forward and inverse factors, a worked 1-unit example, and practical precision guidance.`,
+    op: 'convert',
+    inputs: [{ key: 'v0', label: `${from[1]} value`, value: 1, type: 'number', min: 0, help: `Enter a value in ${from[1]} (${fromName}).` }],
+    formula: `1 ${from[1]} = ${factor.toPrecision(10)} ${to[1]}; reverse: 1 ${to[1]} = ${inverse.toPrecision(10)} ${from[1]}`,
+    unit: String(to[1]),
+    params: [Number(from[2]), Number(to[2])],
+    keywords: [`${from[1]} to ${to[1]} converter`, `${fromName} to ${toName} conversion`, `how many ${to[1]} in a ${from[1]}`, `${group.toLowerCase()} conversion`],
+  });
+}
 export const tools=[...core,...converters];export const featured=tools.filter(tool=>tool.featured);export const byCategory=(category:string)=>tools.filter(tool=>tool.category===category);export const findTool=(category:string,slug:string)=>tools.find(tool=>tool.category===category&&tool.slug===slug);
