@@ -35,6 +35,7 @@ const advancedRemaining = ['paint-calculator', 'brick-calculator', 'roof-pitch-c
 const inputDescriptions = tool.inputs.map((input, index) => ({ label: input.label, description: input.help || p.inputUsed, position: index + 1 }));
 const faq = [
   { q: p.faqWhat, a: display.description },
+  { q: `How do I calculate ${display.title.replace(/ (Calculator|Converter)$/, '').toLowerCase()}?`, a: `Enter the values in the stated units and review the visible formula: ${tool.formula}` },
   { q: `${display.title}: ${p.faqAccuracy}`, a: `${p.accuracy} ${tool.formula}` },
   { q: `${display.title}: ${p.faqFree}`, a: p.yesFree },
   { q: `${display.title}: ${p.faqShare}`, a: p.share },
@@ -90,7 +91,7 @@ const schema = [
       <div class="tool-meta-row"><span>✓ {p.formula}</span><span>✓ {u.privacy}</span><span>✓ {p.transparent}</span></div>
     </header>
     {advancedHealth ? <AdvancedHealthCalculator tool={tool} lang={lang} /> : advancedMathDate ? <AdvancedMathDateCalculator tool={tool} lang={lang} /> : advancedConstructionBusiness ? <AdvancedConstructionBusinessCalculator tool={tool} lang={lang} /> : advancedRemaining ? <AdvancedRemainingCalculator tool={tool} lang={lang} /> : advancedEduScience ? <AdvancedEducationScienceCalculator tool={tool} lang={lang} /> : tool.advanced ? <AdvancedFinanceCalculator tool={tool} lang={lang} /> : <Calculator tool={tool} lang={lang} />}
-    <div class="ad" role="complementary" aria-label="Advertisement">Advertisement placeholder</div>
+    <div class="ad" aria-label="Advertisement">Advertisement placeholder</div>
     <div class="tool-content-grid">
       <div class="tool-article prose" role="region" aria-label={display.title}>
         <section class="quick-answer" id="overview"><strong>{p.quick}</strong><p>{display.description} {p.answer}</p></section>

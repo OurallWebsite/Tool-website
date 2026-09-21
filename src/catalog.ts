@@ -20,6 +20,64 @@ const advancedFinance: Record<string, Partial<Tool>> = {
   'savings-goal-calculator': { op:'savingsGoalAdvanced', advanced:true, description:'Find the monthly contribution required to reach a goal after accounting for current savings, return, time and compounding frequency.', inputs:[{key:'v0',label:'Savings goal',value:50000,type:'number',min:1,help:'Target balance at the end of the plan.'},{key:'v1',label:'Current savings',value:5000,type:'number',min:0,help:'Balance already saved today.'},{key:'v2',label:'Annual return (%)',value:6,type:'number',min:-99,max:1000,step:.01,help:'Expected nominal annual return; not a guarantee.'},{key:'v3',label:'Years to goal',value:5,type:'number',min:.08,max:100,step:.01,help:'Time available to reach the target.'},{key:'v4',label:'Compounds per year',value:12,type:'number',min:1,max:365,help:'Use 1 yearly, 4 quarterly, 12 monthly or 365 daily.'}], formula:'Required monthly contribution = remaining future-value gap ÷ contribution accumulation factor', unit:'per month', params:[], keywords:['savings goal calculator','monthly savings calculator','how much to save each month'] },
 };
 for (const tool of core) { if (advancedFinance[tool.slug]) Object.assign(tool, advancedFinance[tool.slug]); if (advancedHealth[tool.slug]) Object.assign(tool, advancedHealth[tool.slug]); }
+const highIntentCopy: Record<string, string> = {
+  'simple-interest-calculator': 'Calculate simple interest, total amount, and interest earned or owed from principal, rate, and time.',
+  'roi-calculator': 'Measure return on investment, net gain, and the break-even relationship between cost and return.',
+  'discount-calculator': 'Find the sale price, savings amount, and final total after a percentage discount.',
+  'tip-calculator': 'Calculate a restaurant tip, total bill, and per-person split for any tip rate and group size.',
+  'body-fat-calculator': 'Estimate body-fat percentage from BMI and age while exposing the screening equation and its limitations.',
+  'ideal-weight-calculator': 'Estimate a height-based reference weight and explain why a healthy target is not one universal number.',
+  'water-intake-calculator': 'Estimate a daily water target from body weight and exercise while keeping climate and medical variation visible.',
+  'running-pace-calculator': 'Calculate pace, speed, and finish-time relationships from distance and elapsed time.',
+  'heart-rate-zone-calculator': 'Estimate training heart-rate zones from age and target intensity using an explicit maximum-heart-rate model.',
+  'average-calculator': 'Calculate the arithmetic mean from values, total, and count with transparent sum and item-count context.',
+  'ratio-calculator': 'Reduce a ratio, compare its parts, and find equivalent proportions from two values.',
+  'pythagorean-theorem-calculator': 'Find a missing side of a right triangle and verify the Pythagorean relationship.',
+  'circle-area-calculator': 'Calculate circle area and show the relationship between radius, diameter, and circumference.',
+  'triangle-area-calculator': 'Calculate triangle area from base and height with clear square-unit context.',
+  'square-root-calculator': 'Find a square root and show the squared check for a non-negative number.',
+  'add-days-calculator': 'Add or subtract calendar days from a start date and return the resulting date.',
+  'business-days-calculator': 'Count weekdays between two dates while separating Monday–Friday counting from public holidays.',
+  'time-duration-calculator': 'Calculate elapsed time between two clock times in hours, minutes, and seconds.',
+  'countdown-calculator': 'Count the remaining time until a target date and make the boundary assumption visible.',
+  'paint-calculator': 'Estimate paint quantity from surface area, coverage, coats, and purchasable container rounding.',
+  'tile-calculator': 'Estimate tiles and boxes from area, tile size, and waste allowance.',
+  'flooring-calculator': 'Estimate flooring area, waste allowance, and boxes or planks needed for a project.',
+  'gravel-calculator': 'Estimate gravel volume and order quantity for driveways, paths, and landscaping beds.',
+  'roof-pitch-calculator': 'Calculate roof slope, pitch ratio, angle, and the roof-surface multiplier from rise and run.',
+  'brick-calculator': 'Estimate brick count from wall area and brick face area with practical rounding guidance.',
+  'markup-calculator': 'Calculate markup, selling price, margin, and profit per unit from cost and pricing.',
+  'cagr-calculator': 'Calculate compound annual growth rate, total growth, and the ending-value relationship.',
+  'conversion-rate-calculator': 'Calculate conversion rate, non-converting visitors, and conversions per 1,000 visits.',
+  'attendance-calculator': 'Calculate attendance percentage, missed classes, and the effect of attending one more class.',
+  'reading-time-calculator': 'Estimate reading time from word count and reading speed in minutes and hours.',
+  'words-to-pages-calculator': 'Estimate document pages from word count and words per page with layout assumptions visible.',
+  'study-time-calculator': 'Plan weekly study time from course load using an explicit workload heuristic.',
+  'force-calculator': 'Calculate force from mass and acceleration using Newton’s second law and SI units.',
+  'kinetic-energy-calculator': 'Calculate kinetic energy from mass and velocity and show practical energy units.',
+  'potential-energy-calculator': 'Calculate gravitational potential energy from mass, gravity, and height.',
+  'electric-power-calculator': 'Calculate electrical power, energy per hour, and resistance from voltage and current.',
+  'density-calculator': 'Calculate density, specific volume, and the relationship between mass and volume.',
+  'molarity-calculator': 'Calculate solution molarity from moles and liters and show millimolar concentration.',
+  'wave-speed-calculator': 'Calculate wave speed from frequency and wavelength and show the period relationship.',
+};
+const categoryCopy: Record<string, string> = {
+  finance: 'Model the financial result with transparent inputs, formula, assumptions, and planning context.',
+  health: 'Estimate the health metric for education and planning; it is not a diagnosis or individualized medical advice.',
+  math: 'Solve the mathematical relationship and expose the formula, inputs, and result interpretation.',
+  'date-time': 'Calculate the date or time relationship with explicit boundary and calendar assumptions.',
+  construction: 'Estimate materials or dimensions with practical rounding, waste, and site-condition limitations.',
+  business: 'Model the business metric with explicit inputs, scenario context, and assumptions.',
+  education: 'Calculate the academic result with transparent weights, units, and institution-specific limitations.',
+  science: 'Solve the scientific relationship with named variables, units, and significant-figure guidance.',
+};
+for (const tool of core) {
+  const baseName = tool.title.replace(' Calculator', '').toLowerCase();
+  const copy = highIntentCopy[tool.slug] || `${baseName[0].toUpperCase()}${baseName.slice(1)} calculator with visible formula, assumptions, and result context.`;
+  if (!tool.advanced) tool.description = copy;
+  const phrase = tool.slug.replace(/-calculator$/, '').replaceAll('-', ' ');
+  tool.keywords = [...new Set([`${phrase} calculator`, `how to calculate ${phrase}`, `${phrase} formula`, `${tool.category} calculator`, ...tool.keywords])];
+}
 
 const groups = {
   Length: [['millimeter','mm',.001],['centimeter','cm',.01],['meter','m',1],['kilometer','km',1000],['inch','in',.0254],['foot','ft',.3048],['yard','yd',.9144],['mile','mi',1609.344],['nautical-mile','nmi',1852],['micrometer','µm',1e-6],['nanometer','nm',1e-9]],
