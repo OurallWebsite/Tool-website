@@ -1,0 +1,107 @@
+{
+  "batch": "core-01-finance-health",
+  "researchDate": "2026-09-21",
+  "method": "Search-result discovery plus source-page review; no search-volume numbers are asserted without a keyword-data provider.",
+  "tools": [
+    {
+      "slug": "simple-interest-calculator",
+      "primaryKeyword": "simple interest calculator",
+      "secondaryKeywords": ["simple interest formula", "simple interest calculation", "principal interest calculator", "simple interest vs compound interest"],
+      "longTailQueries": ["how to calculate simple interest", "calculate simple interest on a loan", "simple interest calculator with principal and total amount", "simple interest for months and years"],
+      "searchIntent": "Informational plus immediate calculation; users want interest earned and final amount from principal, annual rate, and time.",
+      "competitorPatterns": ["show I = Prt and A = P(1 + rt)", "support months and years", "return both interest and total amount", "contrast simple and compound interest"],
+      "contentRequirements": ["Show principal, rate, time, interest, and total amount separately", "Explain that rate is annual and time must be expressed in years", "Include a worked month/year example", "Link to compound-interest calculator"],
+      "sources": ["https://www.txst.edu/mathworks/mathworks-curriculum/math-explorations-curriculum/online-learning-tools/personal-financial-literacy/the-math-of-finance-8th-grade-math-teks/8th-grade-simple-and-compound-interest.html", "https://www.calculatorsoup.com/calculators/financial/simple-interest-plus-principal-calculator.php"]
+    },
+    {
+      "slug": "roi-calculator",
+      "primaryKeyword": "ROI calculator",
+      "secondaryKeywords": ["return on investment calculator", "ROI formula", "investment return calculator", "annualized ROI calculator"],
+      "longTailQueries": ["how to calculate ROI", "ROI calculator with gain and cost", "annualized return on investment formula", "marketing ROI calculator"],
+      "searchIntent": "Business/investment evaluation; users need gain, ROI percentage, and time-aware interpretation.",
+      "competitorPatterns": ["separate standard ROI from annualized ROI", "support investment and growth scenarios", "explain positive and negative returns", "warn that standard ROI ignores holding period and hidden costs"],
+      "contentRequirements": ["Show gain/loss, ROI percentage, and optional annualized ROI", "Explain denominator as total investment cost", "Add cost and contribution limitations", "Use scenario language rather than promising investment performance"],
+      "sources": ["https://www.sage.com/en-us/blog/roi-calculator", "https://corporatefinanceinstitute.com/resources/accounting/return-on-investment-roi-formula", "https://www.bdc.ca/en/articles-tools/entrepreneur-toolkit/financial-tools/return-on-total-assets"]
+    },
+    {
+      "slug": "discount-calculator",
+      "primaryKeyword": "discount calculator",
+      "secondaryKeywords": ["percent off calculator", "sale price calculator", "discount percentage calculator", "how much is 20 percent off"],
+      "longTailQueries": ["calculate price after discount", "how to calculate percentage discount", "discount calculator with savings and final price", "stacked discount calculator"],
+      "searchIntent": "Transactional shopping calculation; users want savings and final price quickly.",
+      "competitorPatterns": ["allow any two of original price, discount, and final price", "show savings amount", "distinguish percent-off from fixed-amount discounts", "explain stacked discounts are multiplicative"],
+      "contentRequirements": ["Return original price, discount amount, final price, and effective percentage", "Add reverse mode for missing discount or original price", "Explain tax and stacked-discount assumptions", "Cross-link percentage calculator"],
+      "sources": ["https://www.calculator.net/discount-calculator.html", "https://www.omnicalculator.com/finance/discount"]
+    },
+    {
+      "slug": "tip-calculator",
+      "primaryKeyword": "tip calculator",
+      "secondaryKeywords": ["restaurant tip calculator", "bill splitter", "tip percentage calculator", "tip calculator with tax"],
+      "longTailQueries": ["how much should I tip", "calculate 20 percent tip", "split restaurant bill with tip", "tip on pre-tax or total"],
+      "searchIntent": "Immediate bill calculation with regional etiquette questions; users want tip, total, and per-person amount.",
+      "competitorPatterns": ["preset 10/15/18/20/25% rates", "bill split control", "pre-tax versus total choice", "mobile-first input and instant total"],
+      "contentRequirements": ["Add tax inclusion toggle and split count", "Show tip, total, and per-person values", "Avoid presenting U.S. norms as universal; mention regional variation", "Include restaurant, delivery, taxi, and takeout FAQ variants"],
+      "sources": ["https://tipcalculator.org/", "https://www.irs.gov/taxtopics/tc761", "https://emilypost.com/advice/general-tipping-guide"]
+    },
+    {
+      "slug": "bmr-calculator",
+      "primaryKeyword": "BMR calculator",
+      "secondaryKeywords": ["basal metabolic rate calculator", "Mifflin St Jeor calculator", "resting metabolic rate calculator", "BMR formula"],
+      "longTailQueries": ["how to calculate BMR", "BMR calculator for men and women", "Mifflin St Jeor BMR formula", "BMR vs TDEE calculator"],
+      "searchIntent": "Health estimation and education; users want resting calorie expenditure and often a TDEE next step.",
+      "competitorPatterns": ["require sex, weight, height, and age", "use Mifflin–St Jeor", "show activity multipliers for TDEE", "include healthy-adult limitations"],
+      "contentRequirements": ["Add sex-aware Mifflin–St Jeor inputs", "Clearly distinguish BMR/RMR from TDEE", "Link to TDEE calculator", "Include medical and individual-variation disclaimer"],
+      "sources": ["https://reference.medscape.com/calculator/846/mifflin-st-jeor-equation-calculator", "https://www.qxmd.com/r/2305711", "https://www.qxmd.com/r/15883556"]
+    },
+    {
+      "slug": "body-fat-calculator",
+      "primaryKeyword": "body fat calculator",
+      "secondaryKeywords": ["body fat percentage calculator", "body fat estimate from BMI", "body fat formula", "BMI body fat calculator"],
+      "longTailQueries": ["how to estimate body fat percentage", "body fat calculator from BMI and age", "body fat percentage for men and women", "body fat estimate limitations"],
+      "searchIntent": "Health estimation; users want a screening estimate but need clear limits around body composition.",
+      "competitorPatterns": ["offer sex/age/height/weight or BMI-based methods", "show a percentage and category context", "warn that muscle mass and body composition affect BMI-derived estimates"],
+      "contentRequirements": ["Label the result as an estimate, not a measurement", "Show the exact equation and its population assumptions", "Explain why athletes and older adults may be misclassified", "Link to BMI and waist/health context rather than diagnosis"],
+      "sources": ["https://www.cdc.gov/bmi/adult-calculator/index.html", "https://my.clevelandclinic.org/health/articles/9464-body-mass-index-bmi", "https://www.mayoclinic.org/diseases-conditions/obesity/in-depth/bmi-calculator/itt-20084938"]
+    },
+    {
+      "slug": "ideal-weight-calculator",
+      "primaryKeyword": "ideal weight calculator",
+      "secondaryKeywords": ["ideal body weight calculator", "IBW calculator", "healthy weight range calculator", "weight for height calculator"],
+      "longTailQueries": ["how much should I weigh for my height", "ideal weight by height and gender", "Devine ideal body weight formula", "healthy BMI weight range"],
+      "searchIntent": "Health reference; users expect a range or multiple formula estimates, not one universal target.",
+      "competitorPatterns": ["compare Robinson, Miller, Devine, and Hamwi formulas", "show healthy BMI range", "support metric and imperial units", "explain formula limitations"],
+      "contentRequirements": ["Return multiple formula estimates and a healthy BMI range", "Add sex and height inputs", "Use 'reference range' language instead of ideal/required weight", "Explain age, frame size, muscle mass, and medical context limitations"],
+      "sources": ["https://www.calculator.net/ideal-weight-calculator.html", "https://www.nhlbi.nih.gov/calculate-your-bmi", "https://www.fatcalc.com/ibw-calculator"]
+    },
+    {
+      "slug": "water-intake-calculator",
+      "primaryKeyword": "water intake calculator",
+      "secondaryKeywords": ["daily water intake calculator", "how much water should I drink", "hydration calculator", "water intake by weight"],
+      "longTailQueries": ["water intake calculator by body weight", "water intake calculator with exercise", "how much water to drink in hot weather", "water intake calculator liters and ounces"],
+      "searchIntent": "General wellness estimate; users want a daily target adjusted for weight, activity, and climate.",
+      "competitorPatterns": ["support metric and imperial units", "include activity and climate adjustments", "show liters, ounces, cups, and bottles", "exclude or warn for pediatric and medical cases"],
+      "contentRequirements": ["State the formula and all assumptions", "Make exercise/climate adjustments visible", "Use a range or practical target instead of false precision", "Add pregnancy, kidney, heart, pediatric, and fluid-restriction warnings"],
+      "sources": ["https://bluevua.com/pages/daily-water-intake-calculator", "https://www.nationalacademies.org/read/10925/chapter/6", "https://www.healthychildren.org/English/healthy-living/nutrition/Pages/Choose-Water-for-Healthy-Hydration.aspx"]
+    },
+    {
+      "slug": "running-pace-calculator",
+      "primaryKeyword": "running pace calculator",
+      "secondaryKeywords": ["pace calculator", "running speed calculator", "finish time calculator", "min per mile calculator"],
+      "longTailQueries": ["how to calculate running pace", "pace calculator for 5K 10K half marathon marathon", "convert running pace to speed", "calculate finish time from pace and distance"],
+      "searchIntent": "Sports planning; users may want pace, finish time, distance, or speed from different input pairs.",
+      "competitorPatterns": ["offer calculate pace/time/distance modes", "support km, miles, meters, yards, and event distances", "show finish-time tables for common races", "include pace-speed conversion"],
+      "contentRequirements": ["Add multi-mode solver rather than only distance/time", "Support h:mm:ss and decimal inputs", "Show pace and speed in both km and mile units", "Add 5K, 10K, half-marathon, and marathon examples"],
+      "sources": ["https://www.calculatorsoup.com/calculators/health/pace-calculator.php", "https://www.strava.com/running-pace-calculator", "https://www.calculator.net/pace-calculator.html"]
+    },
+    {
+      "slug": "heart-rate-zone-calculator",
+      "primaryKeyword": "heart rate zone calculator",
+      "secondaryKeywords": ["training heart rate zones", "Zone 2 heart rate calculator", "Karvonen heart rate calculator", "target heart rate calculator"],
+      "longTailQueries": ["how to calculate heart rate zones", "heart rate zones by age", "heart rate reserve calculator", "running heart rate zone calculator"],
+      "searchIntent": "Training guidance; users need zones from age-based max HR or preferably max/resting/threshold HR.",
+      "competitorPatterns": ["support max-HR and heart-rate-reserve methods", "allow measured max/resting/threshold HR", "show five or six zones with descriptions", "explain heat, sport, and individual variability"],
+      "contentRequirements": ["Add optional resting and measured max HR inputs", "Label age-only result as rough estimate", "Show zone ranges and effort descriptions", "Warn that heat, medication, illness, and sport affect HR"],
+      "sources": ["https://www.mcmillanrunning.com/heart-rate-zone-calculator/", "https://health.clevelandclinic.org/exercise-heart-rate-zones-explained", "https://www.myprocoach.net/calculators/hr-zones/"]
+    }
+  ]
+}
