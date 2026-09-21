@@ -90,6 +90,8 @@ const coreSources: Record<string, { label: string; url: string }[]> = {
   'tip-calculator': [{ label: 'TipCalculator.org tipping guidance', url: 'https://tipcalculator.org/' }],
   'compound-interest-calculator': [{ label: 'Investor.gov compound interest calculator', url: 'https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator' }],
   'bmi-calculator': [{ label: 'CDC Adult BMI Calculator and categories', url: 'https://www.cdc.gov/bmi/adult-calculator/index.html' }],
+  'bmr-calculator': [{ label: 'Mifflin–St Jeor resting-energy equation', url: 'https://pubmed.ncbi.nlm.nih.gov/2305711/' }],
+  'tdee-calculator': [{ label: 'Mifflin–St Jeor resting-energy equation', url: 'https://pubmed.ncbi.nlm.nih.gov/2305711/' }],
   'body-fat-calculator': [{ label: 'Deurenberg adult body-fat equation review', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8980724/' }],
   'ideal-weight-calculator': [{ label: 'Calculator.net ideal weight formula reference', url: 'https://www.calculator.net/ideal-weight-calculator.html' }],
   'water-intake-calculator': [{ label: 'Bluevua daily water intake guidance', url: 'https://bluevua.com/pages/daily-water-intake-calculator' }],
