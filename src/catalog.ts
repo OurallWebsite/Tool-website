@@ -321,6 +321,36 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['mph to m/s converter', 'miles per hour to meters per second calculator', 'mph to mps converter', 'how many m/s in a mph', 'mph to m/s conversion table', 'convert mph to m/s', 'm/s to mph reverse conversion'],
     sources: [{ label: 'NIST mile and SI conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters mph-to-m/s examples and table', url: 'https://www.unitconverters.net/speed/miles-per-hour-to-meters-per-second.htm' }],
   },
+  'meter-per-second-to-mile-per-hour-converter': {
+    description: 'Convert meters per second to miles per hour using the exact 2.236936292 mph per m/s relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 m/s = 2.236936292 mph exactly; mph = m/s × 2.236936292; reverse: 1 mph = 0.44704 m/s',
+    keywords: ['m/s to mph converter', 'meters per second to miles per hour calculator', 'mps to mph converter', 'how many mph in 1 m/s', 'm/s to mph conversion table', 'convert m/s to mph', 'mph to m/s reverse conversion'],
+    sources: [{ label: 'NIST SI and mile conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'CheckYourMath m/s-to-mph conversion table', url: 'https://www.checkyourmath.com/convert/speed/per_second_hour/m_per_second_miles_per_hour.php' }],
+  },
+  'kilometer-per-hour-to-knot-converter': {
+    description: 'Convert kilometers per hour to knots using the exact 1.852 km/h per knot relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 kn = 1.852 km/h exactly; knots = km/h ÷ 1.852; reverse: 1 km/h = 0.5399568035 kn',
+    keywords: ['km/h to knots converter', 'kilometers per hour to knots calculator', 'kph to knot converter', 'how many knots in a km/h', 'km/h to knots conversion table', 'convert km/h to knots', 'knots to km/h reverse conversion'],
+    sources: [{ label: 'International knot definition context', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters km/h-to-knot examples and table', url: 'https://www.unitconverters.net/speed/kilometer-hour-to-knot.htm' }],
+  },
+  'knot-to-kilometer-per-hour-converter': {
+    description: 'Convert knots to kilometers per hour using the exact 1.852 km/h per knot relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 kn = 1.852 km/h exactly; km/h = knots × 1.852; reverse: 1 km/h = 0.5399568035 kn',
+    keywords: ['knots to km/h converter', 'knots to kilometers per hour calculator', 'knot to kph converter', 'how many km/h in a knot', 'knots to km/h conversion table', 'convert knots to km/h', 'km/h to knots reverse conversion'],
+    sources: [{ label: 'International knot definition context', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters knot-to-km/h examples and table', url: 'https://www.unitconverters.net/speed/knot-to-kilometer-hour.htm' }],
+  },
+  'mile-per-hour-to-knot-converter': {
+    description: 'Convert miles per hour to knots using the exact 0.868976242 knot per mph relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 mph = 0.868976242 kn exactly; knots = mph × 0.868976242; reverse: 1 kn = 1.150779448 mph',
+    keywords: ['mph to knots converter', 'miles per hour to knots calculator', 'mph to knot converter', 'how many knots in a mph', 'mph to knots conversion table', 'convert mph to knots', 'knots to mph reverse conversion'],
+    sources: [{ label: 'NIST mile and nautical speed conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Conversion.org mph-to-knot factor', url: 'https://conversion.org/speed/miles-per-hour/knot' }],
+  },
+  'knot-to-mile-per-hour-converter': {
+    description: 'Convert knots to miles per hour using the exact 1.150779448 mph per knot relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 kn = 1.150779448 mph exactly; mph = knots × 1.150779448; reverse: 1 mph = 0.868976242 kn',
+    keywords: ['knots to mph converter', 'knots to miles per hour calculator', 'knot to mph converter', 'how many mph in a knot', 'knots to mph conversion table', 'convert knots to mph', 'mph to knots reverse conversion'],
+    sources: [{ label: 'NIST mile and nautical speed conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Omni Calculator knots-to-mph formula', url: 'https://www.omnicalculator.com/conversion/knots-to-mph' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
