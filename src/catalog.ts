@@ -536,6 +536,19 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['Mach to ft/s converter', 'Mach number to feet per second calculator', 'Mach to fps conversion', 'how fast is Mach 2 in ft/s', 'Mach speed in feet per second', 'speed of sound in ft/s', 'ft/s to Mach reverse conversion'],
     sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator Mach-to-ft/s formula and table', url: 'https://www.inchcalculator.com/convert/mach-to-foot-per-second/' }],
   },
+  'mach-to-knot-converter': {
+    description: 'Convert Mach to knots using the site’s 343 m/s reference speed of sound and the exact nautical-mile relationship, while explaining local-condition limits.',
+    formula: 'Reference conversion: knots = Mach × 666.738661; reverse: 1 knot = 0.001499838030 Mach. Mach depends on local sound speed.',
+    params: [343, 1852 / 3600],
+    keywords: ['Mach to knots converter', 'Mach to knots calculator', 'Mach number to nautical speed', 'how many knots is Mach 1', 'Mach speed in knots', 'speed of sound in knots', 'knots to Mach reverse conversion'],
+    sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'MetaCAD Mach-to-knots reference and table', url: 'https://metacad.io/en/converters/speed/mach-to-knots/' }],
+  },
+  'mach-to-speed-of-light-converter': {
+    description: 'Convert Mach to the speed of light in vacuum using the site’s 343 m/s reference speed of sound, with scientific notation and an explicit condition caveat.',
+    formula: 'Reference conversion: c = Mach × 1.144124847e-6; reverse: 1 c = 874030.4898 Mach. The Mach result changes with local sound speed.',
+    keywords: ['Mach to speed of light converter', 'Mach to c calculator', 'Mach number to light speed', 'what fraction of light speed is Mach 1', 'Mach as a fraction of c', 'speed of light in Mach', 'c to Mach reverse conversion'],
+    sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Metric Conversions Mach-to-light-speed reference', url: 'https://www.metric-conversions.org/speed/mach-to-light-speed.htm' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
