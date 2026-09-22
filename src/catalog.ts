@@ -194,13 +194,21 @@ const groups = {
   Volume: [['milliliter','mL',.001],['liter','L',1],['cubic-meter','m³',1000],['teaspoon','tsp',.00492892159375],['tablespoon','tbsp',.01478676478125],['cup','cup',.2365882365],['pint','pt',.473176473],['gallon','gal',3.785411784]],
   Speed: [['meter-per-second','m/s',1],['kilometer-per-hour','km/h',.2777777778],['mile-per-hour','mph',.44704],['foot-per-second','ft/s',.3048],['knot','kn',.514444],['mach','Mach',343],['speed-of-light','c',299792458]],
 } as const;
+const converterOverrides: Record<string, Partial<Tool>> = {
+  'meter-to-foot-converter': {
+    description: 'Convert meters to international feet with the exact 0.3048 m per foot relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 m = 3.280839895 ft exactly; feet = meters ÷ 0.3048; reverse: 1 ft = 0.3048 m exactly',
+    keywords: ['meter to feet converter', 'meters to feet calculator', 'm to ft converter', 'how many feet in a meter', 'meters to feet conversion table', 'convert m to ft', 'feet to meters reverse conversion'],
+    sources: [{ label: 'NIST international foot definition and exact factor', url: 'https://www.nist.gov/pml/us-surveyfoot/revised-unit-conversion-factors' }, { label: 'RapidTables meter-to-feet examples and table', url: 'https://www.rapidtables.com/convert/length/meter-to-feet.html' }],
+  },
+};
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
   const factor = Number(from[2]) / Number(to[2]);
   const inverse = 1 / factor;
   const fromName = String(from[0]).replaceAll('-', ' ');
   const toName = String(to[0]).replaceAll('-', ' ');
-  converters.push({
+  const generated: Tool = {
     category: 'converters',
     group,
     slug: `${from[0]}-to-${to[0]}-converter`,
@@ -212,6 +220,8 @@ for (const [group, units] of Object.entries(groups)) for (const from of units) f
     unit: String(to[1]),
     params: [Number(from[2]), Number(to[2])],
     keywords: [`${from[1]} to ${to[1]} converter`, `${fromName} to ${toName} conversion`, `how many ${to[1]} in a ${from[1]}`, `${group.toLowerCase()} conversion`],
-  });
+  };
+  if (converterOverrides[generated.slug]) Object.assign(generated, converterOverrides[generated.slug]);
+  converters.push(generated);
 }
 export const tools=[...core,...converters];export const featured=tools.filter(tool=>tool.featured);export const byCategory=(category:string)=>tools.filter(tool=>tool.category===category);export const findTool=(category:string,slug:string)=>tools.find(tool=>tool.category===category&&tool.slug===slug);
