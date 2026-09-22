@@ -61,7 +61,7 @@ const highIntentCopy: Record<string, string> = {
   'brick-calculator': 'Estimate brick count from wall area and brick face area with practical rounding guidance.',
   'markup-calculator': 'Calculate markup, selling price, margin, and profit per unit from cost and pricing.',
   'break-even-calculator': 'Calculate break-even units, break-even sales revenue, contribution margin, and target-profit volume from fixed costs, price, and variable cost.',
-  'cagr-calculator': 'Calculate compound annual growth rate, total growth, and the ending-value relationship.',
+  'cagr-calculator': 'Calculate compound annual growth rate (CAGR), annualized return, total growth, ending multiple, and absolute change from beginning value, ending value, and years.',
   'conversion-rate-calculator': 'Calculate conversion rate, non-converting visitors, and conversions per 1,000 visits.',
   'attendance-calculator': 'Calculate attendance percentage, missed classes, and the effect of attending one more class.',
   'reading-time-calculator': 'Estimate reading time from word count and reading speed in minutes and hours.',
@@ -99,7 +99,6 @@ const coreSources: Record<string, { label: string; url: string }[]> = {
   'running-pace-calculator': [{ label: 'CalculatorSoup pace calculator reference', url: 'https://www.calculatorsoup.com/calculators/health/pace-calculator.php' }],
   'heart-rate-zone-calculator': [{ label: 'McMillan Running heart-rate zone reference', url: 'https://www.mcmillanrunning.com/heart-rate-zone-calculator/' }],
   'paint-calculator': [{ label: 'Behr paint calculator guidance', url: 'https://www.behr.com/consumer/how-to/interior/paint-calculator' }],
-  'cagr-calculator': [{ label: 'Investopedia CAGR definition', url: 'https://www.investopedia.com/terms/c/cagr.asp' }],
   'percentage-calculator': [{ label: 'Pearson percentage formulas and examples', url: 'https://www.pearson.com/channels/calculators/percentage-calculator' }],
   'age-calculator': [{ label: 'Pearson exact age calculator reference', url: 'https://www.pearson.com/channels/calculators/age-calculator' }],
   'date-difference-calculator': [{ label: 'Timeanddate date-duration reference', url: 'https://www.timeanddate.com/date/duration.html' }],
@@ -113,6 +112,7 @@ const coreSources: Record<string, { label: string; url: string }[]> = {
   'profit-margin-calculator': [{ label: 'BDC net profit margin guidance', url: 'https://www.bdc.ca/en/articles-tools/entrepreneur-toolkit/financial-tools/net-profit-margin' }],
   'markup-calculator': [{ label: 'Sage markup formula guidance', url: 'https://www.sage.com/en-us/blog/markup-calculator/' }],
   'break-even-calculator': [{ label: 'Pearson break-even point formula', url: 'https://www.pearson.com/channels/calculators/break-even-point-calculator' }, { label: 'U.S. Small Business Administration break-even guidance', url: 'https://legacy.sba.gov/business-guide/plan-your-business/calculate-your-startup-costs/break-even-point' }],
+  'cagr-calculator': [{ label: 'Investopedia CAGR definition and formula', url: 'https://www.investopedia.com/terms/c/cagr.asp' }, { label: 'Wall Street Prep CAGR formula reference', url: 'https://www.wallstreetprep.com/knowledge/cagr-compound-annual-growth-rate/' }, { label: 'CalculatorSoup CAGR calculator reference', url: 'https://www.calculatorsoup.com/calculators/financial/cagr-calculator.php' }],
   'gpa-calculator': [{ label: 'Pearson GPA scale and quality-points reference', url: 'https://www.pearson.com/channels/calculators/gpa-calculator' }],
   'ohms-law-calculator': [{ label: "DigiKey Ohm's Law calculator reference", url: 'https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-ohms' }],
 };
@@ -122,6 +122,7 @@ for (const tool of core) {
   if (!tool.advanced) tool.description = copy;
   if (tool.slug === 'ohms-law-calculator') tool.formula = 'Choose any two of V, I, R, or P; derive the missing value with Ohm’s law and the power relationships.';
   if (tool.slug === 'gpa-calculator') tool.formula = 'GPA = total quality points ÷ attempted credits; interpret the result on the selected institutional scale.';
+  if (tool.slug === 'cagr-calculator') { tool.formula = 'CAGR = (ending value ÷ beginning value)^(1 ÷ years) − 1; total growth = ending ÷ beginning − 1'; tool.keywords = [...new Set([...tool.keywords, 'compound annual growth rate calculator', 'annualized return calculator', 'investment growth rate calculator', 'CAGR formula', 'how to calculate CAGR', 'future value with CAGR'])]; }
   if (coreSources[tool.slug]) tool.sources = coreSources[tool.slug];
   const phrase = tool.slug.replace(/-calculator$/, '').replaceAll('-', ' ');
   tool.keywords = [...new Set([`${phrase} calculator`, `how to calculate ${phrase}`, `${phrase} formula`, `${tool.category} calculator`, ...tool.keywords])];
