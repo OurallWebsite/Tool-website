@@ -473,6 +473,37 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['speed of light to km/h converter', 'c to kilometers per hour calculator', 'light speed in km/h', 'how many km/h is 1 c', 'speed of light conversion table', '1079252848.8 km/h', 'km/h to c reverse conversion'],
     sources: [{ label: 'NIST definition of the metre and exact speed of light', url: 'https://www.nist.gov/si-redefinition/meter' }, { label: 'Inch Calculator c-to-km/h formula and table', url: 'https://www.inchcalculator.com/convert/speed-of-light-to-kilometer-per-hour/' }],
   },
+  'mile-per-hour-to-speed-of-light-converter': {
+    description: 'Convert miles per hour to the speed of light in vacuum using the exact 1.491164931e-9 c per mph relationship and scientific notation.',
+    formula: 'Speed of light fraction c = mph × 1.491164931e-9; reverse: 1 c = 670616629.3844 mph exactly.',
+    keywords: ['mph to speed of light converter', 'miles per hour to c calculator', 'mph to light speed conversion', 'what fraction of light speed is mph', 'miles per hour as a fraction of c', 'speed of light in mph', 'c to mph reverse conversion'],
+    sources: [{ label: 'NIST definition of the metre and exact speed of light', url: 'https://www.nist.gov/si-redefinition/meter' }, { label: 'Inch Calculator mph-to-c formula and table', url: 'https://www.inchcalculator.com/convert/mile-per-hour-to-speed-of-light/' }],
+  },
+  'speed-of-light-to-mile-per-hour-converter': {
+    description: 'Convert speed of light in vacuum to miles per hour using the exact 670,616,629.3844 mph per c relationship.',
+    formula: 'mph = c × 670616629.3844; reverse: 1 mph = 1.491164931e-9 c. The result refers to light speed in vacuum.',
+    keywords: ['speed of light to mph converter', 'c to miles per hour calculator', 'light speed in mph', 'how many mph is 1 c', 'speed of light conversion table', '670616629 mph', 'mph to c reverse conversion'],
+    sources: [{ label: 'NIST definition of the metre and exact speed of light', url: 'https://www.nist.gov/si-redefinition/meter' }, { label: 'Inch Calculator c-to-mph formula and table', url: 'https://www.inchcalculator.com/convert/speed-of-light-to-mile-per-hour' }],
+  },
+  'speed-of-light-to-foot-per-second-converter': {
+    description: 'Convert speed of light in vacuum to feet per second using the exact 983,571,056.4304 ft/s per c relationship.',
+    formula: 'ft/s = c × 983571056.4304; reverse: 1 ft/s = 1.016703362e-9 c. The result refers to light speed in vacuum.',
+    keywords: ['speed of light to ft/s converter', 'c to feet per second calculator', 'light speed in feet per second', 'how many ft/s is 1 c', 'speed of light conversion table', '983571056 ft/s', 'ft/s to c reverse conversion'],
+    sources: [{ label: 'NIST definition of the metre and exact speed of light', url: 'https://www.nist.gov/si-redefinition/meter' }, { label: 'Inch Calculator c-to-ft/s formula and table', url: 'https://www.inchcalculator.com/convert/speed-of-light-to-foot-per-second/' }],
+  },
+  'speed-of-light-to-knot-converter': {
+    description: 'Convert speed of light in vacuum to knots using the exact 582,749,918.3585 knots per c relationship and a transparent nautical-speed formula.',
+    formula: 'knots = c × 582749918.3585 using 1 knot = 1852/3600 m/s; reverse: 1 knot = 1.716001956e-9 c.',
+    params: [299792458, 1852 / 3600],
+    keywords: ['speed of light to knots converter', 'c to knots calculator', 'light speed in knots', 'how many knots is 1 c', 'speed of light nautical miles per hour', '582749918 knots', 'knots to c reverse conversion'],
+    sources: [{ label: 'NIST definition of the metre and exact speed of light', url: 'https://www.nist.gov/si-redefinition/meter' }, { label: 'Inch Calculator c-to-knots formula and table', url: 'https://www.inchcalculator.com/convert/speed-of-light-to-knot/' }],
+  },
+  'speed-of-light-to-mach-converter': {
+    description: 'Convert speed of light in vacuum to Mach using the site’s 343 m/s reference speed of sound, with a clear caveat that Mach depends on local conditions.',
+    formula: 'Reference conversion: Mach = c × 874030.4898; reverse: 1 Mach = 1.144126e-6 c. The Mach result changes with local sound speed.',
+    keywords: ['speed of light to Mach converter', 'c to Mach calculator', 'light speed in Mach', 'how many Mach is 1 c', 'Mach number from light speed', 'speed of sound reference', 'Mach to c reverse conversion'],
+    sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator c-to-Mach formula and table', url: 'https://www.inchcalculator.com/convert/speed-of-light-to-mach/' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
