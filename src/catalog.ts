@@ -45,6 +45,7 @@ const validatedRemaining: Record<string, Partial<Tool>> = {
   'electric-power-calculator': { inputs:[{key:'v0',label:'Voltage (V)',value:230,type:'number',min:0,max:1000000,step:.01,help:'Voltage in volts for a DC or purely resistive model.'},{key:'v1',label:'Current (A)',value:2,type:'number',min:0,max:1000000,step:.01,help:'Current in amperes.'}] },
   'density-calculator': { inputs:[{key:'v0',label:'Mass',value:100,type:'number',min:0,max:1000000000,step:.01,help:'Mass in any consistent unit.'},{key:'v1',label:'Volume',value:25,type:'number',min:0,max:1000000000,step:.01,help:'Volume in a matching consistent unit.'}] },
   'molarity-calculator': { inputs:[{key:'v0',label:'Moles of solute',value:2,type:'number',min:0,max:1000000000,step:.0001,help:'Amount of solute in moles.'},{key:'v1',label:'Solution volume (L)',value:.5,type:'number',min:0,max:1000000000,step:.0001,help:'Total solution volume in liters, not solvent volume.'}] },
+  'wave-speed-calculator': { inputs:[{key:'v0',label:'Frequency (Hz)',value:440,type:'number',min:0,max:1000000000,step:.0001,help:'Wave cycles per second in hertz.'},{key:'v1',label:'Wavelength (m)',value:.78,type:'number',min:0,max:1000000000,step:.0001,help:'Distance between matching points of successive waves in meters.'}] },
   'inventory-turnover-calculator': { inputs:[{key:'v0',label:'Cost of goods sold (COGS)',value:120000,type:'number',min:.01,step:.01,help:'Direct costs of goods sold for the measurement period.'},{key:'v1',label:'Average inventory',value:20000,type:'number',min:.01,step:.01,help:'Average inventory value for the same measurement period.'}] },
 };
 for (const tool of core) if (validatedRemaining[tool.slug]) Object.assign(tool, validatedRemaining[tool.slug]);
@@ -96,7 +97,7 @@ const highIntentCopy: Record<string, string> = {
   'electric-power-calculator': 'Solve electrical power, voltage, current, or resistance using P = VI and resistive-load rearrangements, with kilowatts and energy-per-hour context.',
   'density-calculator': 'Solve density, mass, or volume using ρ = m/V, with specific-volume context, consistent-unit guidance, and inverse modes.',
   'molarity-calculator': 'Solve molarity, moles, or solution volume using M = n/V, with molar and millimolar outputs and clear solution-volume guidance.',
-  'wave-speed-calculator': 'Calculate wave speed from frequency and wavelength and show the period relationship.',
+  'wave-speed-calculator': 'Solve wave speed, frequency, or wavelength using v = fλ, with period and unit context for the same wave and medium.',
 };
 const categoryCopy: Record<string, string> = {
   finance: 'Model the financial result with transparent inputs, formula, assumptions, and planning context.',
@@ -154,6 +155,7 @@ const coreSources: Record<string, { label: string; url: string }[]> = {
   'electric-power-calculator': [{ label: 'Pearson electrical-power formulas and AC power-factor guidance', url: 'https://www.pearson.com/channels/calculators/electrical-power-calculator' }, { label: 'EEPower P = VI = I²R = V²/R reference', url: 'https://eepower.com/tools/electrical-power-calculator' }],
   'density-calculator': [{ label: 'CalculatorSoup density formula and inverse modes', url: 'https://www.calculatorsoup.com/calculators/physics/density.php' }, { label: 'SERC density and specific-gravity teaching reference', url: 'https://serc.carleton.edu/mathyouneed/density/index.html' }],
   'molarity-calculator': [{ label: 'Khan Academy molarity definition and formula', url: 'https://www.khanacademy.org/science/ap-chemistry-beta/x2eef969c74e0d802:intermolecular-forces-and-properties/x2eef969c74e0d802:solutions-and-mixtures/v/molarity' }, { label: 'R&D Systems molarity equation and solution-volume guidance', url: 'https://www.rndsystems.com/resources/calculators/molarity-calculator' }],
+  'wave-speed-calculator': [{ label: 'BBC wave speed equation and units', url: 'https://www.bbc.co.uk/bitesize/guides/zgf97p3/revision/2' }, { label: 'Omni Calculator wave speed formula and variables', url: 'https://www.omnicalculator.com/physics/wave-speed' }],
   'ohms-law-calculator': [{ label: "DigiKey Ohm's Law calculator reference", url: 'https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-ohms' }],
 };
 for (const tool of core) {
@@ -179,6 +181,7 @@ for (const tool of core) {
   if (tool.slug === 'electric-power-calculator') { tool.formula = 'Power: P = V × I; for a resistive load P = I²R = V²/R; energy = power × time'; tool.keywords = [...new Set([...tool.keywords, 'electric power calculator', 'electrical power calculator', 'P VI calculator', 'watts from volts and amps', 'power voltage current calculator', 'kilowatt calculator', 'power consumption calculator'])]; }
   if (tool.slug === 'density-calculator') { tool.formula = 'Density: ρ = mass ÷ volume; inverse forms are mass = ρV and volume = mass ÷ ρ'; tool.keywords = [...new Set([...tool.keywords, 'density calculator', 'mass volume density calculator', 'density formula', 'how to calculate density', 'specific volume calculator', 'density mass volume', 'density in g/cm3'])]; }
   if (tool.slug === 'molarity-calculator') { tool.formula = 'Molarity: M = moles of solute ÷ solution volume in liters; inverse forms are moles = MV and volume = moles ÷ M'; tool.keywords = [...new Set([...tool.keywords, 'molarity calculator', 'molar concentration calculator', 'molarity formula', 'how to calculate molarity', 'moles to molarity calculator', 'molarity from moles and volume', 'millimolar calculator'])]; }
+  if (tool.slug === 'wave-speed-calculator') { tool.formula = 'Wave speed: v = frequency × wavelength; inverse forms are frequency = v ÷ λ and wavelength = v ÷ f; period T = 1 ÷ f'; tool.keywords = [...new Set([...tool.keywords, 'wave speed calculator', 'wave speed formula', 'frequency wavelength speed calculator', 'wavelength calculator', 'how to calculate wave speed', 'wave frequency calculator', 'wave period calculator'])]; }
   if (coreSources[tool.slug]) tool.sources = coreSources[tool.slug];
   const phrase = tool.slug.replace(/-calculator$/, '').replaceAll('-', ' ');
   tool.keywords = [...new Set([`${phrase} calculator`, `how to calculate ${phrase}`, `${phrase} formula`, `${tool.category} calculator`, ...tool.keywords])];
