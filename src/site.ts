@@ -1,4 +1,4 @@
-export const SITE={name:'CalcWise',domain:'https://tool-website-ayu.pages.dev',email:'hello@example.com',adsenseClient:'',enableAds:false};
+export const SITE={name:'CalcWorldAI',domain:'https://calcworldai.com',email:'hello@calcworldai.com',adsenseClient:'',enableAds:false};
 export const locales=['en','de','fr','it','ja','es','pt'] as const; export type Lang=typeof locales[number];
 export const localeNames:Record<Lang,string>={en:'English',de:'Deutsch',fr:'Français',it:'Italiano',ja:'日本語',es:'Español',pt:'Português'};
 export const ui={
