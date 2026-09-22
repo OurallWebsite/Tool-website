@@ -411,6 +411,36 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['knots to ft/s converter', 'knots to feet per second calculator', 'knot to fps converter', 'how many ft/s in 1 knot', 'knots to ft/s conversion table', 'convert knots to ft/s', 'ft/s to knots reverse conversion'],
     sources: [{ label: 'NIST SI, nautical-mile, and international foot conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator knots-to-ft/s formula and table', url: 'https://www.inchcalculator.com/convert/knot-to-foot-per-second/' }],
   },
+  'meter-per-second-to-mach-converter': {
+    description: 'Convert meters per second to Mach using the site’s 343 m/s reference speed of sound, with the important note that Mach varies with temperature, altitude, and medium.',
+    formula: 'Reference conversion: Mach = m/s ÷ 343; reverse: 1 Mach = 343 m/s. Mach is a speed ratio, so real-world values vary with local sound speed.',
+    keywords: ['m/s to Mach converter', 'meters per second to Mach calculator', 'mps to Mach conversion', 'how fast is 100 m/s in Mach', 'Mach number from velocity', 'speed of sound calculator', 'Mach to m/s reverse conversion'],
+    sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator m/s and Mach reference factor', url: 'https://www.inchcalculator.com/convert/from-meter-per-second' }],
+  },
+  'mach-to-meter-per-second-converter': {
+    description: 'Convert Mach to meters per second using the site’s 343 m/s reference speed of sound, while explaining why Mach is not a universal fixed speed.',
+    formula: 'Reference conversion: m/s = Mach × 343; reverse: 1 m/s = 1 ÷ 343 Mach. Actual speed depends on local temperature, altitude, and medium.',
+    keywords: ['Mach to m/s converter', 'Mach number to meters per second calculator', 'Mach to meters per second conversion', 'how fast is Mach 1 in m/s', 'Mach speed calculator', 'speed of sound in m/s', 'm/s to Mach reverse conversion'],
+    sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator Mach-to-m/s formula and table', url: 'https://www.inchcalculator.com/convert/mach-to-meter-per-second/' }],
+  },
+  'kilometer-per-hour-to-mach-converter': {
+    description: 'Convert kilometers per hour to Mach using the site’s 1,234.8 km/h reference for Mach 1, with a clear caveat about changing atmospheric conditions.',
+    formula: 'Reference conversion: Mach = km/h ÷ 1234.8; reverse: 1 Mach = 1234.8 km/h. The local speed of sound changes with temperature, altitude, and medium.',
+    keywords: ['km/h to Mach converter', 'kilometers per hour to Mach calculator', 'kph to Mach conversion', 'how fast is 1000 km/h in Mach', 'Mach number from km/h', 'speed of sound km/h', 'Mach to km/h reverse conversion'],
+    sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator km/h-to-Mach formula and table', url: 'https://www.inchcalculator.com/convert/kilometer-per-hour-to-mach/' }],
+  },
+  'mile-per-hour-to-mach-converter': {
+    description: 'Convert miles per hour to Mach using the site’s 767.269148 mph reference for Mach 1, with context on why the real speed represented by Mach changes by conditions.',
+    formula: 'Reference conversion: Mach = mph ÷ 767.269148; reverse: 1 Mach = 767.269148 mph. Mach is a ratio to local sound speed, not a fixed universal velocity.',
+    keywords: ['mph to Mach converter', 'miles per hour to Mach calculator', 'mph to Mach conversion', 'how fast is 500 mph in Mach', 'Mach number from mph', 'speed of sound mph', 'Mach to mph reverse conversion'],
+    sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator mph-to-Mach formula and table', url: 'https://www.inchcalculator.com/convert/mile-per-hour-to-mach/' }],
+  },
+  'mach-to-kilometer-per-hour-converter': {
+    description: 'Convert Mach to kilometers per hour using the site’s 1,234.8 km/h reference for Mach 1, and explain the atmospheric assumptions behind the result.',
+    formula: 'Reference conversion: km/h = Mach × 1234.8; reverse: 1 km/h = 1 ÷ 1234.8 Mach. Actual Mach speed varies with local sound speed.',
+    keywords: ['Mach to km/h converter', 'Mach number to kilometers per hour calculator', 'Mach to kph conversion', 'how fast is Mach 2 in km/h', 'Mach speed in kilometers per hour', 'speed of sound km/h', 'km/h to Mach reverse conversion'],
+    sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator Mach-to-km/h formula and table', url: 'https://www.inchcalculator.com/convert/mach-to-kilometer-per-hour/' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
