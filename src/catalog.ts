@@ -1106,6 +1106,66 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     formula: '1 m = 1,000 mm exactly; millimeters = meters × 1,000; reverse: 1 mm = 0.001 m',
     keywords: ['meters to millimeters converter', 'm to mm calculator', 'meter to millimeter converter', 'how many millimeters in a meter', 'm to mm conversion table', 'convert m to mm', 'millimeters to meters reverse conversion'],
     sources: [{ label: 'NIST SI length conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters meter-to-millimeter formula and example', url: 'https://www.unitconverters.net/length/m-to-mm.htm' }],
+  },
+  'meter-to-centimeter-converter': {
+    description: 'Convert meters to centimeters using the exact 100 centimeters per meter relationship, with a worked example, inverse factor, metric-prefix context, and practical rounding guidance.',
+    formula: '1 m = 100 cm exactly; centimeters = meters × 100; reverse: 1 cm = 0.01 m',
+    keywords: ['meter to centimeter converter', 'meters to cm calculator', 'm to cm converter', 'how many centimeters in a meter', 'meters to centimeters conversion table', 'convert m to cm', 'cm to meters reverse conversion'],
+    sources: [{ label: 'NIST Guide to SI length conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Metric-Conversions meter-to-centimeter formula and examples', url: 'https://www.metric-conversions.org/length/meters-to-centimeters.htm' }],
+  },
+  'meter-to-inch-converter': {
+    description: 'Convert meters to international inches using the exact 2.54 cm per inch definition, with precise decimal output, a worked example, reverse conversion, and rounding guidance.',
+    formula: '1 m = 39.37007874015748 in exactly; inches = meters × 39.37007874015748; reverse: 1 in = 0.0254 m',
+    keywords: ['meter to inch converter', 'meters to inches calculator', 'm to in converter', 'how many inches in a meter', 'meters to inches conversion table', 'convert m to in', 'inches to meters reverse conversion'],
+    sources: [{ label: 'NIST Guide to SI exact inch definition', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator meter-to-inch formula and fraction guidance', url: 'https://www.inchcalculator.com/convert/meter-to-inch' }],
+  },
+  'meter-to-mile-converter': {
+    description: 'Convert meters to international statute miles using the exact 1,609.344 meters per mile relationship, with a worked example, precise results, reverse conversion, and rounding guidance.',
+    formula: '1 mi = 1,609.344 m exactly; miles = meters ÷ 1,609.344; reverse: 1 m = 0.0006213711922373339 mi',
+    keywords: ['meter to mile converter', 'meters to miles calculator', 'm to mi converter', 'how many miles in a meter', 'meters to miles conversion table', 'convert m to mi', 'miles to meters reverse conversion'],
+    sources: [{ label: 'NIST exact mile and meter conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Omni Calculator meter-to-mile formula and example', url: 'https://www.omnicalculator.com/conversion/meter-to-mile-conversion' }],
+  },
+  'meter-to-nautical-mile-converter': {
+    description: 'Convert meters to international nautical miles for navigation and maritime measurements using the exact 1,852-meter definition, with a worked example and reverse conversion.',
+    formula: '1 international nautical mile = 1,852 m exactly; nautical miles = meters ÷ 1,852; reverse: 1 m = 0.0005399568034557236 nmi',
+    keywords: ['meter to nautical mile converter', 'meters to nautical miles calculator', 'm to nmi converter', 'how many meters in a nautical mile', 'meters to nmi conversion table', 'convert m to nautical miles', 'nautical miles to meters reverse conversion'],
+    sources: [{ label: 'UnitConverters international nautical mile definition and examples', url: 'https://www.unitconverters.net/length/meter-to-nautical-mile-international.htm' }, { label: 'CheckYourMath meter-to-nautical-mile formula', url: 'https://www.checkyourmath.com/convert/length/m_nautical_miles.php' }],
+  },
+  'meter-to-micrometer-converter': {
+    description: 'Convert meters to micrometers (microns) using the exact one-millionth-meter relationship, with scientific-notation-friendly results, a worked example, and reverse conversion.',
+    formula: '1 m = 1,000,000 µm exactly; micrometers = meters × 1,000,000; reverse: 1 µm = 0.000001 m',
+    keywords: ['meter to micrometer converter', 'meters to microns calculator', 'm to µm converter', 'how many micrometers in a meter', 'meters to micrometers conversion table', 'convert m to microns', 'micrometers to meters reverse conversion'],
+    sources: [{ label: 'UnitConverters meter-to-micrometer formula and table', url: 'https://www.unitconverters.net/length/meter-to-micrometer.htm' }, { label: 'Inch Calculator meter-to-micrometer conversion guidance', url: 'https://www.inchcalculator.com/convert/meter-to-micrometer/' }],
+  },
+  'meter-to-nanometer-converter': {
+    description: 'Convert meters to nanometers using the exact one-billionth-meter relationship, with scientific notation, a worked example, and reverse conversion for optics and nanotechnology measurements.',
+    formula: '1 m = 1,000,000,000 nm exactly; nanometers = meters × 1,000,000,000; reverse: 1 nm = 0.000000001 m',
+    keywords: ['meter to nanometer converter', 'meters to nanometers calculator', 'm to nm converter', 'how many nanometers in a meter', 'meters to nanometers conversion table', 'convert m to nm', 'nanometers to meters reverse conversion'],
+    sources: [{ label: 'UnitConverters meter-to-nanometer formula and table', url: 'https://www.unitconverters.net/length/meter-to-nanometer.htm' }, { label: 'Calculator Academy exact meter-to-nanometer formula', url: 'https://calculator.academy/m-to-nanometers-conversion-calculator' }],
+  },
+  'kilometer-to-millimeter-converter': {
+    description: 'Convert kilometers to millimeters using the exact one-million-millimeters-per-kilometer relationship, with a worked example, metric-prefix context, and reverse conversion.',
+    formula: '1 km = 1,000,000 mm exactly; millimeters = kilometers × 1,000,000; reverse: 1 mm = 0.000001 km',
+    keywords: ['kilometer to millimeter converter', 'kilometers to mm calculator', 'km to mm converter', 'how many millimeters in a kilometer', 'kilometers to millimeters conversion table', 'convert km to mm', 'millimeters to kilometers reverse conversion'],
+    sources: [{ label: 'UnitConverters kilometer-to-millimeter formula and examples', url: 'https://www.unitconverters.net/length/kilometer-to-millimeter.htm' }, { label: 'CheckYourMath km-to-mm formula and worked conversion', url: 'https://www.checkyourmath.com/convert/length/km_mm.php' }],
+  },
+  'kilometer-to-centimeter-converter': {
+    description: 'Convert kilometers to centimeters using the exact 100,000-centimeters-per-kilometer relationship, with a worked example, metric-prefix context, and reverse conversion.',
+    formula: '1 km = 100,000 cm exactly; centimeters = kilometers × 100,000; reverse: 1 cm = 0.00001 km',
+    keywords: ['kilometer to centimeter converter', 'kilometers to cm calculator', 'km to cm converter', 'how many centimeters in a kilometer', 'kilometers to centimeters conversion table', 'convert km to cm', 'centimeters to kilometers reverse conversion'],
+    sources: [{ label: 'RapidTables km-to-cm formula and conversion table', url: 'https://www.rapidtables.com/convert/length/km-to-cm.html' }, { label: 'Inch Calculator km-to-cm formula and examples', url: 'https://www.inchcalculator.com/convert/kilometer-to-centimeter/' }],
+  },
+  'kilometer-to-inch-converter': {
+    description: 'Convert kilometers to international inches using the exact 2.54-centimeter-per-inch definition, with high-precision output, a worked example, and reverse conversion.',
+    formula: '1 km = 39,370.07874015748 in exactly; inches = kilometers × 39,370.07874015748; reverse: 1 in = 0.0000254 km',
+    keywords: ['kilometer to inch converter', 'kilometers to inches calculator', 'km to in converter', 'how many inches in a kilometer', 'kilometers to inches conversion table', 'convert km to in', 'inches to kilometers reverse conversion'],
+    sources: [{ label: 'UnitConverters km-to-inch exact conversion table', url: 'https://www.unitconverters.net/length/kilometer-to-inch.htm' }, { label: 'Inch Calculator km-to-inch result and fraction guidance', url: 'https://www.inchcalculator.com/convert/kilometer-to-inch/' }],
+  },
+  'kilometer-to-foot-converter': {
+    description: 'Convert kilometers to international feet using the exact 0.3048-meter-per-foot definition, with precise decimal output, a worked example, and reverse conversion.',
+    formula: '1 km = 3,280.839895013123 ft exactly; feet = kilometers × 3,280.839895013123; reverse: 1 ft = 0.0003048 km',
+    keywords: ['kilometer to foot converter', 'kilometers to feet calculator', 'km to ft converter', 'how many feet in a kilometer', 'kilometers to feet conversion table', 'convert km to ft', 'feet to kilometers reverse conversion'],
+    sources: [{ label: 'UnitConverters km-to-foot exact conversion table', url: 'https://www.unitconverters.net/length/kilometer-to-foot.htm' }, { label: 'RapidTables km-to-feet formula and conversion table', url: 'https://www.rapidtables.com/convert/length/km-to-feet.html' }],
   },};
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
