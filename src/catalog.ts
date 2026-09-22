@@ -225,6 +225,36 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['feet to yards converter', 'feet to yards calculator', 'ft to yd converter', 'how many yards in a foot', 'feet to yards conversion table', 'convert ft to yd', 'yards to feet reverse conversion'],
     sources: [{ label: 'NIST customary length relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables feet-to-yards examples and table', url: 'https://www.rapidtables.com/convert/length/feet-to-yard.html' }],
   },
+  'yard-to-foot-converter': {
+    description: 'Convert international yards to feet using the exact 3 feet per yard relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 yd = 3 ft exactly; feet = yards × 3; reverse: 1 ft = 0.3333333333 yd',
+    keywords: ['yards to feet converter', 'yards to feet calculator', 'yd to ft converter', 'how many feet in a yard', 'yards to feet conversion table', 'convert yd to ft', 'feet to yards reverse conversion'],
+    sources: [{ label: 'NIST customary length relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables yards-to-feet examples and table', url: 'https://www.rapidtables.com/convert/length/yard-to-feet.html' }],
+  },
+  'inch-to-centimeter-converter': {
+    description: 'Convert inches to centimeters using the exact 2.54 cm per inch relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 in = 2.54 cm exactly; centimeters = inches × 2.54; reverse: 1 cm = 0.3937007874 in',
+    keywords: ['inches to centimeters converter', 'inches to cm calculator', 'in to cm converter', 'how many cm in an inch', 'inches to cm conversion table', 'convert inches to centimeters', 'cm to inches reverse conversion'],
+    sources: [{ label: 'NIST Guide to SI exact inch definition', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'CalculatorSoup inches-to-centimeters formula', url: 'https://www.calculatorsoup.com/calculators/conversions/inches-to-cm.php' }],
+  },
+  'centimeter-to-inch-converter': {
+    description: 'Convert centimeters to inches using the exact 2.54 cm per inch relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 in = 2.54 cm exactly; inches = centimeters ÷ 2.54; reverse: 1 cm = 0.3937007874 in',
+    keywords: ['centimeters to inches converter', 'cm to inches calculator', 'cm to in converter', 'how many inches in a centimeter', 'cm to inches conversion table', 'convert centimeters to inches', 'inches to cm reverse conversion'],
+    sources: [{ label: 'NIST Guide to SI exact inch definition', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables centimeters-to-inches formula', url: 'https://www.rapidtables.com/convert/length/cm-to-inch.html' }],
+  },
+  'mile-to-kilometer-converter': {
+    description: 'Convert international miles to kilometers using the exact 1.609344 km per mile relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 mi = 1.609344 km exactly; kilometers = miles × 1.609344; reverse: 1 km = 0.6213711922 mi',
+    keywords: ['miles to kilometers converter', 'miles to km calculator', 'mi to km converter', 'how many kilometers in a mile', 'miles to km conversion table', 'convert miles to kilometers', 'km to miles reverse conversion'],
+    sources: [{ label: 'NIST exact mile and kilometer conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters miles-to-kilometers examples and table', url: 'https://www.unitconverters.net/length/miles-to-km.htm' }],
+  },
+  'kilometer-to-mile-converter': {
+    description: 'Convert kilometers to international miles using the exact 1.609344 km per mile relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 mi = 1.609344 km exactly; miles = kilometers ÷ 1.609344; reverse: 1 km = 0.6213711922 mi',
+    keywords: ['kilometers to miles converter', 'km to miles calculator', 'km to mi converter', 'how many miles in a kilometer', 'kilometers to miles conversion table', 'convert kilometers to miles', 'miles to km reverse conversion'],
+    sources: [{ label: 'NIST exact mile and kilometer conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables kilometers-to-miles formula', url: 'https://www.rapidtables.com/convert/length/km-to-mile.html' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
