@@ -1046,6 +1046,67 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['millimeters to nanometers converter', 'mm to nm calculator', 'millimeter to nanometer converter', 'how many nanometers in a millimeter', 'mm to nm conversion table', 'convert mm to nanometers', 'nanometers to millimeters reverse conversion'],
     sources: [{ label: 'NIST SI prefixes for metric length', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator mm-to-nanometer formula and table', url: 'https://www.inchcalculator.com/convert/millimeter-to-nanometer/' }],
   },};
+
+  'centimeter-to-millimeter-converter': {
+    description: 'Convert centimeters to millimeters using the exact 10-millimeters-per-centimeter relationship, with metric-prefix guidance and a worked example.',
+    formula: '1 cm = 10 mm exactly; millimeters = centimeters × 10; reverse: 1 mm = 0.1 cm',
+    keywords: ['centimeters to millimeters converter', 'cm to mm calculator', 'centimeter to millimeter converter', 'how many millimeters in a centimeter', 'cm to mm conversion table', 'convert cm to mm', 'millimeters to centimeters reverse conversion'],
+    sources: [{ label: 'NIST SI prefixes and length relationships', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters cm-to-mm formula and table', url: 'https://www.unitconverters.net/length/cm-to-mm.htm' }],
+  },
+  'centimeter-to-meter-converter': {
+    description: 'Convert centimeters to meters using the exact 100-centimeters-per-meter relationship, with metric-prefix explanation and precision guidance.',
+    formula: '1 cm = 0.01 m exactly; meters = centimeters ÷ 100; reverse: 1 m = 100 cm',
+    keywords: ['centimeters to meters converter', 'cm to m calculator', 'centimeter to meter converter', 'how many meters in a centimeter', 'cm to m conversion table', 'convert cm to m', 'meters to centimeters reverse conversion'],
+    sources: [{ label: 'NIST SI length conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters cm-to-m formula and table', url: 'https://www.unitconverters.net/length/cm-to-m.htm' }],
+  },
+  'centimeter-to-kilometer-converter': {
+    description: 'Convert centimeters to kilometers using the exact 100,000-centimeters-per-kilometer relationship, with scientific notation for short distances.',
+    formula: '1 cm = 0.00001 km exactly; kilometers = centimeters ÷ 100,000; reverse: 1 km = 100,000 cm',
+    keywords: ['centimeters to kilometers converter', 'cm to km calculator', 'centimeter to kilometer converter', 'how many kilometers in a centimeter', 'cm to km conversion table', 'convert cm to km', 'kilometers to centimeters reverse conversion'],
+    sources: [{ label: 'NIST SI length conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'CheckYourMath cm-to-km formula and examples', url: 'https://www.checkyourmath.com/convert/length/cm_km.php' }],
+  },
+  'centimeter-to-foot-converter': {
+    description: 'Convert centimeters to international feet using the exact 30.48-centimeters-per-foot relationship, with decimal-foot and feet-and-inches search intent covered.',
+    formula: '1 cm = 0.032808399 ft exactly; feet = centimeters ÷ 30.48; reverse: 1 ft = 30.48 cm',
+    keywords: ['centimeters to feet converter', 'cm to ft calculator', 'centimeter to foot converter', 'how many feet in a centimeter', 'cm to feet conversion table', 'convert cm to ft', 'feet and inches from centimeters'],
+    sources: [{ label: 'NIST exact international foot definition', url: 'https://www.nist.gov/pml/us-surveyfoot/revised-unit-conversion-factors' }, { label: 'RapidTables cm-to-feet formula and example', url: 'https://www.rapidtables.com/convert/length/cm-to-feet.html' }],
+  },
+  'centimeter-to-yard-converter': {
+    description: 'Convert centimeters to international yards using the exact 91.44-centimeters-per-yard relationship, with a worked example and imperial-length context.',
+    formula: '1 cm = 0.01093613298 yd exactly; yards = centimeters ÷ 91.44; reverse: 1 yd = 91.44 cm',
+    keywords: ['centimeters to yards converter', 'cm to yd calculator', 'centimeter to yard converter', 'how many yards in a centimeter', 'cm to yards conversion table', 'convert cm to yd', 'yards to centimeters reverse conversion'],
+    sources: [{ label: 'NIST international yard conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables cm-to-yard formula and table', url: 'https://www.rapidtables.com/convert/length/cm-to-yard.html' }],
+  },
+  'centimeter-to-mile-converter': {
+    description: 'Convert centimeters to international statute miles using the exact 160,934.4-centimeters-per-mile relationship, with scientific notation for short distances.',
+    formula: '1 cm = 0.000006213711922 mi exactly; miles = centimeters ÷ 160,934.4; reverse: 1 mi = 160,934.4 cm',
+    keywords: ['centimeters to miles converter', 'cm to mi calculator', 'centimeter to mile converter', 'how many miles in a centimeter', 'cm to miles conversion table', 'convert cm to mi', 'miles to centimeters reverse conversion'],
+    sources: [{ label: 'NIST international mile conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator cm-to-mile formula and precision guidance', url: 'https://www.inchcalculator.com/convert/centimeter-to-mile/' }],
+  },
+  'centimeter-to-nautical-mile-converter': {
+    description: 'Convert centimeters to international nautical miles using the exact 185,200-centimeters-per-nautical-mile relationship, with navigation terminology explained.',
+    formula: '1 cm = 0.000005399568035 nmi exactly; nautical miles = centimeters ÷ 185,200; reverse: 1 nmi = 185,200 cm',
+    keywords: ['centimeters to nautical miles converter', 'cm to nmi calculator', 'centimeter to nautical mile converter', 'how many nautical miles in a centimeter', 'cm to nmi conversion table', 'convert cm to nautical miles', 'nautical miles to centimeters reverse conversion'],
+    sources: [{ label: 'NIST international nautical-mile conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'CheckYourMath cm-to-nautical-mile formula', url: 'https://www.checkyourmath.com/convert/length/cm_nautical_miles.php' }],
+  },
+  'centimeter-to-micrometer-converter': {
+    description: 'Convert centimeters to micrometers (microns) using the exact 10,000-micrometers-per-centimeter relationship, useful for precision manufacturing and science measurements.',
+    formula: '1 cm = 10,000 µm exactly; micrometers = centimeters × 10,000; reverse: 1 µm = 0.0001 cm',
+    keywords: ['centimeters to micrometers converter', 'cm to microns calculator', 'centimeter to micron converter', 'how many micrometers in a centimeter', 'cm to µm conversion table', 'convert cm to micrometers', 'micrometers to centimeters reverse conversion'],
+    sources: [{ label: 'NIST SI prefixes for metric length', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator cm-to-micrometer formula and example', url: 'https://www.inchcalculator.com/convert/centimeter-to-micrometer/' }],
+  },
+  'centimeter-to-nanometer-converter': {
+    description: 'Convert centimeters to nanometers using the exact 10,000,000-nanometers-per-centimeter relationship, with scientific-scale context for microscopy and nanotechnology.',
+    formula: '1 cm = 10,000,000 nm exactly; nanometers = centimeters × 10,000,000; reverse: 1 nm = 0.0000001 cm',
+    keywords: ['centimeters to nanometers converter', 'cm to nm calculator', 'centimeter to nanometer converter', 'how many nanometers in a centimeter', 'cm to nm conversion table', 'convert cm to nanometers', 'nanometers to centimeters reverse conversion'],
+    sources: [{ label: 'NIST SI prefixes for metric length', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator cm-to-nanometer formula and table', url: 'https://www.inchcalculator.com/convert/centimeter-to-nanometer/' }],
+  },
+  'meter-to-millimeter-converter': {
+    description: 'Convert meters to millimeters using the exact 1,000-millimeters-per-meter relationship, with metric-prefix explanation and a worked example.',
+    formula: '1 m = 1,000 mm exactly; millimeters = meters × 1,000; reverse: 1 mm = 0.001 m',
+    keywords: ['meters to millimeters converter', 'm to mm calculator', 'meter to millimeter converter', 'how many millimeters in a meter', 'm to mm conversion table', 'convert m to mm', 'millimeters to meters reverse conversion'],
+    sources: [{ label: 'NIST SI length conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters meter-to-millimeter formula and example', url: 'https://www.unitconverters.net/length/m-to-mm.htm' }],
+  },};
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
   const factor = Number(from[2]) / Number(to[2]);
