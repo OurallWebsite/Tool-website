@@ -43,6 +43,7 @@ const validatedRemaining: Record<string, Partial<Tool>> = {
   'kinetic-energy-calculator': { inputs:[{key:'v0',label:'Mass (kg)',value:10,type:'number',min:0,max:1000000,step:.01,help:'Mass of the moving object in kilograms.'},{key:'v1',label:'Velocity (m/s)',value:5,type:'number',min:0,max:1000000,step:.01,help:'Speed magnitude in meters per second.'}] },
   'potential-energy-calculator': { inputs:[{key:'v0',label:'Mass (kg)',value:10,type:'number',min:0,max:1000000,step:.01,help:'Mass of the object in kilograms.'},{key:'v1',label:'Gravity (m/s²)',value:9.81,type:'number',min:0,max:1000,step:.01,help:'Local gravitational acceleration; Earth standard gravity is about 9.81 m/s².'},{key:'v2',label:'Height (m)',value:5,type:'number',min:0,max:1000000,step:.01,help:'Height above the chosen reference level in meters.'}] },
   'electric-power-calculator': { inputs:[{key:'v0',label:'Voltage (V)',value:230,type:'number',min:0,max:1000000,step:.01,help:'Voltage in volts for a DC or purely resistive model.'},{key:'v1',label:'Current (A)',value:2,type:'number',min:0,max:1000000,step:.01,help:'Current in amperes.'}] },
+  'density-calculator': { inputs:[{key:'v0',label:'Mass',value:100,type:'number',min:0,max:1000000000,step:.01,help:'Mass in any consistent unit.'},{key:'v1',label:'Volume',value:25,type:'number',min:0,max:1000000000,step:.01,help:'Volume in a matching consistent unit.'}] },
   'inventory-turnover-calculator': { inputs:[{key:'v0',label:'Cost of goods sold (COGS)',value:120000,type:'number',min:.01,step:.01,help:'Direct costs of goods sold for the measurement period.'},{key:'v1',label:'Average inventory',value:20000,type:'number',min:.01,step:.01,help:'Average inventory value for the same measurement period.'}] },
 };
 for (const tool of core) if (validatedRemaining[tool.slug]) Object.assign(tool, validatedRemaining[tool.slug]);
@@ -92,7 +93,7 @@ const highIntentCopy: Record<string, string> = {
   'kinetic-energy-calculator': 'Solve kinetic energy, mass, or velocity using KE = ½mv², with joule and kilojoule outputs and an explicit classical-model limitation.',
   'potential-energy-calculator': 'Solve gravitational potential energy, mass, gravity, or height using PE = mgh, with joule outputs, inverse modes, reference-level context, and standard-gravity assumptions.',
   'electric-power-calculator': 'Solve electrical power, voltage, current, or resistance using P = VI and resistive-load rearrangements, with kilowatts and energy-per-hour context.',
-  'density-calculator': 'Calculate density, specific volume, and the relationship between mass and volume.',
+  'density-calculator': 'Solve density, mass, or volume using ρ = m/V, with specific-volume context, consistent-unit guidance, and inverse modes.',
   'molarity-calculator': 'Calculate solution molarity from moles and liters and show millimolar concentration.',
   'wave-speed-calculator': 'Calculate wave speed from frequency and wavelength and show the period relationship.',
 };
@@ -150,6 +151,7 @@ const coreSources: Record<string, { label: string; url: string }[]> = {
   'kinetic-energy-calculator': [{ label: 'CalculatorSoup kinetic-energy formula and inverse modes', url: 'https://www.calculatorsoup.com/calculators/physics/kinetic.php' }, { label: 'Georgia Tech kinetic-energy units and relativistic limitation', url: 'https://www.physicsbook.gatech.edu/Kinetic_Energy' }],
   'potential-energy-calculator': [{ label: 'CalculatorSoup gravitational potential-energy formula and inverse modes', url: 'https://www.calculatorsoup.com/calculators/physics/gravitational-potential.php' }, { label: 'Pearson gravitational potential-energy modes and reference levels', url: 'https://www.pearson.com/channels/calculators/gravitational-potential-energy-calculator' }],
   'electric-power-calculator': [{ label: 'Pearson electrical-power formulas and AC power-factor guidance', url: 'https://www.pearson.com/channels/calculators/electrical-power-calculator' }, { label: 'EEPower P = VI = I²R = V²/R reference', url: 'https://eepower.com/tools/electrical-power-calculator' }],
+  'density-calculator': [{ label: 'CalculatorSoup density formula and inverse modes', url: 'https://www.calculatorsoup.com/calculators/physics/density.php' }, { label: 'SERC density and specific-gravity teaching reference', url: 'https://serc.carleton.edu/mathyouneed/density/index.html' }],
   'ohms-law-calculator': [{ label: "DigiKey Ohm's Law calculator reference", url: 'https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-ohms' }],
 };
 for (const tool of core) {
@@ -173,6 +175,7 @@ for (const tool of core) {
   if (tool.slug === 'kinetic-energy-calculator') { tool.formula = 'Kinetic energy: KE = ½ × m × v²; inverse forms are m = 2KE ÷ v² and v = √(2KE ÷ m)'; tool.keywords = [...new Set([...tool.keywords, 'kinetic energy calculator', 'KE calculator', 'kinetic energy formula', 'mass velocity energy calculator', 'how to calculate kinetic energy', 'kinetic energy in joules', 'kinetic energy from velocity'])]; }
   if (tool.slug === 'potential-energy-calculator') { tool.formula = 'Gravitational potential energy: PE = m × g × h; inverse forms solve for mass, gravity, or height'; tool.keywords = [...new Set([...tool.keywords, 'potential energy calculator', 'gravitational potential energy calculator', 'PE mgh calculator', 'potential energy formula', 'how to calculate potential energy', 'mgh calculator', 'potential energy in joules'])]; }
   if (tool.slug === 'electric-power-calculator') { tool.formula = 'Power: P = V × I; for a resistive load P = I²R = V²/R; energy = power × time'; tool.keywords = [...new Set([...tool.keywords, 'electric power calculator', 'electrical power calculator', 'P VI calculator', 'watts from volts and amps', 'power voltage current calculator', 'kilowatt calculator', 'power consumption calculator'])]; }
+  if (tool.slug === 'density-calculator') { tool.formula = 'Density: ρ = mass ÷ volume; inverse forms are mass = ρV and volume = mass ÷ ρ'; tool.keywords = [...new Set([...tool.keywords, 'density calculator', 'mass volume density calculator', 'density formula', 'how to calculate density', 'specific volume calculator', 'density mass volume', 'density in g/cm3'])]; }
   if (coreSources[tool.slug]) tool.sources = coreSources[tool.slug];
   const phrase = tool.slug.replace(/-calculator$/, '').replaceAll('-', ' ');
   tool.keywords = [...new Set([`${phrase} calculator`, `how to calculate ${phrase}`, `${phrase} formula`, `${tool.category} calculator`, ...tool.keywords])];
