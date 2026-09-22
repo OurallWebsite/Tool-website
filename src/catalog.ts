@@ -60,6 +60,7 @@ const highIntentCopy: Record<string, string> = {
   'roof-pitch-calculator': 'Calculate roof slope, pitch ratio, angle, and the roof-surface multiplier from rise and run.',
   'brick-calculator': 'Estimate brick count from wall area and brick face area with practical rounding guidance.',
   'markup-calculator': 'Calculate markup, selling price, margin, and profit per unit from cost and pricing.',
+  'break-even-calculator': 'Calculate break-even units, break-even sales revenue, contribution margin, and target-profit volume from fixed costs, price, and variable cost.',
   'cagr-calculator': 'Calculate compound annual growth rate, total growth, and the ending-value relationship.',
   'conversion-rate-calculator': 'Calculate conversion rate, non-converting visitors, and conversions per 1,000 visits.',
   'attendance-calculator': 'Calculate attendance percentage, missed classes, and the effect of attending one more class.',
@@ -111,6 +112,7 @@ const coreSources: Record<string, { label: string; url: string }[]> = {
   'concrete-calculator': [{ label: 'Concrete volume and waste guidance', url: 'https://concrete-calcs.com/' }],
   'profit-margin-calculator': [{ label: 'BDC net profit margin guidance', url: 'https://www.bdc.ca/en/articles-tools/entrepreneur-toolkit/financial-tools/net-profit-margin' }],
   'markup-calculator': [{ label: 'Sage markup formula guidance', url: 'https://www.sage.com/en-us/blog/markup-calculator/' }],
+  'break-even-calculator': [{ label: 'Pearson break-even point formula', url: 'https://www.pearson.com/channels/calculators/break-even-point-calculator' }, { label: 'U.S. Small Business Administration break-even guidance', url: 'https://legacy.sba.gov/business-guide/plan-your-business/calculate-your-startup-costs/break-even-point' }],
   'gpa-calculator': [{ label: 'Pearson GPA scale and quality-points reference', url: 'https://www.pearson.com/channels/calculators/gpa-calculator' }],
   'ohms-law-calculator': [{ label: "DigiKey Ohm's Law calculator reference", url: 'https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-ohms' }],
 };
