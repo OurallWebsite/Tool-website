@@ -255,6 +255,42 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['kilometers to miles converter', 'km to miles calculator', 'km to mi converter', 'how many miles in a kilometer', 'kilometers to miles conversion table', 'convert kilometers to miles', 'miles to km reverse conversion'],
     sources: [{ label: 'NIST exact mile and kilometer conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables kilometers-to-miles formula', url: 'https://www.rapidtables.com/convert/length/km-to-mile.html' }],
   },
+  'inch-to-foot-converter': {
+    description: 'Convert inches to feet using the exact 12 inches per foot relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 ft = 12 in exactly; feet = inches ÷ 12; reverse: 1 in = 0.0833333333 ft',
+    keywords: ['inches to feet converter', 'inches to feet calculator', 'in to ft converter', 'how many feet in an inch', 'inches to feet conversion table', 'convert inches to feet', 'feet to inches reverse conversion'],
+    sources: [{ label: 'NIST customary length relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables inches-to-feet formula', url: 'https://www.rapidtables.com/convert/length/inch-to-feet.html' }],
+  },
+  'foot-to-inch-converter': {
+    description: 'Convert feet to inches using the exact 12 inches per foot relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 ft = 12 in exactly; inches = feet × 12; reverse: 1 in = 0.0833333333 ft',
+    keywords: ['feet to inches converter', 'feet to inches calculator', 'ft to in converter', 'how many inches in a foot', 'feet to inches conversion table', 'convert feet to inches', 'inches to feet reverse conversion'],
+    sources: [{ label: 'NIST customary length relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables feet-to-inches formula', url: 'https://www.rapidtables.com/convert/length/feet-to-inch.html' }],
+  },
+  'inch-to-yard-converter': {
+    description: 'Convert inches to yards using the exact 36 inches per yard relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 yd = 36 in exactly; yards = inches ÷ 36; reverse: 1 in = 0.0277777778 yd',
+    keywords: ['inches to yards converter', 'inches to yards calculator', 'in to yd converter', 'how many yards in an inch', 'inches to yards conversion table', 'convert inches to yards', 'yards to inches reverse conversion'],
+    sources: [{ label: 'NIST customary length relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables inches-to-yards formula', url: 'https://www.rapidtables.com/convert/length/inch-to-yard.html' }],
+  },
+  'yard-to-inch-converter': {
+    description: 'Convert yards to inches using the exact 36 inches per yard relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 yd = 36 in exactly; inches = yards × 36; reverse: 1 in = 0.0277777778 yd',
+    keywords: ['yards to inches converter', 'yards to inches calculator', 'yd to in converter', 'how many inches in a yard', 'yards to inches conversion table', 'convert yards to inches', 'inches to yards reverse conversion'],
+    sources: [{ label: 'NIST customary length relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables yards-to-inches formula', url: 'https://www.rapidtables.com/convert/length/yard-to-inch.html' }],
+  },
+  'kilometer-to-meter-converter': {
+    description: 'Convert kilometers to meters using the exact metric relationship of 1,000 meters per kilometer, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 km = 1,000 m exactly; meters = kilometers × 1,000; reverse: 1 m = 0.001 km',
+    keywords: ['kilometers to meters converter', 'km to meters calculator', 'km to m converter', 'how many meters in a kilometer', 'kilometers to meters conversion table', 'convert kilometers to meters', 'meters to kilometers reverse conversion'],
+    sources: [{ label: 'NIST SI conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables kilometers-to-meters formula', url: 'https://www.rapidtables.com/convert/length/km-to-meter.html' }],
+  },
+  'meter-to-kilometer-converter': {
+    description: 'Convert meters to kilometers using the exact metric relationship of 1,000 meters per kilometer, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 km = 1,000 m exactly; kilometers = meters ÷ 1,000; reverse: 1 m = 0.001 km',
+    keywords: ['meters to kilometers converter', 'meters to km calculator', 'm to km converter', 'how many kilometers in a meter', 'meters to kilometers conversion table', 'convert meters to kilometers', 'kilometers to meters reverse conversion'],
+    sources: [{ label: 'NIST SI conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables meters-to-kilometers formula', url: 'https://www.rapidtables.com/convert/length/meter-to-km.html' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
