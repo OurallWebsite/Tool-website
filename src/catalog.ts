@@ -911,6 +911,67 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['stones to carats converter', 'st to ct calculator', 'stone to carat converter', 'how many carats in a stone', 'stones to carats conversion table', 'convert st to ct', 'carats to stones reverse conversion'],
     sources: [{ label: 'NIST stone, kilogram, and carat relationships', url: 'https://www.nist.gov/pml/owm/laws-and-regulations/precious-metals-conversion' }, { label: 'Metric Conversion UK stones-to-carats reference', url: 'https://metric-conversion.co.uk/weight/stones-to-carats.htm' }],
   },};
+
+  'us-ton-to-milligram-converter': {
+    description: 'Convert US short tons to milligrams using the exact 907,184,740-milligrams-per-short-ton relationship, with large-number formatting and ton-type terminology clarified.',
+    formula: '1 US ton = 907,184,740 mg exactly; milligrams = US short tons × 907,184,740; reverse: 1 mg = 0.000000001102311311 US ton',
+    keywords: ['US tons to milligrams converter', 'short tons to mg calculator', 'US ton to milligram converter', 'how many milligrams in a US ton', 'short tons to milligrams conversion table', 'convert US ton to mg', 'milligrams to US tons reverse conversion'],
+    sources: [{ label: 'NIST metric conversion card for short tons', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958415' }, { label: 'UnitConverters short-ton-to-milligram formula and table', url: 'https://unitconverters.net/weight-and-mass/ton-short-to-milligram.htm' }],
+  },
+  'us-ton-to-gram-converter': {
+    description: 'Convert US short tons to grams using the exact 907,184.74-grams-per-short-ton relationship, with a worked example and clear distinction from metric tonnes.',
+    formula: '1 US ton = 907,184.74 g exactly; grams = US short tons × 907,184.74; reverse: 1 g = 0.000001102311311 US ton',
+    keywords: ['US tons to grams converter', 'short tons to grams calculator', 'US ton to gram converter', 'how many grams in a US ton', 'short tons to grams conversion table', 'convert US ton to g', 'grams to US tons reverse conversion'],
+    sources: [{ label: 'NIST metric conversion card for short tons', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958415' }, { label: 'CheckYourMath short-ton-to-gram formula and example', url: 'https://www.checkyourmath.com/convert/weight_mass/short_ton_g.php' }],
+  },
+  'us-ton-to-ounce-converter': {
+    description: 'Convert US short tons to avoirdupois ounces using the exact 32,000-ounces-per-short-ton relationship, with a clear distinction from troy ounces.',
+    formula: '1 US ton = 32,000 oz exactly; ounces = US short tons × 32,000; reverse: 1 oz = 0.00003125 US ton',
+    keywords: ['US tons to ounces converter', 'short tons to ounces calculator', 'US ton to ounce converter', 'how many ounces in a US ton', 'short tons to ounces conversion table', 'convert US ton to oz', 'ounces to US tons reverse conversion'],
+    sources: [{ label: 'NIST exact pound and ounce relationships', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator ton-to-ounce formula', url: 'https://www.inchcalculator.com/convert/ton-to-ounce/' }],
+  },
+  'us-ton-to-pound-converter': {
+    description: 'Convert US short tons to pounds using the exact 2,000-pounds-per-short-ton relationship, with terminology for freight, shipping, and bulk-weight use cases.',
+    formula: '1 US ton = 2,000 lb exactly; pounds = US short tons × 2,000; reverse: 1 lb = 0.0005 US ton',
+    keywords: ['US tons to pounds converter', 'short tons to pounds calculator', 'US ton to pound converter', 'how many pounds in a US ton', 'short tons to pounds conversion table', 'convert US ton to lb', 'pounds to US tons reverse conversion'],
+    sources: [{ label: 'NIST metric conversion card for short tons', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958415' }, { label: 'UnitConverters short-ton-to-pound formula and table', url: 'https://www.unitconverters.net/weight-and-mass/ton-short-to-pound.htm' }],
+  },
+  'us-ton-to-stone-converter': {
+    description: 'Convert US short tons to UK stones using the exact 142.857142857-stones-per-short-ton relationship, with the UK stone and US short-ton systems clearly separated.',
+    formula: '1 US ton = 142.857142857 st exactly; stones = US short tons × 142.857142857; reverse: 1 st = 0.007 US ton',
+    keywords: ['US tons to stones converter', 'short tons to stones calculator', 'US ton to stone converter', 'how many stones in a US ton', 'short tons to stones conversion table', 'convert US ton to st', 'stones to US tons reverse conversion'],
+    sources: [{ label: 'NIST pound and stone conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'U.S. Energy Information Administration short-ton guidance', url: 'https://www.eia.gov/tools/faqs/faq.php?id=7&t=2' }],
+  },
+  'us-ton-to-carat-converter': {
+    description: 'Convert US short tons to metric carats for gemstone and pearl mass using the exact 4,535,923.7-carat-per-short-ton relationship, with carat-versus-karat terminology clarified.',
+    formula: '1 US ton = 4,535,923.7 ct exactly; carats = US short tons × 4,535,923.7; reverse: 1 ct = 0.0000002204622622 US ton',
+    keywords: ['US tons to carats converter', 'short tons to carats calculator', 'US ton to carat converter', 'how many carats in a US ton', 'short tons to carats conversion table', 'convert US ton to ct', 'carats to US tons reverse conversion'],
+    sources: [{ label: 'NIST carat and mass conversion information', url: 'https://www.nist.gov/pml/owm/laws-and-regulations/precious-metals-conversion' }, { label: 'UnitConverters short-ton-to-carat formula and table', url: 'https://unitconverters.net/weight-and-mass/ton-short-to-carat.htm' }],
+  },
+  'carat-to-milligram-converter': {
+    description: 'Convert metric carats to milligrams for gemstone and pearl weight using the exact 200-milligrams-per-carat relationship, with a clear distinction between carat mass and gold karat purity.',
+    formula: '1 ct = 200 mg exactly; milligrams = carats × 200; reverse: 1 mg = 0.005 ct',
+    keywords: ['carats to milligrams converter', 'ct to mg calculator', 'carat to milligram converter', 'how many milligrams in a carat', 'carats to milligrams conversion table', 'convert ct to mg', 'milligrams to carats reverse conversion'],
+    sources: [{ label: 'NIST precious-metals and carat conversion information', url: 'https://www.nist.gov/pml/owm/laws-and-regulations/precious-metals-conversion' }, { label: 'Inch Calculator carat-to-milligram formula and table', url: 'https://www.inchcalculator.com/convert/carat-to-milligram/' }],
+  },
+  'carat-to-kilogram-converter': {
+    description: 'Convert metric carats to kilograms using the exact 0.0002-kilogram-per-carat relationship, with scientific notation and gemstone-weight terminology guidance.',
+    formula: '1 ct = 0.0002 kg exactly; kilograms = carats × 0.0002; reverse: 1 kg = 5,000 ct',
+    keywords: ['carats to kilograms converter', 'ct to kg calculator', 'carat to kilogram converter', 'how many kilograms in a carat', 'carats to kilograms conversion table', 'convert ct to kg', 'kilograms to carats reverse conversion'],
+    sources: [{ label: 'NIST precious-metals and carat conversion information', url: 'https://www.nist.gov/pml/owm/laws-and-regulations/precious-metals-conversion' }, { label: 'Inch Calculator carat-to-kilogram formula and table', url: 'https://www.inchcalculator.com/convert/carat-to-kilogram/' }],
+  },
+  'carat-to-metric-ton-converter': {
+    description: 'Convert metric carats to metric tonnes using the exact 5,000,000-carat-per-tonne relationship, with scientific notation for tiny tonne results and carat terminology clarified.',
+    formula: '1 ct = 0.0000002 t exactly; metric tonnes = carats ÷ 5,000,000; reverse: 1 t = 5,000,000 ct',
+    keywords: ['carats to metric tons converter', 'ct to tonnes calculator', 'carat to metric ton converter', 'how many metric tons in a carat', 'carats to tonnes conversion table', 'convert ct to t', 'metric tonnes to carats reverse conversion'],
+    sources: [{ label: 'NIST SI mass and carat relationships', url: 'https://www.nist.gov/pml/owm/si-units-mass' }, { label: 'Metric Conversion carat-to-metric-ton formula', url: 'https://metric-conversion.co.uk/weight/carats-to-metric-tons.htm' }],
+  },
+  'carat-to-ounce-converter': {
+    description: 'Convert metric carats to avoirdupois ounces using the exact 0.00705479239-ounce-per-carat relationship, with a clear distinction from troy ounces used for precious metals.',
+    formula: '1 ct = 0.00705479239 oz exactly; ounces = carats × 0.00705479239; reverse: 1 oz = 141.747615625 ct',
+    keywords: ['carats to ounces converter', 'ct to oz calculator', 'carat to ounce converter', 'how many ounces in a carat', 'carats to ounces conversion table', 'convert ct to oz', 'ounces to carats reverse conversion'],
+    sources: [{ label: 'NIST ounce and carat mass relationships', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters carat-to-ounce formula and table', url: 'https://www.unitconverters.net/weight-and-mass/carat-to-ounce.htm' }],
+  },};
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
   const factor = Number(from[2]) / Number(to[2]);
