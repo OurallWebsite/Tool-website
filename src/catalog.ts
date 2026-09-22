@@ -972,6 +972,19 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['carats to ounces converter', 'ct to oz calculator', 'carat to ounce converter', 'how many ounces in a carat', 'carats to ounces conversion table', 'convert ct to oz', 'ounces to carats reverse conversion'],
     sources: [{ label: 'NIST ounce and carat mass relationships', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters carat-to-ounce formula and table', url: 'https://www.unitconverters.net/weight-and-mass/carat-to-ounce.htm' }],
   },};
+
+  'carat-to-stone-converter': {
+    description: 'Convert metric carats to UK stones using the exact 0.00003149460888-stone-per-carat relationship, with scientific notation and a carat-versus-karat terminology note.',
+    formula: '1 ct = 0.00003149460888 st exactly; stones = carats ÷ 31,751.4659; reverse: 1 st = 31,751.4659 ct',
+    keywords: ['carats to stones converter', 'ct to st calculator', 'carat to stone converter', 'how many stones in a carat', 'carats to stone conversion table', 'convert ct to st', 'stones to carats reverse conversion'],
+    sources: [{ label: 'NIST stone and carat mass relationships', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters carat-to-UK-stone formula and table', url: 'https://unitconverters.net/weight-and-mass/carat-to-stone-uk.htm' }],
+  },
+  'carat-to-us-ton-converter': {
+    description: 'Convert metric carats to US short tons using the exact 0.0000002204622622-short-ton-per-carat relationship, with scientific notation and short-ton terminology clarified.',
+    formula: '1 ct = 0.0000002204622622 US ton exactly; US short tons = carats × 0.0000002204622622; reverse: 1 US ton = 4,535,923.7 ct',
+    keywords: ['carats to US tons converter', 'ct to short tons calculator', 'carat to US ton converter', 'how many US tons in a carat', 'carats to short tons conversion table', 'convert ct to US ton', 'US tons to carats reverse conversion'],
+    sources: [{ label: 'NIST carat and short-ton mass relationships', url: 'https://www.nist.gov/pml/owm/laws-and-regulations/precious-metals-conversion' }, { label: 'UnitJuggler carat-to-US-short-ton conversion reference', url: 'https://www.unitjuggler.com/convert-mass-from-carat-to-uston.html' }],
+  },};
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
   const factor = Number(from[2]) / Number(to[2]);
