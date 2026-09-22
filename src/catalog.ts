@@ -29,6 +29,7 @@ for (const tool of core) { if (advancedFinance[tool.slug]) Object.assign(tool, a
 const validatedRemaining: Record<string, Partial<Tool>> = {
   'paint-calculator': { inputs:[{key:'v0',label:'Wall area (ft²)',value:1200,type:'number',min:.01,step:.01,help:'Total paintable surface area after subtracting large openings.'},{key:'v1',label:'Coverage per gallon',value:350,type:'number',min:.01,step:.01,help:'Manufacturer coverage estimate for one coat.'}] },
   'cagr-calculator': { inputs:[{key:'v0',label:'Beginning value',value:10000,type:'number',min:.01,step:.01,help:'Positive starting value.'},{key:'v1',label:'Ending value',value:18000,type:'number',min:.01,step:.01,help:'Positive ending value.'},{key:'v2',label:'Years',value:5,type:'number',min:.01,max:100,step:.01,help:'Elapsed period in years.'}] },
+  'customer-acquisition-cost-calculator': { inputs:[{key:'v0',label:'Marketing and sales spend',value:5000,type:'number',min:0,step:.01,help:'Total acquisition-related marketing and sales costs for the measurement period.'},{key:'v1',label:'New customers acquired',value:100,type:'number',min:1,step:1,help:'New customers acquired in the same period and under the same customer definition.'}] },
 };
 for (const tool of core) if (validatedRemaining[tool.slug]) Object.assign(tool, validatedRemaining[tool.slug]);
 const highIntentCopy: Record<string, string> = {
@@ -62,6 +63,7 @@ const highIntentCopy: Record<string, string> = {
   'markup-calculator': 'Calculate markup, selling price, margin, and profit per unit from cost and pricing.',
   'break-even-calculator': 'Calculate break-even units, break-even sales revenue, contribution margin, and target-profit volume from fixed costs, price, and variable cost.',
   'cagr-calculator': 'Calculate compound annual growth rate (CAGR), annualized return, total growth, ending multiple, and absolute change from beginning value, ending value, and years.',
+  'customer-acquisition-cost-calculator': 'Calculate customer acquisition cost (CAC) from total marketing and sales spend and new customers acquired in the same period, with efficiency context and attribution limitations.',
   'conversion-rate-calculator': 'Calculate conversion rate, non-converting visitors, and conversions per 1,000 visits.',
   'attendance-calculator': 'Calculate attendance percentage, missed classes, and the effect of attending one more class.',
   'reading-time-calculator': 'Estimate reading time from word count and reading speed in minutes and hours.',
@@ -113,6 +115,7 @@ const coreSources: Record<string, { label: string; url: string }[]> = {
   'markup-calculator': [{ label: 'Sage markup formula guidance', url: 'https://www.sage.com/en-us/blog/markup-calculator/' }],
   'break-even-calculator': [{ label: 'Pearson break-even point formula', url: 'https://www.pearson.com/channels/calculators/break-even-point-calculator' }, { label: 'U.S. Small Business Administration break-even guidance', url: 'https://legacy.sba.gov/business-guide/plan-your-business/calculate-your-startup-costs/break-even-point' }],
   'cagr-calculator': [{ label: 'Investopedia CAGR definition and formula', url: 'https://www.investopedia.com/terms/c/cagr.asp' }, { label: 'Wall Street Prep CAGR formula reference', url: 'https://www.wallstreetprep.com/knowledge/cagr-compound-annual-growth-rate/' }, { label: 'CalculatorSoup CAGR calculator reference', url: 'https://www.calculatorsoup.com/calculators/financial/cagr-calculator.php' }],
+  'customer-acquisition-cost-calculator': [{ label: 'American Marketing Association CAC calculator guidance', url: 'https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator' }, { label: 'Zendesk customer acquisition cost formula', url: 'https://www.zendesk.com/blog/sales/sales-performance-metrics/customer-acquisition-cost/' }],
   'gpa-calculator': [{ label: 'Pearson GPA scale and quality-points reference', url: 'https://www.pearson.com/channels/calculators/gpa-calculator' }],
   'ohms-law-calculator': [{ label: "DigiKey Ohm's Law calculator reference", url: 'https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-ohms' }],
 };
