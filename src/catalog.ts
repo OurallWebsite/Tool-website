@@ -291,6 +291,36 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['meters to kilometers converter', 'meters to km calculator', 'm to km converter', 'how many kilometers in a meter', 'meters to kilometers conversion table', 'convert meters to kilometers', 'kilometers to meters reverse conversion'],
     sources: [{ label: 'NIST SI conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables meters-to-kilometers formula', url: 'https://www.rapidtables.com/convert/length/meter-to-km.html' }],
   },
+  'mile-per-hour-to-kilometer-per-hour-converter': {
+    description: 'Convert miles per hour to kilometers per hour using the exact 1.609344 km/h per mph relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 mph = 1.609344 km/h exactly; km/h = mph × 1.609344; reverse: 1 km/h = 0.6213711922 mph',
+    keywords: ['mph to kph converter', 'miles per hour to kilometers per hour calculator', 'mph to km/h converter', 'how many km/h in a mph', 'mph to kph conversion table', 'convert mph to km/h', 'km/h to mph reverse conversion'],
+    sources: [{ label: 'NIST mile and kilometer conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters mph-to-kph examples and table', url: 'https://www.unitconverters.net/speed/mph-to-kph.htm' }],
+  },
+  'kilometer-per-hour-to-mile-per-hour-converter': {
+    description: 'Convert kilometers per hour to miles per hour using the exact 1.609344 km/h per mph relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 mph = 1.609344 km/h exactly; mph = km/h ÷ 1.609344; reverse: 1 km/h = 0.6213711922 mph',
+    keywords: ['kph to mph converter', 'kilometers per hour to miles per hour calculator', 'km/h to mph converter', 'how many mph in a km/h', 'kph to mph conversion table', 'convert km/h to mph', 'mph to km/h reverse conversion'],
+    sources: [{ label: 'NIST mile and kilometer conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters kph-to-mph examples and table', url: 'https://www.unitconverters.net/speed/kph-to-mph.htm' }],
+  },
+  'meter-per-second-to-kilometer-per-hour-converter': {
+    description: 'Convert meters per second to kilometers per hour using the exact 3.6 km/h per m/s relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 m/s = 3.6 km/h exactly; km/h = m/s × 3.6; reverse: 1 km/h = 0.2777777778 m/s',
+    keywords: ['m/s to km/h converter', 'meters per second to kilometers per hour calculator', 'mps to kph converter', 'how many km/h in 1 m/s', 'm/s to km/h conversion table', 'convert m/s to km/h', 'km/h to m/s reverse conversion'],
+    sources: [{ label: 'OpenStax wave and motion unit context', url: 'https://openstax.org/books/physics/pages/2-2-vectors-scaling-and-units' }, { label: 'Omni Calculator m/s-to-km/h relationship', url: 'https://www.omnicalculator.com/conversion/ms-to-kmh' }],
+  },
+  'kilometer-per-hour-to-meter-per-second-converter': {
+    description: 'Convert kilometers per hour to meters per second using the exact 3.6 relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 m/s = 3.6 km/h exactly; m/s = km/h ÷ 3.6; reverse: 1 km/h = 0.2777777778 m/s',
+    keywords: ['km/h to m/s converter', 'kilometers per hour to meters per second calculator', 'kph to mps converter', 'how many m/s in a km/h', 'km/h to m/s conversion table', 'convert km/h to m/s', 'm/s to km/h reverse conversion'],
+    sources: [{ label: 'NIST SI conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Metric Conversions km/h-to-m/s formula', url: 'https://www.metric-conversions.org/speed/kilometers-per-hour-to-meters-per-second.htm' }],
+  },
+  'mile-per-hour-to-meter-per-second-converter': {
+    description: 'Convert miles per hour to meters per second using the exact 0.44704 m/s per mph relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 mph = 0.44704 m/s exactly; m/s = mph × 0.44704; reverse: 1 m/s = 2.236936292 mph',
+    keywords: ['mph to m/s converter', 'miles per hour to meters per second calculator', 'mph to mps converter', 'how many m/s in a mph', 'mph to m/s conversion table', 'convert mph to m/s', 'm/s to mph reverse conversion'],
+    sources: [{ label: 'NIST mile and SI conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters mph-to-m/s examples and table', url: 'https://www.unitconverters.net/speed/miles-per-hour-to-meters-per-second.htm' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
