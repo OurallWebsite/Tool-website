@@ -789,7 +789,67 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['carats to pounds converter', 'ct to lb calculator', 'carat to pound converter', 'how many pounds in a carat', 'carats to pounds conversion table', 'convert ct to lb', 'pounds to carats reverse conversion'],
     sources: [{ label: 'NIST pound and carat conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator carats-to-pounds reference', url: 'https://www.inchcalculator.com/convert/carat-to-pound/' }],
   },
-};
+
+  'milligram-to-metric-ton-converter': {
+    description: 'Convert milligrams to metric tonnes using the exact 1,000,000,000-milligrams-per-tonne relationship, with scientific notation for tiny results and a clear metric-ton terminology note.',
+    formula: '1 mg = 0.000000001 t exactly; metric tonnes = milligrams ÷ 1,000,000,000; reverse: 1 t = 1,000,000,000 mg',
+    keywords: ['milligrams to metric tons converter', 'mg to tonnes calculator', 'milligram to metric ton converter', 'how many metric tons in a milligram', 'mg to t conversion table', 'convert mg to metric tons', 'metric tonnes to milligrams reverse conversion'],
+    sources: [{ label: 'NIST SI mass units and metric tonne relationship', url: 'https://www.nist.gov/pml/owm/si-units-mass' }, { label: 'Inch Calculator milligram-to-metric-ton formula and table', url: 'https://www.inchcalculator.com/convert/milligram-to-metric-ton/' }],
+  },
+  'milligram-to-pound-converter': {
+    description: 'Convert milligrams to international avoirdupois pounds using the exact 453,592.37-milligrams-per-pound relationship, with scientific notation and optional practical scale guidance.',
+    formula: '1 mg = 0.000002204622622 lb exactly; pounds = milligrams ÷ 453,592.37; reverse: 1 lb = 453,592.37 mg',
+    keywords: ['milligrams to pounds converter', 'mg to lb calculator', 'milligram to pound converter', 'how many pounds in a milligram', 'mg to lbs conversion table', 'convert mg to lb', 'pounds to milligrams reverse conversion'],
+    sources: [{ label: 'NIST pound conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Omni Calculator mg-to-lb formula and examples', url: 'https://www.omnicalculator.com/conversion/mg-to-lbs' }],
+  },
+  'milligram-to-stone-converter': {
+    description: 'Convert milligrams to UK stones using the exact 6,350,293.18-milligrams-per-stone relationship, with scientific notation and body-weight terminology clarified.',
+    formula: '1 mg = 0.0000001574730444 st exactly; stones = milligrams ÷ 6,350,293.18; reverse: 1 st = 6,350,293.18 mg',
+    keywords: ['milligrams to stones converter', 'mg to st calculator', 'milligram to stone converter', 'how many stones in a milligram', 'mg to stone conversion table', 'convert mg to st', 'stones to milligrams reverse conversion'],
+    sources: [{ label: 'NIST pound and stone conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters milligram-to-UK-stone table', url: 'https://unitconverters.net/weight-and-mass/milligram-to-stone-uk.htm' }],
+  },
+  'milligram-to-us-ton-converter': {
+    description: 'Convert milligrams to US short tons using the exact 907,184,740-milligrams-per-short-ton relationship, with scientific notation and a clear distinction from metric tonnes and UK long tons.',
+    formula: '1 mg = 0.000000001102311311 US ton exactly; US short tons = milligrams ÷ 907,184,740; reverse: 1 US ton = 907,184,740 mg',
+    keywords: ['milligrams to US tons converter', 'mg to short tons calculator', 'milligram to US ton converter', 'how many US tons in a milligram', 'mg to short ton conversion table', 'convert mg to US ton', 'US tons to milligrams reverse conversion'],
+    sources: [{ label: 'NIST mass conversion card for short ton and metric ton', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958415' }, { label: 'US Energy Information Administration short-ton guidance', url: 'https://www.eia.gov/tools/faqs/faq.php?id=7&t=2' }],
+  },
+  'milligram-to-carat-converter': {
+    description: 'Convert milligrams to metric carats for gemstones and pearls using the exact 200-milligrams-per-carat relationship, with a clear distinction between carat mass and gold karat purity.',
+    formula: '1 mg = 0.005 ct exactly; carats = milligrams ÷ 200; reverse: 1 ct = 200 mg',
+    keywords: ['milligrams to carats converter', 'mg to ct calculator', 'milligram to carat converter', 'how many carats in a milligram', 'mg to carat conversion table', 'convert mg to ct', 'carats to milligrams reverse conversion'],
+    sources: [{ label: 'NIST precious-metals and carat conversion information', url: 'https://www.nist.gov/pml/owm/laws-and-regulations/precious-metals-conversion' }, { label: 'Inch Calculator milligram-to-carat formula and table', url: 'https://www.inchcalculator.com/convert/milligram-to-carat' }],
+  },
+  'gram-to-metric-ton-converter': {
+    description: 'Convert grams to metric tonnes using the exact 1,000,000-grams-per-tonne relationship, with a worked example, inverse factor, and metric-ton terminology guidance.',
+    formula: '1 g = 0.000001 t exactly; metric tonnes = grams ÷ 1,000,000; reverse: 1 t = 1,000,000 g',
+    keywords: ['grams to metric tons converter', 'g to tonnes calculator', 'gram to metric ton converter', 'how many metric tons in a gram', 'grams to tonnes conversion table', 'convert g to metric tons', 'metric tonnes to grams reverse conversion'],
+    sources: [{ label: 'NIST SI mass units and metric tonne relationship', url: 'https://www.nist.gov/pml/owm/si-units-mass' }, { label: 'Inch Calculator gram-to-metric-ton formula and table', url: 'https://www.inchcalculator.com/convert/gram-to-metric-ton/' }],
+  },
+  'gram-to-us-ton-converter': {
+    description: 'Convert grams to US short tons using the exact 907,184.74-grams-per-short-ton relationship, with scientific notation for small values and ton-type terminology clarified.',
+    formula: '1 g = 0.000001102311311 US ton exactly; US short tons = grams ÷ 907,184.74; reverse: 1 US ton = 907,184.74 g',
+    keywords: ['grams to US tons converter', 'g to short tons calculator', 'gram to US ton converter', 'how many US tons in a gram', 'grams to short tons conversion table', 'convert g to US ton', 'US tons to grams reverse conversion'],
+    sources: [{ label: 'NIST metric conversion card for short tons', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958415' }, { label: 'CheckYourMath kilogram-to-short-ton factor reference', url: 'https://www.checkyourmath.com/convert/weight_mass/kg_short_ton.php' }],
+  },
+  'kilogram-to-carat-converter': {
+    description: 'Convert kilograms to metric carats for gemstone and pearl weight using the exact 5,000-carat-per-kilogram relationship, with an explicit carat-versus-karat note.',
+    formula: '1 kg = 5,000 ct exactly; carats = kilograms × 5,000; reverse: 1 ct = 0.0002 kg',
+    keywords: ['kilograms to carats converter', 'kg to ct calculator', 'kilogram to carat converter', 'how many carats in a kilogram', 'kg to carat conversion table', 'convert kg to ct', 'carats to kilograms reverse conversion'],
+    sources: [{ label: 'NIST precious-metals and carat conversion information', url: 'https://www.nist.gov/pml/owm/laws-and-regulations/precious-metals-conversion' }, { label: 'Inch Calculator kilogram-to-carat formula and table', url: 'https://www.inchcalculator.com/convert/kilogram-to-carat/' }],
+  },
+  'metric-ton-to-milligram-converter': {
+    description: 'Convert metric tonnes to milligrams using the exact 1,000,000,000-milligrams-per-tonne relationship, with large-number formatting and a reverse-factor check.',
+    formula: '1 t = 1,000,000,000 mg exactly; milligrams = metric tonnes × 1,000,000,000; reverse: 1 mg = 0.000000001 t',
+    keywords: ['metric tons to milligrams converter', 'tonnes to mg calculator', 'metric ton to milligram converter', 'how many milligrams in a metric ton', 'tonnes to milligrams conversion table', 'convert t to mg', 'milligrams to metric tons reverse conversion'],
+    sources: [{ label: 'NIST SI mass units and metric tonne relationship', url: 'https://www.nist.gov/pml/owm/si-units-mass' }, { label: 'Inch Calculator metric-ton-to-milligram formula and table', url: 'https://www.inchcalculator.com/convert/metric-ton-to-milligram/' }],
+  },
+  'metric-ton-to-gram-converter': {
+    description: 'Convert metric tonnes to grams using the exact 1,000,000-grams-per-tonne relationship, with a worked example, large-number precision, and ton terminology guidance.',
+    formula: '1 t = 1,000,000 g exactly; grams = metric tonnes × 1,000,000; reverse: 1 g = 0.000001 t',
+    keywords: ['metric tons to grams converter', 'tonnes to grams calculator', 'metric ton to gram converter', 'how many grams in a metric ton', 'tonnes to grams conversion table', 'convert t to g', 'grams to metric tons reverse conversion'],
+    sources: [{ label: 'NIST SI mass units and metric tonne relationship', url: 'https://www.nist.gov/pml/owm/si-units-mass' }, { label: 'CheckYourMath metric-ton-to-gram formula and examples', url: 'https://www.checkyourmath.com/convert/weight_mass/metric_ton_g.php' }],
+  },};
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
   const factor = Number(from[2]) / Number(to[2]);
