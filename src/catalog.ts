@@ -504,6 +504,38 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['speed of light to Mach converter', 'c to Mach calculator', 'light speed in Mach', 'how many Mach is 1 c', 'Mach number from light speed', 'speed of sound reference', 'Mach to c reverse conversion'],
     sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator c-to-Mach formula and table', url: 'https://www.inchcalculator.com/convert/speed-of-light-to-mach/' }],
   },
+  'foot-per-second-to-mach-converter': {
+    description: 'Convert feet per second to Mach using the site’s 343 m/s reference speed of sound, with a clear caveat that actual Mach changes with local conditions.',
+    formula: 'Reference conversion: Mach = ft/s × 0.000888629738; reverse: 1 Mach = 1125.328084 ft/s. Mach varies with local sound speed.',
+    keywords: ['ft/s to Mach converter', 'feet per second to Mach calculator', 'fps to Mach conversion', 'how fast is 1000 ft/s in Mach', 'Mach number from feet per second', 'speed of sound in ft/s', 'Mach to ft/s reverse conversion'],
+    sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator ft/s-to-Mach formula and table', url: 'https://www.inchcalculator.com/convert/foot-per-second-to-mach' }],
+  },
+  'foot-per-second-to-speed-of-light-converter': {
+    description: 'Convert feet per second to the speed of light in vacuum using the exact 1.016703362e-9 c per ft/s relationship and scientific notation.',
+    formula: 'Speed of light fraction c = ft/s × 1.016703362e-9; reverse: 1 c = 983571056.4304 ft/s exactly.',
+    keywords: ['ft/s to speed of light converter', 'feet per second to c calculator', 'fps to light speed conversion', 'what fraction of light speed is ft/s', 'feet per second as a fraction of c', 'speed of light in ft/s', 'c to ft/s reverse conversion'],
+    sources: [{ label: 'NIST definition of the metre and exact speed of light', url: 'https://www.nist.gov/si-redefinition/meter' }, { label: 'Kyle’s Converter ft/s-to-light-speed reference', url: 'https://www.kylesconverter.com/speed-or-velocity/feet-per-second-to-light-speed' }],
+  },
+  'knot-to-mach-converter': {
+    description: 'Convert knots to Mach using the site’s 343 m/s reference speed of sound and the exact nautical-mile relationship, while explaining local-condition limits.',
+    formula: 'Reference conversion: Mach = knots × 0.001499838030; reverse: 1 Mach = 666.7380466 knots. Mach depends on local speed of sound.',
+    params: [1852 / 3600, 343],
+    keywords: ['knots to Mach converter', 'knots to Mach calculator', 'nautical speed to Mach', 'how fast is 100 knots in Mach', 'Mach number from knots', 'speed of sound in knots', 'Mach to knots reverse conversion'],
+    sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator knots-to-Mach formula and table', url: 'https://www.inchcalculator.com/convert/knot-to-mach/' }],
+  },
+  'knot-to-speed-of-light-converter': {
+    description: 'Convert knots to the speed of light in vacuum using the exact 1.716001956e-9 c per knot relationship and scientific notation.',
+    formula: 'Speed of light fraction c = knots × 1.716001956e-9; reverse: 1 c = 582749918.3585 knots exactly.',
+    params: [1852 / 3600, 299792458],
+    keywords: ['knots to speed of light converter', 'knots to c calculator', 'nautical speed to light speed', 'what fraction of light speed is a knot', 'knots as a fraction of c', 'speed of light in knots', 'c to knots reverse conversion'],
+    sources: [{ label: 'NIST definition of the metre and exact speed of light', url: 'https://www.nist.gov/si-redefinition/meter' }, { label: 'Conversion.org knot-to-c calculation', url: 'https://conversion.org/speed/knot/speed-of-light' }],
+  },
+  'mach-to-foot-per-second-converter': {
+    description: 'Convert Mach to feet per second using the site’s 343 m/s reference speed of sound, with an explicit note that real Mach speed varies by conditions.',
+    formula: 'Reference conversion: ft/s = Mach × 1125.328084; reverse: 1 ft/s = 0.000888629738 Mach. Actual Mach speed depends on local sound speed.',
+    keywords: ['Mach to ft/s converter', 'Mach number to feet per second calculator', 'Mach to fps conversion', 'how fast is Mach 2 in ft/s', 'Mach speed in feet per second', 'speed of sound in ft/s', 'ft/s to Mach reverse conversion'],
+    sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator Mach-to-ft/s formula and table', url: 'https://www.inchcalculator.com/convert/mach-to-foot-per-second/' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
