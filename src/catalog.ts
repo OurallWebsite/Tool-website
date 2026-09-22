@@ -729,6 +729,66 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['carats to grams converter', 'ct to g calculator', 'carat to gram converter', 'how many grams in a carat', 'carats to grams conversion table', 'convert ct to g', 'grams to carats reverse conversion'],
     sources: [{ label: 'Exact carat mass relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator carat-to-gram formula and table', url: 'https://www.inchcalculator.com/convert/carat-to-gram' }],
   },
+  'gram-to-stone-converter': {
+    description: 'Convert grams to stones using the exact 6.35029318-kilogram-per-stone relationship, with a worked example and precision guidance for small results.',
+    formula: '1 g = 0.0001574730444 st exactly; stones = grams ÷ 6350.29318; reverse: 1 st = 6350.29318 g',
+    keywords: ['grams to stones converter', 'g to stone calculator', 'grams to st converter', 'how many stones in a gram', 'grams to stones conversion table', 'convert g to st', 'stones to grams reverse conversion'],
+    sources: [{ label: 'International stone and pound relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Metric Conversions grams-to-stones formula', url: 'https://www.metric-conversions.org/weight/grams-to-stones.htm' }],
+  },
+  'stone-to-gram-converter': {
+    description: 'Convert stones to grams using the exact 6,350.29318-gram-per-stone relationship, with a worked example and UK weight context.',
+    formula: '1 st = 6350.29318 g exactly; grams = stones × 6350.29318; reverse: 1 g = 0.0001574730444 st',
+    keywords: ['stones to grams converter', 'stone to g calculator', 'st to grams converter', 'how many grams in a stone', 'stones to grams conversion table', 'convert st to g', 'grams to stones reverse conversion'],
+    sources: [{ label: 'International stone and pound relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Vedantu grams-and-stone formula explanation', url: 'https://www.vedantu.com/maths/grams-and-stone' }],
+  },
+  'kilogram-to-us-ton-converter': {
+    description: 'Convert kilograms to US short tons using the exact 907.18474-kilogram-per-short-ton relationship, with terminology clarified for US and metric units.',
+    formula: '1 kg = 0.001102311311 US short ton exactly; US tons = kilograms ÷ 907.18474; reverse: 1 US ton = 907.18474 kg',
+    keywords: ['kilograms to US tons converter', 'kg to short tons calculator', 'kg to US ton converter', 'how many US tons in a kilogram', 'kilograms to short tons conversion table', 'convert kg to US ton', 'US tons to kilograms reverse conversion'],
+    sources: [{ label: 'US Energy Information Administration short-ton conversion guidance', url: 'https://www.eia.gov/tools/faqs/faq.php?id=7&t=2' }, { label: 'UnitConverters short-ton-to-kg reference', url: 'https://www.unitconverters.net/weight-and-mass/ton-short-to-kilogram.htm' }],
+  },
+  'us-ton-to-kilogram-converter': {
+    description: 'Convert US short tons to kilograms using the exact 907.18474-kilogram-per-short-ton relationship, with US ton terminology made explicit.',
+    formula: '1 US short ton = 907.18474 kg exactly; kilograms = US tons × 907.18474; reverse: 1 kg = 0.001102311311 US ton',
+    keywords: ['US tons to kilograms converter', 'short tons to kg calculator', 'US ton to kg converter', 'how many kilograms in a US ton', 'short tons to kilograms conversion table', 'convert US ton to kg', 'kg to US tons reverse conversion'],
+    sources: [{ label: 'US Energy Information Administration short-ton conversion guidance', url: 'https://www.eia.gov/tools/faqs/faq.php?id=7&t=2' }, { label: 'UnitConverters short-ton-to-kg formula and table', url: 'https://www.unitconverters.net/weight-and-mass/ton-short-to-kilogram.htm' }],
+  },
+  'metric-ton-to-ounce-converter': {
+    description: 'Convert metric tonnes to avoirdupois ounces using the exact 35,273.9619496-ounce-per-tonne relationship, with large-number precision guidance.',
+    formula: '1 metric ton = 35273.9619496 oz exactly; ounces = metric tons × 35273.9619496; reverse: 1 oz = 0.000028349523125 t',
+    keywords: ['metric tons to ounces converter', 'tonnes to ounces calculator', 'metric ton to oz converter', 'how many ounces in a metric ton', 'metric tons to ounces conversion table', 'convert t to oz', 'ounces to metric tons reverse conversion'],
+    sources: [{ label: 'NIST ounce and kilogram conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UseConvertly metric-ton-to-ounces formula', url: 'https://useconvertly.app/convert/50-metric-tons-to-ounces' }],
+  },
+  'ounce-to-metric-ton-converter': {
+    description: 'Convert avoirdupois ounces to metric tonnes using the exact 0.000028349523125-tonne-per-ounce relationship and scientific-scale precision guidance.',
+    formula: '1 oz = 0.000028349523125 metric ton exactly; metric tons = ounces × 0.000028349523125; reverse: 1 t = 35273.9619496 oz',
+    keywords: ['ounces to metric tons converter', 'oz to tonnes calculator', 'ounce to metric ton converter', 'how many metric tons in an ounce', 'ounces to tonnes conversion table', 'convert oz to t', 'metric tons to ounces reverse conversion'],
+    sources: [{ label: 'NIST ounce and kilogram conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Metric Conversions ounces-to-tonnes reference', url: 'https://live.metric-conversions.org/weight/ounces-to-metric-tons.htm' }],
+  },
+  'metric-ton-to-stone-converter': {
+    description: 'Convert metric tonnes to stones using the exact 157.4730444-stones-per-tonne relationship, with a worked example and large-number precision guidance.',
+    formula: '1 metric ton = 157.4730444 st exactly; stones = metric tons × 157.4730444; reverse: 1 st = 0.00635029318 t',
+    keywords: ['metric tons to stones converter', 'tonnes to stone calculator', 'metric ton to st converter', 'how many stones in a metric ton', 'metric tons to stones conversion table', 'convert t to st', 'stones to metric tons reverse conversion'],
+    sources: [{ label: 'International stone and pound relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Metric Conversion UK tonnes-to-stones reference', url: 'https://metric-conversion.co.uk/weight/metric-tons-to-stones.htm' }],
+  },
+  'stone-to-metric-ton-converter': {
+    description: 'Convert stones to metric tonnes using the exact 0.00635029318-tonne-per-stone relationship, with scientific-scale precision guidance.',
+    formula: '1 st = 0.00635029318 metric ton exactly; metric tons = stones × 0.00635029318; reverse: 1 t = 157.4730444 st',
+    keywords: ['stones to metric tons converter', 'stone to tonnes calculator', 'st to metric ton converter', 'how many metric tons in a stone', 'stones to tonnes conversion table', 'convert st to t', 'metric tons to stones reverse conversion'],
+    sources: [{ label: 'International stone and pound relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'CheckYourMath stones-to-metric-ton formula', url: 'https://www.checkyourmath.com/convert/weight_mass/stones_metric_ton.php' }],
+  },
+  'pound-to-carat-converter': {
+    description: 'Convert avoirdupois pounds to metric carats for gemstone and jewelry weight, with a clear distinction between carat mass and gold purity karat.',
+    formula: '1 lb = 2267.96185 ct exactly; carats = pounds × 2267.96185; reverse: 1 ct = 0.000440924524 lb',
+    keywords: ['pounds to carats converter', 'lb to ct calculator', 'pound to carat converter', 'how many carats in a pound', 'pounds to carats conversion table', 'convert lb to ct', 'carats to pounds reverse conversion'],
+    sources: [{ label: 'NIST pound and carat conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Kyle’s Converter pounds-to-carats reference', url: 'https://www.kylesconverter.com/mass/pounds-to-carats' }],
+  },
+  'carat-to-pound-converter': {
+    description: 'Convert metric carats to avoirdupois pounds for gemstone and jewelry weight, with a clear distinction between carat mass and gold purity karat.',
+    formula: '1 ct = 0.000440924524 lb exactly; pounds = carats × 0.000440924524; reverse: 1 lb = 2267.96185 ct',
+    keywords: ['carats to pounds converter', 'ct to lb calculator', 'carat to pound converter', 'how many pounds in a carat', 'carats to pounds conversion table', 'convert ct to lb', 'pounds to carats reverse conversion'],
+    sources: [{ label: 'NIST pound and carat conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator carats-to-pounds reference', url: 'https://www.inchcalculator.com/convert/carat-to-pound/' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
