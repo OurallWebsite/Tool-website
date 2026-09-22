@@ -850,6 +850,67 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['metric tons to grams converter', 'tonnes to grams calculator', 'metric ton to gram converter', 'how many grams in a metric ton', 'tonnes to grams conversion table', 'convert t to g', 'grams to metric tons reverse conversion'],
     sources: [{ label: 'NIST SI mass units and metric tonne relationship', url: 'https://www.nist.gov/pml/owm/si-units-mass' }, { label: 'CheckYourMath metric-ton-to-gram formula and examples', url: 'https://www.checkyourmath.com/convert/weight_mass/metric_ton_g.php' }],
   },};
+
+  'metric-ton-to-carat-converter': {
+    description: 'Convert metric tonnes to metric carats for gemstone and pearl mass using the exact 5,000,000-carat-per-tonne relationship, with large-number formatting and a carat-versus-karat note.',
+    formula: '1 t = 5,000,000 ct exactly; carats = metric tonnes × 5,000,000; reverse: 1 ct = 0.0000002 t',
+    keywords: ['metric tons to carats converter', 'tonnes to carats calculator', 'metric ton to carat converter', 'how many carats in a metric ton', 'tonnes to carats conversion table', 'convert t to ct', 'carats to metric tons reverse conversion'],
+    sources: [{ label: 'NIST metric tonne and carat mass relationships', url: 'https://www.nist.gov/pml/owm/si-units-mass' }, { label: 'Inch Calculator metric-ton-to-carat formula and table', url: 'https://www.inchcalculator.com/convert/metric-ton-to-carat/' }],
+  },
+  'ounce-to-stone-converter': {
+    description: 'Convert avoirdupois ounces to UK stones using the exact 224-ounces-per-stone relationship, with a worked example and a clear distinction from troy ounces.',
+    formula: '1 oz = 0.004464285714 st exactly; stones = ounces ÷ 224; reverse: 1 st = 224 oz',
+    keywords: ['ounces to stones converter', 'oz to st calculator', 'ounce to stone converter', 'how many stones in an ounce', 'ounces to stone conversion table', 'convert oz to st', 'stones to ounces reverse conversion'],
+    sources: [{ label: 'NIST pound and ounce conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'CheckYourMath ounce-to-stone formula', url: 'https://www.checkyourmath.com/convert/weight_mass/oz_stones.php' }],
+  },
+  'ounce-to-us-ton-converter': {
+    description: 'Convert avoirdupois ounces to US short tons using the exact 32,000-ounces-per-short-ton relationship, with scientific notation for small results and ton-type terminology clarified.',
+    formula: '1 oz = 0.00003125 US ton exactly; US short tons = ounces ÷ 32,000; reverse: 1 US ton = 32,000 oz',
+    keywords: ['ounces to US tons converter', 'oz to short tons calculator', 'ounce to US ton converter', 'how many US tons in an ounce', 'ounces to short tons conversion table', 'convert oz to US ton', 'US tons to ounces reverse conversion'],
+    sources: [{ label: 'NIST metric conversion card for short tons', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958415' }, { label: 'UnitConverters ounce-to-short-ton formula and table', url: 'https://unitconverters.net/weight-and-mass/ounce-to-ton-short.htm' }],
+  },
+  'ounce-to-carat-converter': {
+    description: 'Convert avoirdupois ounces to metric carats for gemstones and pearls using the exact 141.747615625-carat-per-ounce relationship, with a clear carat-versus-karat distinction.',
+    formula: '1 oz = 141.747615625 ct exactly; carats = ounces × 141.747615625; reverse: 1 ct = 0.0070547924 oz',
+    keywords: ['ounces to carats converter', 'oz to ct calculator', 'ounce to carat converter', 'how many carats in an ounce', 'ounces to carats conversion table', 'convert oz to ct', 'carats to ounces reverse conversion'],
+    sources: [{ label: 'NIST ounce, gram, and carat relationships', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator ounce-to-carat formula and examples', url: 'https://www.inchcalculator.com/convert/ounce-to-carat/' }],
+  },
+  'pound-to-milligram-converter': {
+    description: 'Convert international avoirdupois pounds to milligrams using the exact 453,592.37-milligrams-per-pound relationship, with large-number precision guidance.',
+    formula: '1 lb = 453,592.37 mg exactly; milligrams = pounds × 453,592.37; reverse: 1 mg = 0.000002204622622 lb',
+    keywords: ['pounds to milligrams converter', 'lb to mg calculator', 'pound to milligram converter', 'how many milligrams in a pound', 'pounds to milligrams conversion table', 'convert lb to mg', 'milligrams to pounds reverse conversion'],
+    sources: [{ label: 'NIST exact international pound factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator pound-to-milligram formula', url: 'https://www.inchcalculator.com/convert/pound-to-milligram/' }],
+  },
+  'pound-to-us-ton-converter': {
+    description: 'Convert pounds to US short tons using the exact 2,000-pounds-per-short-ton relationship, with freight and bulk-weight terminology clarified.',
+    formula: '1 lb = 0.0005 US ton exactly; US short tons = pounds ÷ 2,000; reverse: 1 US ton = 2,000 lb',
+    keywords: ['pounds to US tons converter', 'lb to short tons calculator', 'pound to US ton converter', 'how many US tons in a pound', 'pounds to short tons conversion table', 'convert lb to US ton', 'US tons to pounds reverse conversion'],
+    sources: [{ label: 'NIST metric conversion card for short tons', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958415' }, { label: 'U.S. Energy Information Administration short-ton guidance', url: 'https://www.eia.gov/tools/faqs/faq.php?id=7&t=2' }],
+  },
+  'stone-to-milligram-converter': {
+    description: 'Convert UK stones to milligrams using the exact 6,350,293.18-milligrams-per-stone relationship, with body-weight context and large-number precision guidance.',
+    formula: '1 st = 6,350,293.18 mg exactly; milligrams = stones × 6,350,293.18; reverse: 1 mg = 0.0000001574730444 st',
+    keywords: ['stones to milligrams converter', 'st to mg calculator', 'stone to milligram converter', 'how many milligrams in a stone', 'stones to milligrams conversion table', 'convert st to mg', 'milligrams to stones reverse conversion'],
+    sources: [{ label: 'NIST pound and stone conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters UK-stone-to-milligram table', url: 'https://www.unitconverters.net/weight-and-mass/stone-uk-to-milligram.htm' }],
+  },
+  'stone-to-ounce-converter': {
+    description: 'Convert UK stones to avoirdupois ounces using the exact 224-ounces-per-stone relationship, with a clear distinction between ordinary and troy ounces.',
+    formula: '1 st = 224 oz exactly; ounces = stones × 224; reverse: 1 oz = 0.004464285714 st',
+    keywords: ['stones to ounces converter', 'st to oz calculator', 'stone to ounce converter', 'how many ounces in a stone', 'stones to ounces conversion table', 'convert st to oz', 'ounces to stones reverse conversion'],
+    sources: [{ label: 'NIST exact pound and ounce relationships', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'CheckYourMath stone-to-ounce formula', url: 'https://www.checkyourmath.com/convert/weight_mass/stones_oz.php' }],
+  },
+  'stone-to-us-ton-converter': {
+    description: 'Convert UK stones to US short tons using the exact 0.007-short-ton-per-stone relationship, with a clear distinction from metric tonnes and UK long tons.',
+    formula: '1 st = 0.007 US ton exactly; US short tons = stones × 0.007; reverse: 1 US ton = 142.857142857 st',
+    keywords: ['stones to US tons converter', 'st to short tons calculator', 'stone to US ton converter', 'how many US tons in a stone', 'stones to short tons conversion table', 'convert st to US ton', 'US tons to stones reverse conversion'],
+    sources: [{ label: 'NIST exact pound, stone, and short-ton relationships', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'U.S. Energy Information Administration short-ton guidance', url: 'https://www.eia.gov/tools/faqs/faq.php?id=7&t=2' }],
+  },
+  'stone-to-carat-converter': {
+    description: 'Convert UK stones to metric carats for gemstone and pearl mass using the exact 31,751.4659-carat-per-stone relationship, with a carat-versus-karat note.',
+    formula: '1 st = 31,751.4659 ct exactly; carats = stones × 31,751.4659; reverse: 1 ct = 0.00003149460888 st',
+    keywords: ['stones to carats converter', 'st to ct calculator', 'stone to carat converter', 'how many carats in a stone', 'stones to carats conversion table', 'convert st to ct', 'carats to stones reverse conversion'],
+    sources: [{ label: 'NIST stone, kilogram, and carat relationships', url: 'https://www.nist.gov/pml/owm/laws-and-regulations/precious-metals-conversion' }, { label: 'Metric Conversion UK stones-to-carats reference', url: 'https://metric-conversion.co.uk/weight/stones-to-carats.htm' }],
+  },};
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
   const factor = Number(from[2]) / Number(to[2]);
