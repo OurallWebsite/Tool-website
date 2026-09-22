@@ -201,6 +201,12 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['meter to feet converter', 'meters to feet calculator', 'm to ft converter', 'how many feet in a meter', 'meters to feet conversion table', 'convert m to ft', 'feet to meters reverse conversion'],
     sources: [{ label: 'NIST international foot definition and exact factor', url: 'https://www.nist.gov/pml/us-surveyfoot/revised-unit-conversion-factors' }, { label: 'RapidTables meter-to-feet examples and table', url: 'https://www.rapidtables.com/convert/length/meter-to-feet.html' }],
   },
+  'foot-to-meter-converter': {
+    description: 'Convert international feet to meters with the exact 0.3048 m per foot relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 ft = 0.3048 m exactly; meters = feet × 0.3048; reverse: 1 m = 3.280839895 ft',
+    keywords: ['feet to meters converter', 'feet to meters calculator', 'ft to m converter', 'how many meters in a foot', 'feet to meters conversion table', 'convert ft to m', 'meters to feet reverse conversion'],
+    sources: [{ label: 'NIST international foot definition and exact factor', url: 'https://www.nist.gov/pml/us-surveyfoot' }, { label: 'RapidTables feet-to-meters examples and table', url: 'https://www.rapidtables.com/convert/length/feet-to-meter.html' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
