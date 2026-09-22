@@ -441,6 +441,36 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['Mach to km/h converter', 'Mach number to kilometers per hour calculator', 'Mach to kph conversion', 'how fast is Mach 2 in km/h', 'Mach speed in kilometers per hour', 'speed of sound km/h', 'km/h to Mach reverse conversion'],
     sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator Mach-to-km/h formula and table', url: 'https://www.inchcalculator.com/convert/mach-to-kilometer-per-hour/' }],
   },
+  'mach-to-mile-per-hour-converter': {
+    description: 'Convert Mach to miles per hour using the site’s 767.269148 mph reference for Mach 1, with a clear explanation that local sound speed changes the real-world value.',
+    formula: 'Reference conversion: mph = Mach × 767.269148; reverse: 1 mph = 0.001303323615 Mach. Mach is a ratio to local sound speed.',
+    keywords: ['Mach to mph converter', 'Mach number to miles per hour calculator', 'Mach to miles per hour conversion', 'how fast is Mach 2 in mph', 'Mach speed in mph', 'speed of sound mph', 'mph to Mach reverse conversion'],
+    sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Inch Calculator Mach-to-mph formula and table', url: 'https://www.inchcalculator.com/convert/mach-to-mile-per-hour/' }],
+  },
+  'meter-per-second-to-speed-of-light-converter': {
+    description: 'Convert meters per second to the speed of light in vacuum using the exact SI value of c, with scientific notation for very small fractions of light speed.',
+    formula: 'Speed of light fraction c = m/s ÷ 299792458 = m/s × 3.335640952e-9; reverse: 1 c = 299792458 m/s exactly.',
+    keywords: ['m/s to speed of light converter', 'meters per second to c calculator', 'mps to light speed conversion', 'what fraction of light speed is m/s', 'velocity as a fraction of c', 'speed of light in m/s', 'c to m/s reverse conversion'],
+    sources: [{ label: 'NIST definition of the metre and exact speed of light', url: 'https://www.nist.gov/si-redefinition/meter' }, { label: 'Kyle’s Converter m/s-to-light-speed reference', url: 'https://www.kylesconverter.com/speed-or-velocity/meters-per-second-to-light-speed' }],
+  },
+  'speed-of-light-to-meter-per-second-converter': {
+    description: 'Convert speed of light in vacuum to meters per second using the exact value 299,792,458 m/s, preserving precision for small scientific fractions.',
+    formula: 'm/s = c × 299792458; reverse: 1 m/s = 3.335640952e-9 c. This page uses light speed in vacuum, not light through a material.',
+    keywords: ['speed of light to m/s converter', 'c to meters per second calculator', 'light speed in meters per second', 'how many m/s is 1 c', 'speed of light conversion table', '299792458 m/s', 'm/s to c reverse conversion'],
+    sources: [{ label: 'NIST definition of the metre and exact speed of light', url: 'https://www.nist.gov/si-redefinition/meter' }, { label: 'Inch Calculator c-to-m/s formula and table', url: 'https://www.inchcalculator.com/convert/speed-of-light-to-meter-per-second/' }],
+  },
+  'kilometer-per-hour-to-speed-of-light-converter': {
+    description: 'Convert kilometers per hour to the speed of light in vacuum using the exact 9.265669311e-10 c per km/h relationship and scientific notation.',
+    formula: 'Speed of light fraction c = km/h ÷ 1079252848.8 = km/h × 9.265669311e-10; reverse: 1 c = 1079252848.8 km/h exactly.',
+    keywords: ['km/h to speed of light converter', 'kilometers per hour to c calculator', 'kph to light speed conversion', 'what fraction of light speed is km/h', 'speed of light in km/h', 'km/h as a fraction of c', 'c to km/h reverse conversion'],
+    sources: [{ label: 'NIST definition of the metre and exact speed of light', url: 'https://www.nist.gov/si-redefinition/meter' }, { label: 'Inch Calculator km/h-to-c formula and table', url: 'https://www.inchcalculator.com/convert/kilometer-per-hour-to-speed-of-light/' }],
+  },
+  'speed-of-light-to-kilometer-per-hour-converter': {
+    description: 'Convert speed of light in vacuum to kilometers per hour using the exact 1,079,252,848.8 km/h per c relationship.',
+    formula: 'km/h = c × 1079252848.8; reverse: 1 km/h = 9.265669311e-10 c. The result refers to light speed in vacuum.',
+    keywords: ['speed of light to km/h converter', 'c to kilometers per hour calculator', 'light speed in km/h', 'how many km/h is 1 c', 'speed of light conversion table', '1079252848.8 km/h', 'km/h to c reverse conversion'],
+    sources: [{ label: 'NIST definition of the metre and exact speed of light', url: 'https://www.nist.gov/si-redefinition/meter' }, { label: 'Inch Calculator c-to-km/h formula and table', url: 'https://www.inchcalculator.com/convert/speed-of-light-to-kilometer-per-hour/' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
