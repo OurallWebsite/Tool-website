@@ -381,6 +381,36 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['mph to ft/s converter', 'miles per hour to feet per second calculator', 'mph to fps converter', 'how many ft/s in a mph', 'mph to ft/s conversion table', 'convert mph to ft/s', 'ft/s to mph reverse conversion'],
     sources: [{ label: 'NIST mile and foot conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters mph-to-ft/s examples and table', url: 'https://www.unitconverters.net/speed/mph-to-feet-per-second.htm' }],
   },
+  'meter-per-second-to-foot-per-second-converter': {
+    description: 'Convert meters per second to feet per second using the exact 3.280839895 ft/s per m/s relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 m/s = 3.280839895 ft/s exactly; ft/s = m/s × 3.280839895; reverse: 1 ft/s = 0.3048 m/s',
+    keywords: ['m/s to ft/s converter', 'meters per second to feet per second calculator', 'mps to fps converter', 'how many ft/s in 1 m/s', 'm/s to ft/s conversion table', 'convert m/s to ft/s', 'ft/s to m/s reverse conversion'],
+    sources: [{ label: 'NIST SI and international foot conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator m/s-to-ft/s formula and table', url: 'https://www.inchcalculator.com/convert/meter-per-second-to-foot-per-second/' }],
+  },
+  'foot-per-second-to-meter-per-second-converter': {
+    description: 'Convert feet per second to meters per second using the exact 0.3048 m/s per ft/s relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 ft/s = 0.3048 m/s exactly; m/s = ft/s × 0.3048; reverse: 1 m/s = 3.280839895 ft/s',
+    keywords: ['ft/s to m/s converter', 'feet per second to meters per second calculator', 'fps to mps converter', 'how many m/s in 1 ft/s', 'ft/s to m/s conversion table', 'convert ft/s to m/s', 'm/s to ft/s reverse conversion'],
+    sources: [{ label: 'NIST SI and international foot conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters ft/s-to-m/s formula and table', url: 'https://www.unitconverters.net/speed/foot-second-to-meter-second.htm' }],
+  },
+  'foot-per-second-to-mile-per-hour-converter': {
+    description: 'Convert feet per second to miles per hour using the exact 0.6818181818 mph per ft/s relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 ft/s = 0.6818181818 mph exactly; mph = ft/s × 0.6818181818; reverse: 1 mph = 1.466666667 ft/s',
+    keywords: ['ft/s to mph converter', 'feet per second to miles per hour calculator', 'fps to mph converter', 'how many mph in 1 ft/s', 'ft/s to mph conversion table', 'convert ft/s to mph', 'mph to ft/s reverse conversion'],
+    sources: [{ label: 'NIST mile and international foot conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters ft/s-to-mph formula and table', url: 'https://www.unitconverters.net/speed/feet-per-second-to-mph.htm' }],
+  },
+  'foot-per-second-to-knot-converter': {
+    description: 'Convert feet per second to knots using the exact 0.5924838013 knots per ft/s relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 ft/s = 0.5924838013 kn exactly; knots = ft/s × 0.5924838013; reverse: 1 kn = 1.687813812 ft/s',
+    keywords: ['ft/s to knots converter', 'feet per second to knots calculator', 'fps to knot converter', 'how many knots in 1 ft/s', 'ft/s to knots conversion table', 'convert ft/s to knots', 'knots to ft/s reverse conversion'],
+    sources: [{ label: 'NIST SI, nautical-mile, and international foot conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator ft/s-to-knots formula and table', url: 'https://www.inchcalculator.com/convert/foot-per-second-to-knot/' }],
+  },
+  'knot-to-foot-per-second-converter': {
+    description: 'Convert knots to feet per second using the exact 1.687813812 ft/s per knot relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 kn = 1.687813812 ft/s exactly; ft/s = knots × 1.687813812; reverse: 1 ft/s = 0.5924838013 kn',
+    keywords: ['knots to ft/s converter', 'knots to feet per second calculator', 'knot to fps converter', 'how many ft/s in 1 knot', 'knots to ft/s conversion table', 'convert knots to ft/s', 'ft/s to knots reverse conversion'],
+    sources: [{ label: 'NIST SI, nautical-mile, and international foot conversion guidance', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator knots-to-ft/s formula and table', url: 'https://www.inchcalculator.com/convert/knot-to-foot-per-second/' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
