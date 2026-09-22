@@ -219,6 +219,12 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['yards to meters converter', 'yards to meters calculator', 'yd to m converter', 'how many meters in a yard', 'yards to meters conversion table', 'convert yd to m', 'meters to yards reverse conversion'],
     sources: [{ label: 'NIST exact yard definition and conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters yards-to-meter examples and table', url: 'https://www.unitconverters.net/length/yards-to-meters.htm' }],
   },
+  'foot-to-yard-converter': {
+    description: 'Convert international feet to yards using the exact 3 feet per yard relationship, a worked example, inverse factor, and practical rounding guidance.',
+    formula: '1 yd = 3 ft exactly; yards = feet ÷ 3; reverse: 1 ft = 0.3333333333 yd',
+    keywords: ['feet to yards converter', 'feet to yards calculator', 'ft to yd converter', 'how many yards in a foot', 'feet to yards conversion table', 'convert ft to yd', 'yards to feet reverse conversion'],
+    sources: [{ label: 'NIST customary length relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables feet-to-yards examples and table', url: 'https://www.rapidtables.com/convert/length/feet-to-yard.html' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
