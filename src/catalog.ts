@@ -609,6 +609,66 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['pounds to stones converter', 'lb to stone calculator', 'lbs to st converter', 'how many stones in a pound', 'pounds to stones conversion table', 'convert pounds to stone', 'stones to pounds reverse conversion'],
     sources: [{ label: 'Exact pound-to-stone relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables pounds-to-stones formula and table', url: 'https://www.rapidtables.com/convert/weight/pound-to-stone.html' }],
   },
+  'milligram-to-gram-converter': {
+    description: 'Convert milligrams to grams using the exact 1,000-milligram relationship, with a worked example, inverse factor, and scientific precision guidance.',
+    formula: '1 mg = 0.001 g exactly; grams = milligrams ÷ 1000; reverse: 1 g = 1000 mg',
+    keywords: ['milligrams to grams converter', 'mg to g calculator', 'milligram to gram converter', 'how many grams in a milligram', 'milligrams to grams conversion table', 'convert mg to g', 'grams to milligrams reverse conversion'],
+    sources: [{ label: 'SI mass conversion context', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables mg-to-grams formula and table', url: 'https://www.rapidtables.com/convert/weight/mg-to-gram.html' }],
+  },
+  'gram-to-milligram-converter': {
+    description: 'Convert grams to milligrams using the exact 1,000-milligram relationship, with a worked example, inverse factor, and practical precision guidance.',
+    formula: '1 g = 1000 mg exactly; milligrams = grams × 1000; reverse: 1 mg = 0.001 g',
+    keywords: ['grams to milligrams converter', 'g to mg calculator', 'gram to milligram converter', 'how many milligrams in a gram', 'grams to milligrams conversion table', 'convert g to mg', 'milligrams to grams reverse conversion'],
+    sources: [{ label: 'SI mass conversion context', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters g-to-mg formula and table', url: 'https://www.unitconverters.net/weight-and-mass/grams-to-milligrams.htm' }],
+  },
+  'kilogram-to-milligram-converter': {
+    description: 'Convert kilograms to milligrams using the exact one-million-milligram relationship, with a worked example and scientific-scale precision guidance.',
+    formula: '1 kg = 1,000,000 mg exactly; milligrams = kilograms × 1,000,000; reverse: 1 mg = 0.000001 kg',
+    keywords: ['kilograms to milligrams converter', 'kg to mg calculator', 'kilogram to milligram converter', 'how many milligrams in a kilogram', 'kg to mg conversion table', 'convert kg to mg', 'milligrams to kilograms reverse conversion'],
+    sources: [{ label: 'SI mass conversion context', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Calculator Converter kg-to-mg reference', url: 'https://calculator-converter.com/milligrams-to-kilograms.htm' }],
+  },
+  'milligram-to-kilogram-converter': {
+    description: 'Convert milligrams to kilograms using the exact one-million-milligram relationship, with a worked example and scientific notation for very small results.',
+    formula: '1 mg = 0.000001 kg exactly; kilograms = milligrams ÷ 1,000,000; reverse: 1 kg = 1,000,000 mg',
+    keywords: ['milligrams to kilograms converter', 'mg to kg calculator', 'milligram to kilogram converter', 'how many kilograms in a milligram', 'mg to kg conversion table', 'convert mg to kg', 'kilograms to milligrams reverse conversion'],
+    sources: [{ label: 'SI mass conversion context', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator mg-to-kg formula and table', url: 'https://www.inchcalculator.com/convert/milligram-to-kilogram/' }],
+  },
+  'metric-ton-to-kilogram-converter': {
+    description: 'Convert metric tonnes to kilograms using the exact 1,000-kilogram relationship, with a worked example, inverse factor, and clear tonne terminology.',
+    formula: '1 metric ton (t) = 1000 kg exactly; kilograms = metric tons × 1000; reverse: 1 kg = 0.001 t',
+    keywords: ['metric tons to kilograms converter', 'tonnes to kg calculator', 'metric ton to kg converter', 'how many kilograms in a metric ton', 'tonnes to kilograms conversion table', 'convert t to kg', 'kg to metric tons reverse conversion'],
+    sources: [{ label: 'SI mass conversion context', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables tonne-to-kg formula and table', url: 'https://www.rapidtables.com/convert/weight/ton-to-kg.html' }],
+  },
+  'kilogram-to-metric-ton-converter': {
+    description: 'Convert kilograms to metric tonnes using the exact 1,000-kilogram relationship, with a worked example and practical precision guidance.',
+    formula: '1 kg = 0.001 metric ton exactly; metric tons = kilograms ÷ 1000; reverse: 1 t = 1000 kg',
+    keywords: ['kilograms to metric tons converter', 'kg to tonnes calculator', 'kg to metric ton converter', 'how many metric tons in a kilogram', 'kg to tonnes conversion table', 'convert kg to t', 'metric tons to kilograms reverse conversion'],
+    sources: [{ label: 'SI mass conversion context', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator kg-to-metric-ton formula and table', url: 'https://www.inchcalculator.com/convert/kilogram-to-metric-ton/' }],
+  },
+  'stone-to-kilogram-converter': {
+    description: 'Convert stones to kilograms using the exact 6.35029318-kilogram-per-stone relationship, with a worked example and UK weight context.',
+    formula: '1 st = 6.35029318 kg exactly; kilograms = stones × 6.35029318; reverse: 1 kg = 0.1574730444 st',
+    keywords: ['stones to kilograms converter', 'stone to kg calculator', 'st to kg converter', 'how many kilograms in a stone', 'stones to kilograms conversion table', 'convert stone to kg', 'kg to stones reverse conversion'],
+    sources: [{ label: 'International stone and pound relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'The Calculator Site stone-to-kg formula and tables', url: 'https://www.thecalculatorsite.com/conversions/common/kg-to-stones-pounds.php' }],
+  },
+  'kilogram-to-stone-converter': {
+    description: 'Convert kilograms to stones using the exact 6.35029318-kilogram-per-stone relationship, with a worked example and reverse conversion.',
+    formula: '1 kg = 0.1574730444 st exactly; stones = kilograms ÷ 6.35029318; reverse: 1 st = 6.35029318 kg',
+    keywords: ['kilograms to stones converter', 'kg to stone calculator', 'kg to st converter', 'how many stones in a kilogram', 'kilograms to stones conversion table', 'convert kg to st', 'stones to kilograms reverse conversion'],
+    sources: [{ label: 'International stone and pound relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UseConvertly kg-to-stone formula and table', url: 'https://useconvertly.app/convert/10-kilograms-to-stone' }],
+  },
+  'metric-ton-to-pound-converter': {
+    description: 'Convert metric tonnes to pounds using the exact 2,204.62262185-pound-per-tonne relationship, with a worked example and reverse conversion.',
+    formula: '1 metric ton = 2204.62262185 lb exactly; pounds = metric tons × 2204.62262185; reverse: 1 lb = 0.00045359237 t',
+    keywords: ['metric tons to pounds converter', 'tonnes to pounds calculator', 'metric ton to lb converter', 'how many pounds in a metric ton', 'metric tons to pounds conversion table', 'convert t to lb', 'pounds to metric tons reverse conversion'],
+    sources: [{ label: 'NIST pound and kilogram conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables tonne-to-pound formula and table', url: 'https://www.rapidtables.com/convert/weight/ton-to-pound.html' }],
+  },
+  'pound-to-metric-ton-converter': {
+    description: 'Convert pounds to metric tonnes using the exact 0.00045359237-tonne-per-pound relationship, with a worked example and scientific-scale precision guidance.',
+    formula: '1 lb = 0.00045359237 metric ton exactly; metric tons = pounds × 0.00045359237; reverse: 1 t = 2204.62262185 lb',
+    keywords: ['pounds to metric tons converter', 'lb to tonnes calculator', 'pound to metric ton converter', 'how many metric tons in a pound', 'pounds to tonnes conversion table', 'convert lb to t', 'metric tons to pounds reverse conversion'],
+    sources: [{ label: 'NIST pound and kilogram conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables pound-to-tonne formula and table', url: 'https://www.rapidtables.com/convert/weight/pound-to-ton.html' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
