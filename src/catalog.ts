@@ -549,6 +549,66 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['Mach to speed of light converter', 'Mach to c calculator', 'Mach number to light speed', 'what fraction of light speed is Mach 1', 'Mach as a fraction of c', 'speed of light in Mach', 'c to Mach reverse conversion'],
     sources: [{ label: 'NASA Mach-number definition and speed-ratio context', url: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html' }, { label: 'Metric Conversions Mach-to-light-speed reference', url: 'https://www.metric-conversions.org/speed/mach-to-light-speed.htm' }],
   },
+  'gram-to-kilogram-converter': {
+    description: 'Convert grams to kilograms using the exact 1,000-gram relationship, with a worked example, inverse factor, and practical precision guidance.',
+    formula: '1 g = 0.001 kg exactly; kilograms = grams ÷ 1000; reverse: 1 kg = 1000 g',
+    keywords: ['grams to kilograms converter', 'grams to kg calculator', 'g to kg converter', 'how many kilograms in a gram', 'grams to kilograms conversion table', 'convert g to kg', 'kg to grams reverse conversion'],
+    sources: [{ label: 'SI mass conversion context', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'UnitConverters g-to-kg formula and table', url: 'https://www.unitconverters.net/weight-and-mass/g-to-kg.htm' }],
+  },
+  'kilogram-to-gram-converter': {
+    description: 'Convert kilograms to grams using the exact 1,000-gram relationship, with a worked example, inverse factor, and practical precision guidance.',
+    formula: '1 kg = 1000 g exactly; grams = kilograms × 1000; reverse: 1 g = 0.001 kg',
+    keywords: ['kilograms to grams converter', 'kg to grams calculator', 'kg to g converter', 'how many grams in a kilogram', 'kilograms to grams conversion table', 'convert kg to g', 'g to kilograms reverse conversion'],
+    sources: [{ label: 'SI mass conversion context', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables kg-to-grams formula and table', url: 'https://www.rapidtables.com/convert/weight/kg-to-grams.html' }],
+  },
+  'pound-to-kilogram-converter': {
+    description: 'Convert pounds to kilograms using the exact international avoirdupois pound definition, with a worked example and reverse conversion.',
+    formula: '1 lb = 0.45359237 kg exactly; kilograms = pounds × 0.45359237; reverse: 1 kg = 2.20462262185 lb',
+    keywords: ['pounds to kilograms converter', 'lb to kg calculator', 'lbs to kg converter', 'how many kilograms in a pound', 'pounds to kilograms conversion table', 'convert lb to kg', 'kg to pounds reverse conversion'],
+    sources: [{ label: 'NIST pound-to-kilogram conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Calculatorsoup lb-to-kg formula', url: 'https://www.calculatorsoup.com/calculators/conversions/pounds-to-kilograms.php' }],
+  },
+  'kilogram-to-pound-converter': {
+    description: 'Convert kilograms to pounds using the exact international avoirdupois pound definition, with a worked example and reverse conversion.',
+    formula: '1 kg = 2.20462262185 lb exactly; pounds = kilograms ÷ 0.45359237; reverse: 1 lb = 0.45359237 kg',
+    keywords: ['kilograms to pounds converter', 'kg to lb calculator', 'kg to lbs converter', 'how many pounds in a kilogram', 'kilograms to pounds conversion table', 'convert kg to lb', 'lb to kilograms reverse conversion'],
+    sources: [{ label: 'NIST pound-to-kilogram conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables kg-to-pound formula and table', url: 'https://www.rapidtables.com/convert/weight/kg-to-pound.html' }],
+  },
+  'ounce-to-gram-converter': {
+    description: 'Convert avoirdupois ounces to grams using the exact 28.349523125-gram relationship, with a worked example and reverse conversion.',
+    formula: '1 oz = 28.349523125 g exactly; grams = ounces × 28.349523125; reverse: 1 g = 0.03527396195 oz',
+    keywords: ['ounces to grams converter', 'oz to grams calculator', 'ounce to gram converter', 'how many grams in an ounce', 'ounces to grams conversion table', 'convert oz to g', 'grams to ounces reverse conversion'],
+    sources: [{ label: 'NIST ounce-to-gram conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'ToolSlick ounce-to-gram formula', url: 'https://toolslick.com/conversion/unit/weight/ounce-to-gram' }],
+  },
+  'gram-to-ounce-converter': {
+    description: 'Convert grams to avoirdupois ounces using the exact 0.03527396195-ounce relationship, with a worked example and reverse conversion.',
+    formula: '1 g = 0.03527396195 oz exactly; ounces = grams ÷ 28.349523125; reverse: 1 oz = 28.349523125 g',
+    keywords: ['grams to ounces converter', 'g to oz calculator', 'gram to ounce converter', 'how many ounces in a gram', 'grams to ounces conversion table', 'convert g to oz', 'ounces to grams reverse conversion'],
+    sources: [{ label: 'NIST ounce-to-gram conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables grams-to-ounces formula', url: 'https://www.rapidtables.com/convert/weight/gram-to-ounce.html' }],
+  },
+  'pound-to-ounce-converter': {
+    description: 'Convert pounds to ounces using the exact 16-ounce-per-pound relationship, with a worked example and reverse conversion.',
+    formula: '1 lb = 16 oz exactly; ounces = pounds × 16; reverse: 1 oz = 0.0625 lb',
+    keywords: ['pounds to ounces converter', 'lb to oz calculator', 'lbs to ounces converter', 'how many ounces in a pound', 'pounds to ounces conversion table', 'convert lb to oz', 'ounces to pounds reverse conversion'],
+    sources: [{ label: 'Exact pound-to-ounce relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables pounds-to-ounces formula and table', url: 'https://www.rapidtables.com/convert/weight/pound-to-ounce.html' }],
+  },
+  'ounce-to-pound-converter': {
+    description: 'Convert ounces to pounds using the exact 16-ounce-per-pound relationship, with a worked example and reverse conversion.',
+    formula: '1 oz = 0.0625 lb exactly; pounds = ounces ÷ 16; reverse: 1 lb = 16 oz',
+    keywords: ['ounces to pounds converter', 'oz to lb calculator', 'ounce to lbs converter', 'how many pounds in an ounce', 'ounces to pounds conversion table', 'convert oz to lb', 'pounds to ounces reverse conversion'],
+    sources: [{ label: 'Exact ounce-to-pound relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables ounces-to-pounds formula and table', url: 'https://www.rapidtables.com/convert/weight/ounce-to-pound.html' }],
+  },
+  'stone-to-pound-converter': {
+    description: 'Convert stones to pounds using the exact 14-pounds-per-stone relationship, with a worked example and reverse conversion.',
+    formula: '1 st = 14 lb exactly; pounds = stones × 14; reverse: 1 lb = 0.07142857143 st',
+    keywords: ['stones to pounds converter', 'stone to lb calculator', 'st to lbs converter', 'how many pounds in a stone', 'stones to pounds conversion table', 'convert stone to pounds', 'pounds to stones reverse conversion'],
+    sources: [{ label: 'Exact stone-to-pound relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'The Calculator Site stones-to-pounds reference', url: 'https://www.thecalculatorsite.com/conversions/common/stones-pounds-ounces.php' }],
+  },
+  'pound-to-stone-converter': {
+    description: 'Convert pounds to stones using the exact 14-pounds-per-stone relationship, with a worked example and reverse conversion.',
+    formula: '1 lb = 0.07142857143 st exactly; stones = pounds ÷ 14; reverse: 1 st = 14 lb',
+    keywords: ['pounds to stones converter', 'lb to stone calculator', 'lbs to st converter', 'how many stones in a pound', 'pounds to stones conversion table', 'convert pounds to stone', 'stones to pounds reverse conversion'],
+    sources: [{ label: 'Exact pound-to-stone relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables pounds-to-stones formula and table', url: 'https://www.rapidtables.com/convert/weight/pound-to-stone.html' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
