@@ -669,6 +669,66 @@ const converterOverrides: Record<string, Partial<Tool>> = {
     keywords: ['pounds to metric tons converter', 'lb to tonnes calculator', 'pound to metric ton converter', 'how many metric tons in a pound', 'pounds to tonnes conversion table', 'convert lb to t', 'metric tons to pounds reverse conversion'],
     sources: [{ label: 'NIST pound and kilogram conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables pound-to-tonne formula and table', url: 'https://www.rapidtables.com/convert/weight/pound-to-ton.html' }],
   },
+  'gram-to-pound-converter': {
+    description: 'Convert grams to pounds using the exact international avoirdupois pound definition, with a worked example and pounds-and-ounces search context.',
+    formula: '1 g = 0.00220462262185 lb exactly; pounds = grams ÷ 453.59237; reverse: 1 lb = 453.59237 g',
+    keywords: ['grams to pounds converter', 'g to lb calculator', 'grams to lbs converter', 'how many pounds in a gram', 'grams to pounds conversion table', 'convert g to lb', 'pounds to grams reverse conversion'],
+    sources: [{ label: 'NIST pound-to-kilogram conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables g-to-pound formula and table', url: 'https://www.rapidtables.com/convert/weight/gram-to-pound.html' }],
+  },
+  'pound-to-gram-converter': {
+    description: 'Convert pounds to grams using the exact international avoirdupois pound definition, with a worked example and reverse conversion.',
+    formula: '1 lb = 453.59237 g exactly; grams = pounds × 453.59237; reverse: 1 g = 0.00220462262185 lb',
+    keywords: ['pounds to grams converter', 'lb to g calculator', 'lbs to grams converter', 'how many grams in a pound', 'pounds to grams conversion table', 'convert lb to g', 'grams to pounds reverse conversion'],
+    sources: [{ label: 'NIST pound-to-kilogram conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'All The Units lb-to-grams formula and table', url: 'https://www.alltheunits.com/weight-and-mass/pounds/grams' }],
+  },
+  'kilogram-to-ounce-converter': {
+    description: 'Convert kilograms to avoirdupois ounces using the exact 35.27396195-ounce-per-kilogram relationship, with a worked example and reverse conversion.',
+    formula: '1 kg = 35.2739619496 oz exactly; ounces = kilograms × 35.2739619496; reverse: 1 oz = 0.028349523125 kg',
+    keywords: ['kilograms to ounces converter', 'kg to oz calculator', 'kg to ounces converter', 'how many ounces in a kilogram', 'kilograms to ounces conversion table', 'convert kg to oz', 'ounces to kilograms reverse conversion'],
+    sources: [{ label: 'NIST ounce-to-kilogram conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables kg-to-ounce formula and table', url: 'https://www.rapidtables.com/convert/weight/kg-to-ounce.html' }],
+  },
+  'ounce-to-kilogram-converter': {
+    description: 'Convert avoirdupois ounces to kilograms using the exact 0.028349523125-kilogram-per-ounce relationship, with a worked example and reverse conversion.',
+    formula: '1 oz = 0.028349523125 kg exactly; kilograms = ounces × 0.028349523125; reverse: 1 kg = 35.2739619496 oz',
+    keywords: ['ounces to kilograms converter', 'oz to kg calculator', 'ounce to kg converter', 'how many kilograms in an ounce', 'ounces to kilograms conversion table', 'convert oz to kg', 'kilograms to ounces reverse conversion'],
+    sources: [{ label: 'NIST ounce-to-kilogram conversion factor', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'RapidTables ounce-to-kg formula and table', url: 'https://www.rapidtables.com/convert/weight/ounce-to-kg.html' }],
+  },
+  'milligram-to-ounce-converter': {
+    description: 'Convert milligrams to avoirdupois ounces using the exact 3.527396195e-5-ounce-per-milligram relationship and scientific notation for small results.',
+    formula: '1 mg = 0.00003527396195 oz exactly; ounces = milligrams × 3.527396195e-5; reverse: 1 oz = 28349.523125 mg',
+    keywords: ['milligrams to ounces converter', 'mg to oz calculator', 'milligram to ounce converter', 'how many ounces in a milligram', 'mg to oz conversion table', 'convert mg to oz', 'ounces to milligrams reverse conversion'],
+    sources: [{ label: 'NIST ounce and gram conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Conversion.org mg-to-ounce calculation', url: 'https://conversion.org/mass/milligram/ounce-avoirdupois' }],
+  },
+  'ounce-to-milligram-converter': {
+    description: 'Convert avoirdupois ounces to milligrams using the exact 28,349.523125-milligram-per-ounce relationship, with a worked example and precision guidance.',
+    formula: '1 oz = 28349.523125 mg exactly; milligrams = ounces × 28349.523125; reverse: 1 mg = 0.00003527396195 oz',
+    keywords: ['ounces to milligrams converter', 'oz to mg calculator', 'ounce to milligram converter', 'how many milligrams in an ounce', 'ounces to milligrams conversion table', 'convert oz to mg', 'milligrams to ounces reverse conversion'],
+    sources: [{ label: 'NIST ounce and gram conversion factors', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Everyday Calculation oz-to-mg formula', url: 'https://everydaycalculation.com/weight-converter/mg-oz' }],
+  },
+  'metric-ton-to-us-ton-converter': {
+    description: 'Convert metric tonnes to US short tons using the exact 1.1023113109-short-ton-per-tonne relationship, with terminology clarified for international and US usage.',
+    formula: '1 metric ton = 1.1023113109 US short tons exactly; US tons = metric tons × 1.1023113109; reverse: 1 US ton = 0.90718474 metric ton',
+    keywords: ['metric tons to US tons converter', 'tonnes to short tons calculator', 'metric ton to US ton converter', 'how many US tons in a metric ton', 'metric tons to short tons conversion table', 'convert t to US ton', 'US tons to metric tons reverse conversion'],
+    sources: [{ label: 'US Energy Information Administration short-ton conversion guidance', url: 'https://www.eia.gov/tools/faqs/faq.php?id=7&t=2' }, { label: 'Inch Calculator metric-ton-to-ton formula', url: 'https://www.inchcalculator.com/convert/metric-ton-to-ton/' }],
+  },
+  'us-ton-to-metric-ton-converter': {
+    description: 'Convert US short tons to metric tonnes using the exact 0.90718474-tonne-per-short-ton relationship, with terminology clarified for US and metric units.',
+    formula: '1 US short ton = 0.90718474 metric ton exactly; metric tons = US tons × 0.90718474; reverse: 1 metric ton = 1.1023113109 US tons',
+    keywords: ['US tons to metric tons converter', 'short tons to tonnes calculator', 'US ton to metric ton converter', 'how many metric tons in a US ton', 'short tons to metric tons conversion table', 'convert US ton to t', 'metric tons to US tons reverse conversion'],
+    sources: [{ label: 'US Energy Information Administration short-ton conversion guidance', url: 'https://www.eia.gov/tools/faqs/faq.php?id=7&t=2' }, { label: 'Inch Calculator ton-to-metric-ton formula', url: 'https://www.inchcalculator.com/convert/ton-to-metric-ton' }],
+  },
+  'gram-to-carat-converter': {
+    description: 'Convert grams to carats for gemstone and jewelry weight using the exact 5-carat-per-gram relationship, with a clear note that carat weight is not gold purity karat.',
+    formula: '1 g = 5 ct exactly; carats = grams × 5; reverse: 1 ct = 0.2 g',
+    keywords: ['grams to carats converter', 'g to ct calculator', 'gram to carat converter', 'how many carats in a gram', 'grams to carats conversion table', 'convert g to ct', 'carats to grams reverse conversion'],
+    sources: [{ label: 'Exact carat mass relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator gram-to-carat formula and table', url: 'https://www.inchcalculator.com/convert/gram-to-carat/' }],
+  },
+  'carat-to-gram-converter': {
+    description: 'Convert gemstone and jewelry carats to grams using the exact 0.2-gram-per-carat relationship, with a clear distinction between carat weight and gold purity karat.',
+    formula: '1 ct = 0.2 g exactly; grams = carats × 0.2; reverse: 1 g = 5 ct',
+    keywords: ['carats to grams converter', 'ct to g calculator', 'carat to gram converter', 'how many grams in a carat', 'carats to grams conversion table', 'convert ct to g', 'grams to carats reverse conversion'],
+    sources: [{ label: 'Exact carat mass relationship', url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors' }, { label: 'Inch Calculator carat-to-gram formula and table', url: 'https://www.inchcalculator.com/convert/carat-to-gram' }],
+  },
 };
 const converters: Tool[] = [];
 for (const [group, units] of Object.entries(groups)) for (const from of units) for (const to of units) if (from[0] !== to[0]) {
